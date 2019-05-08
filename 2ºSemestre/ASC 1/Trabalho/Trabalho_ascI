@@ -1,0 +1,216 @@
+.data
+.align 2
+msg: .asciiz "\n----------------------------------------------------------------\n     Calculadora Polaca Inversa                            \n     Autores:Ines Verissimo: 40102 e Ricardo Mochila: 37762 \n     ASC 2017/2018                                         \n----------------------------------------------------------------\n"
+
+op: .ascii "+", "-", "/", "*", "swap", "neg", "sqrt", "dup", "del", "off", "clear"
+
+input: .space 256
+
+pilha1: .space 256
+
+pilhaNumeros: .space 256
+
+fim: .asciiz "\nBoa terminou"
+
+resultado: .asciiz "O resultado é: "
+
+conta: .asciiz "\n\nA sua conta é: "
+
+.text
+main:
+
+
+    mensagem:
+    li $v0, 4
+    la $a0, msg
+    syscall
+
+    pedir_input:
+    li $v0, 4
+    la $a0, conta
+    syscall
+
+    la $a0, input
+    li $a1, 256
+    li $v0, 8
+    syscall
+
+    la $s0, pilha1
+    la $t7, pilhaNumeros
+    
+    
+    ler_input:
+    lb $t0, 0($a0)                 #le no array do input o primeiro caracter
+    sb $t0, -2($s0)	       	#grava na posição 0 do arrey pilha 1 o primeiro caracter 
+    beq $t0, 0x000a, terminar 	#verifica se o array pilha já terminou
+    addi $a0, $a0, 1			#passa ao caracter seguinte do input
+    bgt $t0, 0x0060, ler_string
+    nop
+    beq $t0, 0x002b, soma		#salta para a soma se o caracter for um +
+    nop
+    beq $t0, 0x002d, subtracao
+    nop
+    beq $t0, 0x002f, divisao
+    nop
+    beq $t0, 0x002a, multiplica
+    nop
+    bne $t0, 0x0020, ler_input	#repete caso não seja um espaço
+    addi $s0, $s0, 1			#passa ao caracter seguinte da pilha 1
+    
+    converte:
+    lb $t0, -4($s0)			#carrega na posiçao 0 o numero que estiver em t0
+    bgt $t0, 0x0060, ler_input
+    nop
+    addi $t6, $t0, -48		#converte o numero de ascii para inteiro
+    sb $t6, -2($t7)			#guarda inteiro no array pilhaNumeros  
+    addi $t7, $t7, 1			#passa ao espaço seguinte da pilhaNumeros
+    j ler_input			#volta a repetir o ciclo
+    nop
+    
+    ler_string:
+    add $t2, $t2, $t0
+    beq $t2, 0x013a, negar
+    nop
+    beq $t2, 0x01bb, swap
+    nop
+    beq $t2, 0x0207, clear
+    nop
+    beq $t2, 0x0149, dup
+    nop
+    beq $t2, 0x01ca, sqrt
+    nop
+    beq $t2, 0x013b, off
+    j ler_input
+    nop
+    
+    soma:
+    lb $t0, -4($t7)			#le o primeiro numero de pilhaNumeros
+    lb $t1, -3($t7)			#le o segundo numero de pilhaNumeros
+    add $t0, $t0, $t1
+    sb $zero, -3($t7)
+    sb $zero, -4($t7)
+    sb $t0, -4($t7)
+    addi $s0, $s0, 1	
+    addi $t7, $t7, -1	
+    j ler_input
+    nop
+    
+    subtracao:
+    lb $t0, -4($t7)			#le o primeiro numero de pilhaNumeros
+    lb $t1, -3($t7)			#le o segundo numero de pilhaNumeros
+    sub $t0, $t1, $t0		#subtrae os dois numeros            ----------> Quando estiver correto alterar a ordem dos numeros
+    sb $zero, -3($t7)
+    sb $zero, -4($t7)
+    sb $t0, -4($t7)
+    addi $s0, $s0, 1	
+    addi $t7, $t7, -1	
+    j ler_input
+    nop
+    
+    divisao:
+    lb $t0, -4($t7)			#le o primeiro numero de pilhaNumeros
+    lb $t1, -3($t7)			#le o segundo numero de pilhaNumeros
+    div $t1, $t0
+    mflo $v0				#divisao os dois numeros            ----------> Quando estiver correto alterar a ordem dos numeros
+    sb $zero, -3($t7)
+    sb $zero, -4($t7)
+    sb $v0, -4($t7)
+    addi $s0, $s0, 1	
+    addi $t7, $t7, -1	
+    j ler_input
+    nop
+    
+    multiplica:
+    lb $t0, -4($t7)			#le o primeiro numero de pilhaNumeros
+    lb $t1, -3($t7)			#le o segundo numero de pilhaNumeros
+    mult $t0, $t1			#multiplica os dois numeros 
+    mflo $v0     
+    sb $zero, -3($t7)
+    sb $zero, -4($t7)
+    sb $v0, -4($t7)
+    addi $s0, $s0, 1	
+    addi $t7, $t7, -1	
+    j ler_input
+    nop
+    
+    negar:
+    sub $t6, $zero, $t6
+    sb $t6, -2($t7)			#guarda inteiro no array pilhaNumeros  
+    addi $t7, $t7, 1
+    addi $s0, $s0, 1
+    j ler_input	
+    nop
+    
+    swap:
+    lb $t5, -4($t7)
+    lb $t6, -3($t7)
+    sb $t6, -4($t7)
+    sb $t5, -3($t7)
+    addi $s0, $s0, 1	
+    j ler_input
+    nop
+    
+    clear:
+    add $t0, $zero, $zero
+    add $t1, $zero, $zero
+    add $t2, $zero, $zero
+    add $t3, $zero, $zero
+    add $t4, $zero, $zero
+    add $t5, $zero, $zero
+    add $t6, $zero, $zero
+    add $t7, $zero, $zero
+    add $t8, $zero, $zero
+    j pedir_input
+    nop
+    
+    sqrt:						#Faz a raiz quadrada do numero que estiver na primeira posicao anterior à                     palavra sqrt
+    lb $t6, -3($t7)
+    add $t5, $t6, $zero
+    add $t1, $zero, $zero
+    add $t2, $zero, $zero
+    addi $t2, $t2, 2
+    div $t8, $t6, $t2
+    mflo $t8
+    	loop:
+    	div $t5, $t6, $t5
+    	mflo $t5
+    	add $t6, $t6, $t5
+    	div $t6, $t6, $t2
+    	mflo $t6
+    	addi $t1, $t1, 1
+    	blt $t1, $t8, loop
+    	nop    	
+    sb $t6, -3($t7)
+    addi $s0, $s0, 1	
+    j ler_input
+    nop
+   
+    dup:
+    lb $t6, -3($t7)
+    sb $t6, -4($t7)
+    addi $s0, $s0, 1	
+    j ler_input
+    nop
+   
+    terminar:
+    li $v0, 4
+    la $a0, resultado
+    syscall
+    
+    lb $t0, -3($t7)
+    li $v0, 1
+    la $a0, ($t0)
+    syscall
+    nop
+    j clear
+    nop
+    
+    
+    off:
+    li $v0, 4
+    la $a0, fim
+    syscall
+    
+    li $v0, 10
+    syscall
+

@@ -1,0 +1,39 @@
+Nocoes de contabilidade financeira
+racios
+
+Ativo nao corrente: a longo prazo da empresa
+Ativo Corrente:caixa, pagamento dos clientes
+Capital proprio:investimento na empresa
+Passivo nao corrente:dividas a longo prazo
+passivo corrente:dividas a curto prazo
+
+Capital Permanente=Cap proprio+Passivo nao corrente
+Ativo nao corrente<=Capitl permanente
+Ativo Corrente>=Passivo corrente
+<1ano=corrente
+passivo=alheio=obrigacoes
+capital proprio=permanente=investido na empresa
+ativo=bens e direitos
+
+Racios
+Liquidez geral=ativo corrente/passivo corrente
+deve ser >1 para nao haver problemas de liquidez
+
+Liquidez Reduzida=(ativo corrente-inventario)/passivo corrente
+Para saber se consigo pagar as minhas dividas sem ter de vender tudo
+
+Liquidez imediata=caixa ou depositos bancarios/passivo corrente
+avalia a capacidade de pagar de imediato o  passivo de curto prazo
+
+Racios de Solabilidade
+Solvabilidade=Ativo/Passivo
+se <1 a empresa tem mais dividas do que capital financeiro disponivel
+se capital proprio negativo=falencia tecnica
+
+Autonomia Financeira=Capitais proprios/capitais alheios(passivo) ou capitas proprios=ativo total
++financiado com capital proprio ou financeiro
+
+Racios de Rendabilidade
+1.De Vendas= resultado liquido do exercicio/vendas liquidas
+2.dos capitais proprio=resultado liquido do exercicio/capitais proprios
+3.do investimento total=resultado liquido do exercicio/ativo

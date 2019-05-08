@@ -1,0 +1,12 @@
+
+go to path
+python -m http.server 8080
+
+Exercicio1
+- Discord, browser,
+
+Exercicio2
+- Harry Potter, Avatar, 2012, smurfs, alvin e os esquilos
+
+Exercicio3
+-

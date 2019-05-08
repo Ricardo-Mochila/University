@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pong</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <svg id = "svg" width= "600" height = "800" style=" background: black">
+        <text  id = "user1" transform="scale(6,6)" fill = "white" x = "20" y ="20" weight= "900"> 0</text>
+        <text  id = "user2" transform="scale(6,6)" fill = "white" x = "70" y ="20" weight= "900"> 0</text>
+        <line x1="300" y1="40" x2="300" y2="760" style="stroke:rgb(255, 255, 255);stroke-width:5" />
+        <line id = "bar1" x1="60" y1="360" x2="60" y2="440" style="stroke:rgb(255,255,255);stroke-width:5 " onkeydown="leftBarMove(event);" />
+        <line id = "bar2" x1="540" y1="360" x2="540" y2="440" style="stroke:rgb(255,255,255);stroke-width:5" />
+        <circle id = "ball" cx = "80" cy = "400" r = "6" fill = "white"></circle>
+    </svg>
+    <script src="main.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+Custos
+Custos
+CI=custo industrial
+MOD=mao de obra direta
+MD=materias diretas
+GGF=gastos gerais de fabrico
+
+CI=MOD+MD+GGF
+custo economico = custo completo + custo figurativo
+custo comercial = custo distribuicao + custo administrativo + custo financeiro ou nao industrial
+
+resultado bruto = resultado puro + encargos figurativos + custo Admin e financeiro
+
+custo industrial dos produtos acabados(CIPA)= MOD+Materias primas consumiveis + Inventario inicial produtos fabrico - Inventario final dos produtos em fabrico
+
+Custo industrial dos produtos vendidos (CIPV) = CIPA+Inventario inicial dos produtos acabados-Inventario final dos produtos acabados
+Inventario inicial dos produtos acabados=stock
+
+Resultado corrente = Vendas-CIPV-CNI
+CNI custo nao industrial
+Resultado=Proveito-Custos ou rendimento-gastos
+
+CF custo fixo
+CFT custo fixo total
+Q quantidade
+CT= CVT+CFT
+CVT=custo variavel unitario ou medio = (C.unitario -Q)/Q
+Margem de contribuicao=Vendas-Custos variaveis
+Custo fixo unitario ou medio=CFT/Q
+RE=V-CT=V-CVT-CFT
+Margem de segurança=Q-Q*/Q*
+A margem de seguranca=zero quando Vendas=CT
+<0 quando CT'>Vendas
+>0 quando CT'<Vendas
+
+Q*=CFT/(Preco venda - custo variavel unitario)
+(Preco venda - custo variavel unitario)=margem contribuicao unitaria

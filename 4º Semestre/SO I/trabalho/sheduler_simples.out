@@ -1,0 +1,31 @@
+0 | new
+1 | wait
+2 | run
+3 | run
+4 | run| new
+5 | run| wait| new
+6 | wait| run| wait
+7 | wait| run| wait
+8 | wait| run| wait
+9 | wait| run| wait
+10 | run| wait| wait
+11 | run| wait| wait
+12 | block| wait| wait
+13 | block| wait| run
+14 | block| wait| run
+15 | wait| wait| run
+16 | wait| wait| run
+17 | wait| run| wait
+18 | wait| run| wait
+19 | wait| exit| wait
+20 | run| exit| wait
+21 | run| exit| wait
+22 | run| exit| wait
+23 | run| exit| wait
+24 | run| exit| wait
+25 | wait| exit| run
+26 | wait| exit| run
+27 | wait| exit| exit
+28 | run| exit| exit
+29 | run| exit| exit
+30 | exit| exit| exit

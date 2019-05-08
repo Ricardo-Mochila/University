@@ -1,0 +1,14 @@
+#Exercicio 1
+addi $t0, $t0, 15
+addi $t2, $zero, -1
+xor $t1, $t0, $t2
+
+#Exercicio 3
+lui $t0, 0x0001
+ori $t0, $t0, 0xffff
+lui $t1, 0x0002
+ori $t1, $t1, 0x0ff7
+or $t2, $zero, $t0
+or $t0, $t1, $zero
+or $t1, $t2, $t2
+

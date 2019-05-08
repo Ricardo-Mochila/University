@@ -1,0 +1,48 @@
+
+
+
+create table Especie(
+  NomeE char(42) primary key,
+  Classe char(42)
+);
+
+create table Animal(
+  NomeA char(42) primary key,
+  Genero char(9),
+  NomeE char(42),
+  foreign key (NomeE) references especie on delete cascade);
+
+CREATE TABLE Compartimento(
+  IdComp int primary key ,
+  Tipo char(42)
+);
+
+CREATE table Tratador(
+  NCC int primary key,
+  NomeT char(42),
+  Salario float,
+  NCCChefe int
+);
+
+create table Alojado(
+  NomeA char(42) primary key,
+  IdComp int,
+  foreign key (NomeA) references Animal,
+  foreign key (IdComp) references Compartimento
+);
+
+create table Trata(
+  IdComp int,
+  NCC int ,
+  foreign key (IdComp) references Compartimento on delete cascade,
+  foreign key (NCC) references Tratador on delete cascade
+)
+
+
+
+
+
+
+
+
+

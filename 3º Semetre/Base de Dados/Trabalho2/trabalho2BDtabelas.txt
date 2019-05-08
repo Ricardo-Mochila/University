@@ -1,0 +1,133 @@
+create table modelo(
+  mod char(10) primary key ,
+  Autonomia int,
+  NLugares int,
+  Marca char(25)
+  );
+--------------------------------------------------
+create table aviao(
+ NomeA char(25) primary key,
+ mod char(10),
+ foreign key (mod)references modelo);
+--------------------------------------------------
+create table VoosEfetivos(
+  VooN int primary key,
+  Ntrajeto int,
+  dia char(2),
+  mes char(10),
+  ano char(4),
+  NvooE char(10),
+  Passageiros int,
+  HoraEP char(5),
+  HoraEC char(5),
+  NomeA char(30)
+);
+--------------------------------------------------
+create table voo (
+  DiaSemana char(15),
+  Nvoo int primary key,
+  Origem char(58),
+  Destino char(58),
+  HoraP char(5),
+  HoraC  char(5),
+  Distancia int
+);
+--------------------------------------------------
+create table tripulacaoExigida(
+
+  NumT int primary key,
+  NComissarios int,
+  Npilotos int,
+  NHospedeiras int,
+  foreign key (NumT) references voo
+);
+--------------------------------------------------
+create table Administracao(
+
+  Nome char(25),
+  NBI int primary key,
+  NIF int,
+  DataN char(8)
+);
+--------------------------------------------------
+create table Pilotos(
+  Nome char(25),
+  NBI int primary key,
+  NIF int,
+  DataN char(8),
+  NCarta int,
+  AExp int
+);
+--------------------------------------------------
+create table Hospedeira(
+  Nome char(25),
+  NBI int primary key,
+  NIF int,
+  DataN char(8),
+  Altura float,
+  Peso float,
+  AnoExp int
+);
+--------------------------------------------------
+create table Comissarios (
+   Nome char(25),
+  NBI int primary key,
+  NIF int,
+  DataN char(8),
+  Altura float,
+  Peso float,
+  AnoExp int
+);
+
+---------------------------------------------
+-- Criação das Tabelas comuns --
+---------------------------------------------
+
+create table VooPilotos(
+  NumT int,
+  NBI int,
+  foreign key (NumT) references voo,
+  foreign key (Nbi) references Pilotos
+);
+--------------------------------------------------
+create table VooHospedeiras(
+  NumT int,
+  NBI int,
+  foreign key (NumT) references voo,
+  foreign key (Nbi) references Hospedeira
+);
+--------------------------------------------------
+create table VooComissarios(
+  NumT int,
+  NBI int,
+  foreign key (NumT) references voo,
+  foreign key (Nbi) references Comissarios
+);
+
+
+create table Modelo_Aviao(
+  mod char(10),
+  NomeA char(25),
+  foreign key (mod) references modelo,
+  foreign key (NomeA) references aviao
+);
+
+create table Aviao_VoosEfetivos(
+  VooN int,
+  NomeA char(25),
+  foreign key (VooN) references VoosEfetivos,
+  foreign key (NomeA) references aviao
+);
+
+create table VoosEfetivos_Voos(
+  Nvoo int,
+  voon int,
+  foreign key (Nvoo) references voo,
+  foreign key (voon) references VoosEfetivos
+);
+
+
+create table Voos_TripulacaoExigida(
+  voon int,
+  foreign key (voon) references VoosEfetivos
+);

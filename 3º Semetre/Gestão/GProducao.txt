@@ -1,0 +1,38 @@
+Gestao de Producao
+Gestao do produto:Mercado,planeamento agregado,Recursos
+Gestao das empresas=processo Produtivo: escalonamento(Producao vs procura), encomendas, clientes.
+
+Previsao VS Procura
+1.mensal, diario, anual
+2.serie temporal(qual o volume de encomenda)
+3.modelo de previsao(explica a situacao e preve o futuro para melhorar a producao)
+4.medida de prevencao(melhorar/diminuir os erros)
+
+Deve verificar se a atividade regular da empresa - curto prazo
+A introducao do produto no mercado deve ser faseada - medio prazo
+Elaboracao da estrategia da empresa, caso se decida manter o produto - longo prazo
+
+Componentes(Graficos)
+Aleatoria: os comportamentos nao explicam as variacoes (grafico muito irregular)
+Ciclica: comportamento repetido em longos periodos (sobe e desce lentamente)
+Sazonal: por epoca (picos em meses)
+Tendencia(exponencial/crescentes) grafico linear
+
+Previsao de erro
+1.metodo de delphi
+2.pesquisa de mercado
+3.informacao da equipa de venda
+
+capacidade maxima de producao de uma empresa - capacidade instalada
+Se aumentar a producao devem existir mais maquinas, o q implica custos elevados
+
+Para alteracao dos volumes de producao
+1.subutilizacao de mao de obra = ma gestao
+2.Mao de obra a horas extradiordinarias + baratos que contratar pessoal
+3.Sub-contratacao da producao(ex: outsourcing)
+4. Os stocks tem custos
+
+Estrategias
+1. Puras: producao nivel; alterar numero de trabalhadores
+2. Mistas: Alteracao de numero de trabalhadores; utilizacao de stocks; horas extraordinarias; sub-contratacao
+

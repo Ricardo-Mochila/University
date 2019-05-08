@@ -1,0 +1,60 @@
+.data
+.align 2
+$msg: .asciiz "\n----------------------------------------------------------------\n     Calculadora Polaca Inversa                            \n     Autores:Ines Verissimo: 40102 e Ricardo Mochila: 37762 \n     ASC 2017/2018                                         \n----------------------------------------------------------------\n"
+
+op: .ascii "+", "-", "/", "*", "swap", "neg", "sqrt", "dup", "del", "off", "clear"
+
+input: .space 256
+
+pilha1: .space 256
+
+pilhaNumeros: .space 256
+
+fim: .asciiz "Boa terminou"
+
+main:
+
+
+    Mensagem:
+    .text
+    li $v0, 4
+    la $a0, $msg
+    syscall
+
+    Pedir_input:
+    la $a0, input
+    li $a1, 256
+    li $v0, 8
+    syscall
+    nop
+
+    la $t4, pilha1
+    la $a2, pilhaNumeros
+    li $t2, 0x001d
+    li $t3, 0x0027
+
+
+    Ler_input:
+    addi $t1, $t1, 1
+    lb $t0, 0($a0)
+    sb $t0, -2($t4)
+    li $t5, 0x0020
+    beq $t0, 0x000a, terminar
+    addi $a0, $a0, 1
+    bne $t0, $t5, Ler_input
+    addi $t4, $t4, 1
+
+
+    converterNum:
+    lb $t0, -4($t4)
+    addi $t6, $t0, -48
+    sb $t6, 0($a2)
+    addi $a2, $a2, 1
+    j Ler_input
+    nop
+
+    terminar:
+    li $v0, 4
+    la $a0, fim
+    syscall
+

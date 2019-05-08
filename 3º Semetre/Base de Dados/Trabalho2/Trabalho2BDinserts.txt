@@ -1,0 +1,187 @@
+-----------------------------------------------------------------------------------
+-- MODELO E AVIAO --
+-----------------------------------------------------------------------------------
+insert into modelo values ('737',2000,200,'Boeing');
+insert into aviao values ('Aleixo Abreu','737');
+insert into aviao values ('Afonso Lopes','737');
+insert into aviao values ('Bartolomeu Dias','737');
+
+insert into modelo values ('777',8000,400,'Boeing');
+insert into aviao values ('Diogo Dias','777');
+insert into aviao values ('Francisco Zeimoto','777');
+
+insert into modelo values ('A318',3000,150,'Airbus');
+insert into aviao values('Gil Eanes', 'A318');
+insert into aviao values('Gomes de Sequeira', 'A318');
+insert into aviao values('Gomes Pires', 'A318');
+
+insert into modelo values ('A380',15000,600,'Airbus');
+insert into aviao values('Nicolau Coelho', 'A380');
+----------------------------------------------------------------------------------
+-- ADMINISTRACAO --
+-----------------------------------------------------------------------------------
+insert into administracao values('Afonso',1,1,'11-01-60');
+insert into administracao values('Alexandra',2,2,'12-02-61');
+insert into administracao values('Rodrigo',3,3,'13-03-72');
+insert into administracao values('João',4,4,'14-04-63');
+insert into administracao values('Ana',5,5,'15-05-84');
+insert into administracao values('Marco',6,6,'16-06-68');
+-----------------------------------------------------------------------------------
+-- PILOTOS --
+-----------------------------------------------------------------------------------
+insert into pilotos values('Miguel',10,10,'20-05-68',12765,10);
+insert into pilotos values('Luis',11,11,'15-04-88',55555,10);
+insert into pilotos values('Pedro',12,12,'18-03-70',56785,10);
+insert into pilotos values('Ricardo',13,13,'16-06-68',23567,10);
+insert into pilotos values('Manuel',14,14,'23-09-65',19876,7);
+insert into pilotos values('Francisco',15,15,'01-01-75',06438,7);
+insert into pilotos values('Ruben',16,16,'30-08-80',43344,7);
+insert into pilotos values('Anildo',17,17,'21-07-88',67574,7);
+insert into pilotos values('Falcão',18,18,'14-06-85',25142,7);
+insert into pilotos values('Antonio',19,19,'18-03-64',14523,7);
+-----------------------------------------------------------------------------------
+-- HOSPEDEIRAS --
+----------------------------------------------------------------------------------
+Insert into Hospedeira values('Jacinta',20,20,'18-01-90',150,43,2);
+Insert into Hospedeira values('Rosa',21,21,'28-02-91',153,47,1);
+Insert into Hospedeira values('Florinda',22,22,'25-01-92',152,48,2);
+Insert into Hospedeira values('Cristina',23,23,'04-01-89',151,41,3);
+Insert into Hospedeira values('Maria',24,24,'07-01-88',150,42,4);
+Insert into Hospedeira values('Gertrudes',25,25,'09-02-78',171,60,7);
+Insert into Hospedeira values('Marlene',26,26,'01-02-79',182,61,5);
+Insert into Hospedeira values('Clara',27,27,'17-03-81',170,67,9);
+Insert into Hospedeira values('Francisca',28,28,'22-03-82',177,66,6);
+Insert into Hospedeira values('Mafalda',29,29,'21-03-83',181,62,6);
+Insert into Hospedeira values('Antónia',30,30,'20-05-84',181,64,9);
+Insert into Hospedeira values('Manuela',31,31,'30-06-84',175,70,8);
+Insert into Hospedeira values('Clarinda',32,32,'15-08-85',176,63,4);
+Insert into Hospedeira values('Ana',33,33,'14-09-86',173,59,5);
+Insert into Hospedeira values('Ines',34,34,'10-10-90',190,68,7);
+
+
+-----------------------------------------------------------------------------------
+-- COMISSARIOS --
+-----------------------------------------------------------------------------------
+
+insert into comissarios values('Manuel',40,4321,'13-04-64',185,60,5);
+insert into comissarios values('José Francisco',41,2020,'13-06-65',186,65,4);
+insert into comissarios values('Francisco',42,2121,'23-06-67',188,70,3);
+insert into comissarios values('Leandro',43,2222,'04-05-68',190,75,7);
+insert into comissarios values('Gustavo',44,2323,'13-05-69',191,80,6);
+insert into comissarios values('Luis Miguel',45,2424,'11-05-70',187,85,8);
+insert into comissarios values('João Maria',46,2525,'28-05-71',177,76,9);
+insert into comissarios values('Mario',47,2626,'31-05-72',170,68,4);
+insert into comissarios values('Carlos',48,2727,'25-05-73',174,79,5);
+insert into comissarios values('Filipe',49,2828,'26-06-74',175,65,6);
+
+-----------------------------------------------------------------------------------
+-- VOOS --
+-----------------------------------------------------------------------------------
+
+
+
+insert into voo values('Sabado', '122','Lisboa','Nova Iorque','10:00','13:00',9000);
+insert into voo values('Sabado', '124','Nova Iorque','Lisboa','18:00','23:30',9000);
+insert into voo values('Domingo', '125','Lisboa','Madrid','08:30','11:00',2000);
+insert into voo values('Domingo', '126','Madrid','Lisboa','14:00','15:00',2000);
+insert into voo values('Segunda', '127','Lisboa','Paris','08:00','11:00',3500);
+insert into voo values('Segunda', '130','Paris','Bruxelas','12:00','13:00',800);
+insert into voo values('Segunda', '131','Bruxelas','Paris','14:00','15:00',800);
+insert into voo values('Segunda', '128','Paris','Lisboa','18:00','22:00',3500);
+
+
+
+-----------------------------------------------------------------------------------
+-- TRIPULACAO EXIGIDA --
+-----------------------------------------------------------------------------------
+
+insert into tripulacaoExigida values (122, 1, 4, 2);
+insert into tripulacaoExigida values (124, 2, 3, 2);
+insert into tripulacaoExigida values (125, 1, 2, 1);
+insert into tripulacaoExigida values (126, 1, 2, 1);
+insert into tripulacaoExigida values (127, 1, 4, 2);
+insert into tripulacaoExigida values (130, 0, 2, 1);
+insert into tripulacaoExigida values (131, 0, 2, 1);
+insert into tripulacaoExigida values (128, 1, 4, 2);
+-----------------------------------------------------------------------------------
+-- PILOTOS EXIGIDOS --
+-----------------------------------------------------------------------------------
+
+insert into VooPilotos values('122',11);
+insert into VooPilotos values('122',12);
+insert into VooPilotos values('124',12);
+insert into VooPilotos values('124',11);
+insert into VooPilotos values('125',15);
+insert into VooPilotos values('126',11);
+insert into VooPilotos values('127',10);
+insert into VooPilotos values('127',14);
+insert into VooPilotos values('128',10);
+insert into VooPilotos values('128',13);
+insert into VooPilotos values('130',10);
+insert into VooPilotos values('130',13);
+insert into VooPilotos values('131',10);
+insert into VooPilotos values('131',13);
+
+
+-----------------------------------------------------------------------------------
+-- HOSPEDEIRAS EXIGIDAS --
+-----------------------------------------------------------------------------------
+
+insert into VooHospedeiras values('122',22);
+insert into VooHospedeiras values('122',21);
+insert into VooHospedeiras values('122',34);
+insert into VooHospedeiras values('122',33);
+insert into VooHospedeiras values('124',21);
+insert into VooHospedeiras values('124',22);
+insert into VooHospedeiras values('124',33);
+insert into VooHospedeiras values('125',24);
+insert into VooHospedeiras values('125',30);
+insert into VooHospedeiras values('126',22);
+insert into VooHospedeiras values('126',23);
+insert into VooHospedeiras values('127',20);
+insert into VooHospedeiras values('127',25);
+insert into VooHospedeiras values('127',30);
+insert into VooHospedeiras values('127',31);
+insert into VooHospedeiras values('128',20);
+insert into VooHospedeiras values('128',25);
+insert into VooHospedeiras values('128',30);
+insert into VooHospedeiras values('128',31);
+insert into VooHospedeiras values('130',20);
+insert into VooHospedeiras values('130',25);
+insert into VooHospedeiras values('130',30);
+insert into VooHospedeiras values('130',31);
+insert into VooHospedeiras values('131',20);
+insert into VooHospedeiras values('131',25);
+insert into VooHospedeiras values('131',30);
+insert into VooHospedeiras values('131',31);
+
+-----------------------------------------------------------------------------------
+-- COMISSARIOS EXIGIDOS --
+-----------------------------------------------------------------------------------
+
+insert into VooComissarios values('122',48);
+insert into VooComissarios values('122',49);
+insert into VooComissarios values('124',48);
+insert into VooComissarios values('125',42);
+insert into VooComissarios values('126',48);
+insert into VooComissarios values('127',40);
+insert into VooComissarios values('130',40);
+insert into VooComissarios values('131',40);
+insert into VooComissarios values('128',40);
+
+-----------------------------------------------------------------------------------
+--VOOS EFETIVOS --
+-----------------------------------------------------------------------------------
+
+insert into VoosEfetivos values (1,1,'03','Janeiro','2011','127',310, 5, null, 'Francisco Zeimoto');
+insert into VoosEfetivos values (2,1,'03','Janeiro','2011','128',304, null, null,'Francisco Zeimoto');
+insert into VoosEfetivos values (3,1,'03','Janeiro','2011','130',250, null, null,'Francisco Zeimoto');
+insert into VoosEfetivos values (4,1,'03','Janeiro','2011','131',390, null, -10,'Francisco Zeimoto');
+insert into VoosEfetivos values (5,2,'01','Janeiro','2011','122',320, null, null,'Nicolau Coelho');
+insert into VoosEfetivos values (6,2,'01','Janeiro','2011','124',290, null, null,'Nicolau Coelho');
+insert into VoosEfetivos values (7,3,'08','Janeiro','2011','122',320, null, null,'Nicolau Coelho');
+insert into VoosEfetivos values (8,3,'08','Janeiro','2011','124',290, null, null,'Nicolau Coelho');
+insert into VoosEfetivos values (9,4,'10','Janeiro','2011','127',310, null, null,'Francisco Zeimoto');
+insert into VoosEfetivos values (10,4,'10','Janeiro','2011','128',304, null, null,'Francisco Zeimoto');
+insert into VoosEfetivos values (11,4,'10','Janeiro','2011','130',250, null, null,'Francisco Zeimoto');
+insert into VoosEfetivos values (12,4,'10','Janeiro','2011','131',390, null, null,'Francisco Zeimoto');

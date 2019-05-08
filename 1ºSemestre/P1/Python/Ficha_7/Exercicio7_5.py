@@ -1,0 +1,1 @@
+def novoEstado(estado , comando):

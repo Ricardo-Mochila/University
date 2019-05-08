@@ -1,0 +1,117 @@
+Modelo da Quantidade otima de encomenda
+
+Custo Encomenda = (D.S)/Q
+
+Custo Posse = (i.c.Q)/2
+
+Custo Total = (D.S)/Q + (i.c.Q)/2
+
+Q*=Qopt = raiz( (2.D.S)/i.c )
+
+D=Procura Anual; S=custo unitario de encomenda; i=custo unitario de posse em percentagem por unidade de tempo; c=custo unitario de aquisicao; quantidade de encomenda
+
+Objetivo: Minimizar custos = Encontrar o otimo
+
+Exercicios
+A.Qual deve ser a frequancia das encomendas?
+1.calcular procura anual
+2.dividir procura anual por quantidade otima= x
+3.12/x = meses, resto
+4.converter resto em dias (1=30; 0,resto=x) x=dias
+
+B. Tabelas com valor
+custo unitario.utilizacao anual =Valor de cada artigo.100 = percentagem
+calcular total do valor dos artigos
+o valor de cada artigo/(total.100) = percentagem do valor de cada artigo
+a soma das percentagem tem de ser 100
+somar os numeros(tabela 2)
+percentagem total = (numero de cada artigo/soma dos numeros).100
+ordenar artigos de acordo com o valor de cada um em percentagem
+dividir em A,B,C em que A(70-80%), C(5,10%)
+
+
+Satisfacao do cliente/consumidor
+valor=beneficios-custos
+
+IVA apuramento(reembolso)=IVA dedutivel-IVA liquidado
+
+Nocoes de Contabilidade Financeira - Sociedade limitada por cotas
+Resultado=Proveito-Custos
+resultado=lucro bruto(antes dos impostos)
+resultado-IRC = lucro liquido (depois dos impostos)
+Se lucro liquido<0 nao ha pagamento de IRC
+
+IVA apuramento=dedutivel-liquidado
+
+calcular proveito
+1.Receita esta para percentagem(ex 1,23) como x para 100
+
+Calcular IVA Dedutivel
+1.Pagamento-(Pagamento/percentagem(ex.1,23))=x
+2.pagamento-x=IVA Dedutivel
+
+IVA Liquidado
+Recebimento-Proveito=IVA Liquidado
+
+Vencimento Liquido
+subtrai ao salario+subsidio alimentacaox22 dias as percentagens(do irs e do trabalhador)
+
+custo da empresa com o colaborador
+salario+subsidio alimentacaox22+seguro/12 e medico/12 + percentagens sobre o salario
+
+custo anual com o colabrador
+salariox14+subsidio alimentacaox22x11 meses+seguro e medico + percentagens sobre o salariox14
+
+
+a)custo do produto:CIPA
+b)custo do periodo:CIPV+Custos Comerciais
+c)resultados do periodo=
+resultado bruto=precoVendaxpreco unitario - CIPV
+resultado corrente=Bruto-CNI
+
+Custos comerciais=c.distribuicao+c.administracao+cfinanceiro
+
+CF custo fixo
+CFT custo fixo total
+Q quantidade
+CT= CVT+CFT
+CVT=custo variavel unitario ou medio = (C.unitario -Q)/Q
+Margem de contribuicao=Vendas-Custos variaveis
+Custo fixo unitario ou medio=CFT/Q
+RE=V-CT=V-CVT-CFT
+V=Volume venda
+Margem de segurança=Q-Q*/Q*
+A margem de seguranca=zero quando Vendas=CT
+<0 quando CT'>Vendas
+>0 quando CT'<Vendas
+
+Q*=CFT/(Preco venda - custo variavel unitario)
+(Preco venda - custo variavel unitario)=margem contribuicao unitaria
+
+Racios
+Liquidez geral=ativo corrente/passivo corrente
+deve ser >1 para nao haver problemas de liquidez
+
+Liquidez Reduzida=(ativo corrente-inventario)/passivo corrente
+Para saber se consigo pagar as minhas dividas sem ter de vender tudo
+
+Liquidez imediata=caixa ou depositos bancarios/passivo corrente
+avalia a capacidade de pagar de imediato o  passivo de curto prazo
+
+Racios de Solabilidade
+Solvabilidade=Ativo/Passivo
+se <1 a empresa tem mais dividas do que capital financeiro disponivel
+se capital proprio negativo=falencia tecnica
+
+Autonomia Financeira=Capitais proprios/capitais alheios(passivo) ou capitas proprios=ativo total
++financiado com capital proprio ou financeiro
+
+Racios de Rendabilidade
+1.De Vendas= resultado liquido do exercicio/vendas liquidas
+2.dos capitais proprio=resultado liquido do exercicio/capitais proprios
+3.do investimento total=resultado liquido do exercicio/ativo
+
+
+
+
+

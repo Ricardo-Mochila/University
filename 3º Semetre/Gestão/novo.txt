@@ -1,0 +1,50 @@
+C:capital
+t:tempo
+i=taxa juro
+J=juro acomulado
+fazer graficos
+j=Cxi
+Ct=Co+J
+J=Coxixt
+
+Capitalizacao soma juros; atualizacao ou desconto subtrai
+RJS
+Capitalizacao: Ct=Co(1+ixt)
+Atualizacao: Co=Ct(1-ixt)
+RJC
+Capitalizacao:Ct=Co(1+i)^t
+Atualizacao:Co=Ct(1+i)^-t
+fatores=parentesis
+
+Taxa media RJS
+i=(co.io.to)+(c1.i1.t1)/(co.to)+(c1.t1)
+
+Taxa equivalente
+RJS
+i=i'.m
+i'=i/m
+
+RJC
+i=((1+i')^m)-1
+i'=((1+i)^1/m)-1
+
+com 
+i=taxa periodo maior
+i'= taxa periodo menor
+m=periodo maior/perido menor
+
+Taxa Nominal e sempre anual.
+Tx Efetiva-Efetiva=Eq taxas RJC
+tx Efetiva-Nominal=RJS
+
+VAL
+Investimento RJC
+(valor 1oano)*(1+i)^-t+(...)
+muda valor e t
+VAL=0 nada
+VAL>0 lucro
+VAL<0 prejuizo
+
+TIR
+((I2-I1)*(0-VAL)/ (VAL2-VAL1)) +1
+TIR: acima da percentagem do resultado prejuizo, abaixo lucro

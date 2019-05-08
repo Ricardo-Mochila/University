@@ -1,0 +1,50 @@
+Gestao de Stocks
+stock: conjunto de artigos mantidos em armazem
+
+O otimo da qualidade de nao e necessariamente o 0 defeitos, mas o equilibrio entre a qualidade e a capacidade financeira para a cubrir
+
+custos de stock
+1.custo de posse (instalacoes, depreciacao/limpeza, luz, agua...)
+2.custo de encomenda
+3.custo de rotura
+4.custo de aquisicao
+
+Nota sobre 1. custo de oportunidade do capital investido em stock, lternativa de usar em capital noutras coisas.
+
+Marketing
+conjuntos de meios e metodos dispostos pela organizacao para promover o publico aos comportamentos favoraveis aos proprios objetivos.
+Estrategico: Estudo de marketing, selecao de mercado alvo, concecao do produto, estrategia global
+Operacional: Fixacao de preco, escolha de canais de distribuicao, comunicacao, acao dos vendedores, merchandising
+
+Satisfacao do cliente/consumidor
+valor=beneficios-custos
+Beneficios:utilidade do produto, servico, imagem
+custos:tempo, dinheiro, energia, psiquicos, risco percecionado, produto residual
+Satisfaz quando diminui custos e aumenta vntagens
+
+Marketing-mix
+Preço baixo= qualidade/preco
+Preço alto= satisfacao de necessidades de
+ordem psicologica (qualidade superior)
+
+Tres grandes decisoes relativamente ao preco
+Fixar o preco
+Efetuar adaptacoes ao preco
+Introduzir alteracoes no preco
+Fixar o preco=inumeras influencias
+Valor percebido pelo cliente
+Presos da concorrencia
+Objetivos da organizacao
+Custos da empresa
+Regulacao e regulamentacao
+
+Distribuicao
+Comunicacao
+o informal
+Embalagens, design das instalacoes, discursos
+Comunicacao formal
+mix da comunicacao
+Publicidade
+Forca de vendas
+Promocoes de vendas
+Relacoes publicas

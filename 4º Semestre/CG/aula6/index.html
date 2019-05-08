@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="/three.js-master/build/three.js"></script>
+    <script src="/three.js-master/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <svg width = "300" height = "300">
+        <line x1="0" y1="0" x2="0" y2="300" style="stroke:rgb(0,255,0);stroke-width:4" />
+        <line x1="0" y1="300" x2="300" y2="300" style="stroke:rgb(255,0,0);stroke-width:4" />
+    </svg>
+    <br>
+    <br>
+    <script>
+
+            function model()
+            {
+
+            }
+            
+            function main() {
+                var renderer = new THREE.WebGLRenderer();
+                renderer.setSize( 300, 300 );
+                renderer.setClearColor("white");
+                document.body.appendChild( renderer.domElement );
+
+                var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
+                camera.position.set( 10, 40, 100 );
+                camera.lookAt( 0, 0, 0 );
+
+                var scene = new THREE.Scene();
+
+                var material = new THREE.LineBasicMaterial( { color: 0x00ff00 } );
+                var material2 = new THREE.LineBasicMaterial( { color: 0xff0000 } );
+                var material3 = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+                var controls = new THREE.OrbitControls(camera);
+             
+                
+                var geometry1 = new THREE.Geometry();
+                var coordinates = [
+                new THREE.Vector3( 0,50, 0), 
+                new THREE.Vector3( 0, 0, 0),
+                new THREE.Vector3( 0,0, 0),
+                new THREE.Vector3( 50, 0, 0),
+                new THREE.Vector3( 0,0, 0),
+                new THREE.Vector3( 0, 0, 50)
+                ]
+                geometry1.vertices = coordinates;
+                var line = new THREE.Line( geometry1, material );
+                scene.add( line );
+                renderer.render( scene, camera);
+
+            }
+            main();
+            
+            </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/three.js-master/build/three.js"></script>
+    <script src="/three.js-master/examples/js/controls/OrbitControls.js"></script>
+
+    <title>3d Pong</title>
+</head>
+<body style="margin: 0; padding: 0">
+
+    <text id="textA" style = "
+        position: absolute;
+        top: 10px;
+        width: 42%;
+        text-align: right;
+        z-index: 100;
+        display:block;
+        color: #ffffff;
+        font-size: 150px;
+        font-family : Arial">
+        0
+    </text>
+
+    <text id="textB" style = "
+        position: absolute;
+        top: 10px;
+        width: 62%;
+        text-align: right;
+        z-index: 100;
+        display:block;
+        color: #ffffff;
+        font-size: 150px;
+        font-family : Arial">
+        0
+    </text>
+
+    <script>
+
+        var bar1x = 0;
+        var bar2x = 0;
+        var ballx = 0;
+        var bally = 0;
+
+        var scoreA = 0;
+        var scoreB = 0;
+
+        function renderFunction()
+        {
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth,window.innerHeight);
+            renderer.setClearColor(0x000000);
+            //renderer.setPixelRatio(window.devicePixelRatio*2);
+            document.body.appendChild( renderer.domElement );
+
+            var camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 1, 500);
+            camera.position.set(15,15,0);
+            
+            var controls = new THREE.OrbitControls(camera);
+
+            var scene = new THREE.Scene();
+
+            var light = new THREE.AmbientLight(0xffffff, 0.7);
+            scene.add(light);
+
+            var light1 = new THREE.PointLight(0xffffff, 1);
+            light1.position.set(100, 0, 10)
+            scene.add(light1);
+
+            var light2 = new THREE.PointLight(0xffffff, 0.7);
+            light2.position.set(0, 500, 0)
+            scene.add(light2);
+
+            var bar1 = barGeometry(0xff0000);
+            bar1.position.set(bar1x,0,-8.5);
+
+            var bar2 = barGeometry(0x00ff00);
+            bar2.position.set(bar2x,0, 8.5);
+            
+
+            var ball = new THREE.SphereGeometry(0.4,30,30);
+            var material = new THREE.MeshPhysicalMaterial({ color: 0xE0E0E0, roughness: 0.0, reflectivity: 1, });
+            var ballM = new THREE.Mesh(ball, material);
+            ballM.position.set(ballx,bally,0);
+
+            scene.add(ballM);
+            scene.add(bar1),
+            scene.add(bar2);
+            renderer.render(scene, camera);
+
+            return{
+                scene: scene,
+                camera: camera,
+                renderer: renderer,
+                ballM: ballM,
+                bar1: bar1,
+                bar2: bar2,
+            }
+            
+        }
+
+        function barGeometry(color)
+        {
+            var bar = new THREE.BoxGeometry(4, 1, 0);
+            var material = new THREE.MeshPhysicalMaterial({
+                color: color,
+                roughness: 0.0, 
+                reflectivity: 1,
+            });
+
+            var mesh = new THREE.Mesh(bar, material);
+            return mesh;
+        }
+
+        var update = function(step)
+        {
+            // requestAnimationFrame(function () {
+            //     update(step);
+            // });
+
+            document.addEventListener('keydown', function (event) {
+                keyMovement(step);
+            })
+
+            step.renderer.render(step.scene, step.camera);
+        }
+
+        function keyMovement(step)
+        {
+            if (event.key == 'k') 
+            {   
+                bar1x += 0.005;
+                step.bar1.position.set(bar1x, 0,-8.5);
+                
+            }
+            if (event.key == 'i') 
+            {   
+                bar1x -= 0.005;
+                step.bar1.position.set(bar1x, 0,-8.5);
+            }
+            if (event.key == 's') {
+                bar2x += 0.005;
+                step.bar2.position.set(bar2x, 0,8.5);
+                console.log(bar2x);
+            }
+            if (event.key == 'w') {
+                bar2x -= 0.005;
+                step.bar2.position.set(bar2x, 0,8.5);
+                console.log(bar2x)
+                
+            }
+        }
+
+        
+
+        var loop = function()
+        {
+            var step = renderFunction();
+            update(step);
+        }
+        loop();
+            
+        
+    
+    </script>
+    
+</body>
+</html>

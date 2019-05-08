@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/three.js-master/build/three.js"></script>
+    <script src='/three.js-master/examples/js/libs/dat.gui.min.js'></script>
+    <script src="/three.js-master/examples/js/controls/OrbitControls.js"></script>
+    <script src="/three.js-master/examples/js/ParametricGeometries.js"></script>
+</head>
+
+<body>
+    <script>
+        function model(string) {
+
+            var loader = new THREE.TextureLoader();
+            loader.load("thumbnail.jpg", function (texture) {
+
+                var geometry = new THREE.SphereGeometry(5, 3, 2);
+                var material = new THREE.MeshBasicMaterial({
+                    map: texture,
+                    overdraw: 0.5
+                });
+            });
+            var sphere = new THREE.Mesh(geometry, material);
+            return sphere;
+            
+        }
+
+        function render1() {
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(500, 500);
+            renderer.setClearColor("white");
+            document.body.appendChild(renderer.domElement);
+
+            var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 500);
+            camera.position.z = 30;
+
+            var scene = new THREE.Scene();
+
+            var ambient_light = new THREE.AmbientLight(0xFFFFFF);
+            scene.add(ambient_light);
+
+            var sun = new THREE.PointLight(0x000000, 3, 450);
+            sun.position.set(-300, 0, 300);
+            scene.add(sun);
+
+            var orbit = new THREE.OrbitControls(camera);
+            orbit.enableZoom = true;
+
+            var model1 = model(0xff0000)
+            scene.add(model1);
+            //scene.add(model(0xff00ff));
+            // renderer.render(scene, camera);
+
+            // var render = function () {
+
+            //     requestAnimationFrame(render);
+
+            //     orbit.update();
+
+            //     renderer.render(scene, camera);
+            // };
+            // render();
+
+        }
+       
+        render1();
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+
+main:
+	addi $sp, $sp, -4
+	sw $ra, 0($sp)
+	addi $a0, $zero, 5
+	addi $t0, $zero, 2
+	addi $t1, $zero, 1
+	exp2:
+		beq $a0, $zero, um
+		nop
+		bge $t1, $a0, fim
+		nop
+		sll $t0, $t0, 1
+		j exp2 
+		addi $t1, $t1, 1
+
+	um:	
+		addi $v0, $zero, 1 
+	fim:
+		lw $ra, 0($sp)
+		addi $sp, $sp, 4
+		jr $ra
+		add $v0, $zero, $t0

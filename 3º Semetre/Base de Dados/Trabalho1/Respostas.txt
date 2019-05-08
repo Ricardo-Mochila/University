@@ -1,0 +1,301 @@
+
+
+-- ** Exercicio 3 **
+-- *a
+insert into especie values ('Foca','Mamifero');
+insert into Animal values ('Kiki',"Feminino",  'Foca');
+insert into Compartimento values (23,'Charco');
+insert into Alojado values ('Kiki', 23);
+
+-- *b
+insert into Animal values ('Lola','Feminino','Foca');
+insert into Alojado values ('Lola', 23);
+
+-- *c
+insert into especie values ('Leão Marinho','Mamifero');
+insert into animal values ('Anibal', 'Masculino', 'Leão Marinho');
+insert into Alojado values ('Anibal', 23);
+
+-- *d
+insert into especie values ('Lontra','Mamifero');
+insert into animal values ('Amalia','Feminino', 'Lontra');
+insert into Alojado values ('Amalia', 23);
+
+-- *e
+insert into Animal values ('Eusebio','Mamifero','Lontra');
+insert into Alojado values ('Eusebio', 23);
+
+-- *f
+insert into Tratador values (123,'Manuel',750,124);
+insert into Trata values (23, 123);
+insert into Compartimento values (10,'selva');
+insert into Trata values (10, 123);
+
+-- *g
+insert into Tratador values (124,'Luis',850, 124);
+insert into Compartimento values (8,'Pantano');
+insert into Trata values (8, 124);
+insert into Trata values (10, 124);
+
+-- *h
+insert into especie values ('Tigre','Mamifero');
+insert into Animal values ('Jau','Masculino','Tigre');
+insert into Alojado values ('Jau', 10);
+
+-- *i
+insert into Animal values ('Princesa','Feminino','Tigre');
+insert into Alojado values ('Princesa', 10);
+
+-- *j
+insert into especie values ('Tartaruga','Reptil');
+insert into Animal values ('Huga','Feminino','Tartaruga');
+insert into Alojado values ('Huga', 8);
+
+-- *k
+insert into Animal values ('Luna','Feminino','Tartaruga');
+insert into Alojado values ('Luna', 8);
+
+-- *l
+insert into especie values ('Lagartixa','Reptil');
+insert into Animal values ('Brava','Feminino','Lagartixa');
+insert into Alojado values ('Brava', 8);
+
+-- *m
+insert into especie values ('Lagarto','Reptil');
+insert into Animal values ('Raul','Masculino','Lagarto');
+insert into Alojado values ('Raul', 8);
+
+-- *n
+insert into Tratador values (125,'Maria',850,124);
+insert into Trata values (8, 125);
+insert into Compartimento values (15,'Gaiola');
+insert into Trata values (15, 125);
+
+-- *o
+insert into especie values ('Papagaio','Ave');
+insert into Animal values ('Pirata','Masculino','Papagaio');
+insert into Alojado values ('Pirata', 15);
+
+-- *p
+insert into Animal values ('Bela','Feminino','Papagaio');
+insert into Alojado values ('Bela', 15);
+
+-- *q
+insert into especie values ('Arara','Ave');
+insert into Animal values ('Joia','Feminino','Arara');
+insert into Alojado values ('Joia', 15);
+-----------------------------------------------------------------------------
+
+-- ** Exercicio 4 **
+
+insert into especie values ('Macaco', 'Mamifero');
+insert into animal values ('Aco', 'Masculino' ,'Macaco');
+insert into alojado values ('Aco', 10);
+
+insert into especie values ('Coruja', 'Ave');
+insert into animal values ('Hedwig', 'Feminino', 'Coruja');
+insert into alojado values ('Hedwig', 15);
+
+insert into especie values ('Kanguro', 'Mamifero');
+insert into animal values ('Pulador', 'Masculino', 'Kanguro');
+insert into Compartimento values (2, 'Deserto');
+insert into alojado values ('Pulador', 2);
+
+insert into especie values ('Peixe', 'Oviparo');
+insert into animal values ('Nemo', 'Masculino', 'Peixe');
+insert into Compartimento values (37, 'Aquario');
+insert into alojado values ('Nemo', 37);
+
+
+----------------------------------------------------------------------------
+
+-- ** Exercicio 5 **
+
+-- *a
+select nomee from especie
+
+-- algebra relacional
+π nomee(Especie)
+-------------------------------------
+
+-- *b
+select distinct classe from especie inner join animal on especie.nomee = animal.nomee
+inner join alojado  on animal.nomea = alojado.nomea inner join
+ trata on alojado.idcomp = trata.idcomp
+inner join tratador on trata.ncc = tratador.ncc
+where nomet = 'Manuel'
+
+-- algebra relacional
+π classe(σ nomet= 'Manuel'(Especie ⨝ Animal ⨝ Alojado ⨝ Trata ⨝ Tratador))
+
+-------------------------------------
+
+
+
+-- *c
+WITH todos as (SELECT DISTINCT nccchefe
+FROM tratador inner join trata on tratador.ncc  = trata.ncc inner join alojado on
+trata.idcomp = alojado.idcomp inner join animal on alojado.nomea = animal.nomea
+inner join especie on animal.nomee = especie.nomee
+WHERE classe = 'Reptil')
+SELECT nomet
+from todos INNER JOIN tratador ON todos.nccchefe = tratador.ncc;
+
+-- algebra relacional
+Todos ← π nccchefe(σ classe = 'Reptil'(tratador ⨝ trata ⨝ alojado ⨝ animal ⨝ especie))
+π Nome (σ todos.nccchefe = tratador.ncc(todos ⨝ tratador))
+
+-------------------------------------
+
+
+-- *d
+select compartimento.idcomp
+from compartimento inner join alojado on compartimento.idcomp = alojado.idcomp 
+inner join animal on alojado.nomea = animal.nomea inner join especie on animal.nomee = especie.nomee
+except
+select compartimento.idcomp
+from compartimento inner join alojado on compartimento.idcomp = alojado.idcomp 
+inner join animal on alojado.nomea = animal.nomea inner join especie on animal.nomee = especie.nomee
+where classe = 'Ave';
+
+-- algebra relacional
+π idcomp(compartimento ⨝ alojado ⨝ Animal ⨝ Especie) - 
+π idcomp(σ classe = "Ave"(compartimento ⨝ alojado ⨝ Animal ⨝ Especie))
+
+-------------------------------------
+
+-- *e 
+SELECT Distinct compartimento.idcomp
+from compartimento  inner join alojado on compartimento.idcomp = alojado.idcomp
+inner join animal on alojado.nomea = animal.nomea inner join especie on animal.nomee = especie.nomee
+where classe = 'Reptil'
+union
+SELECT Distinct compartimento.idcomp
+from compartimento  inner join alojado on compartimento.idcomp = alojado.idcomp 
+inner join animal on alojado.nomea = animal.nomea inner join especie on animal.nomee = especie.nomee
+where classe = 'Mamifero';
+
+-- algebra relacional
+π idcomp(σ classe = 'Reptil'(compartimento ⨝ alojado ⨝ Animal ⨝ Especie)) ∪ 
+(σ classe = "Mamifero"(compartimento ⨝ alojado ⨝ Animal ⨝ Especie))
+-------------------------------------
+
+-- *f
+select nomet
+from tratador inner join trata on tratador.ncc = trata.ncc inner join compartimento 
+on trata.idcomp = compartimento.idcomp
+except
+  select nomet
+  from tratador inner join trata on tratador.ncc = trata.ncc inner join compartimento 
+on trata.idcomp = compartimento.idcomp
+  where tipo = 'gaiola' or tipo = 'Pantano'
+
+-- algebra relacional
+π nomet(tratador ⨝ trata ⨝ compartimento) - 
+π nomet (σ tipo = 'Gaiola' ∨ 'Pantano' (tratador ⨝ trata ⨝ compartimento))
+-------------------------------------
+
+-- *g 
+select count(nomee)
+from especie
+where classe = 'Mamifero'
+group by classe
+
+-- algebra relacional
+gcount(nomee)σ classe = 'Mamífero'(Especie)
+-------------------------------------
+
+-- *h
+SELECT compartimento.idcomp, Count(alojado.nomea)
+FROM compartimento natural inner join alojado
+GROUP BY compartimento.idcomp;
+
+-- algebra relacional
+gcount(nomea) π idcomp (compartimento ⨝ alojado)
+-------------------------------------
+
+-- *I
+select nomet, count(nomet)
+from tratador natural inner join trata natural inner join alojado 
+natural inner join animal natural inner join especie
+where classe = 'Mamifero'
+group by tratador.nomet;
+
+-- algebra relacional
+gcount(nomet) π nomet (σ classe = 'Mamifero'(tratador ⨝ trata ⨝ alojado ⨝ animal ⨝ especie))
+-------------------------------------
+
+-- *J
+select especie.nomee
+from compartimento natural inner join alojado natural inner join animal natural inner join especie
+where classe = 'Mamifero'
+intersect
+select especie.nomee
+from compartimento natural inner join alojado natural inner join animal natural inner join especie
+where classe = 'Oviparo'
+intersect
+select especie.nomee
+from compartimento natural inner join alojado natural inner join animal natural inner join especie
+where classe = 'Reptil'
+intersect
+select especie.nomee
+from compartimento natural inner join alojado natural inner join animal natural inner join especie
+where classe = 'Ave'
+
+-- algebra relacional
+
+π nomee(σ classe = 'Mamifero'(compartimento ⨝ alojado ⨝ animal ⨝ especie) ∩ 
+π nomee(σ classe = 'Oviparo'(compartimento ⨝ alojado ⨝ animal ⨝ especie) ∩ 
+π nomee(σ classe = 'Reptil'(compartimento ⨝ alojado ⨝ animal ⨝ especie) ∩ 
+π nomee(σ classe = 'Ave'(compartimento ⨝ alojado ⨝ animal ⨝ especie)
+
+-------------------------------------
+
+-- *k
+with todos as (
+SELECT MAX(classe), nccchefe
+FROM especie natural inner join animal natural inner join alojado 
+natural inner join trata natural inner join tratador
+WHERE classe='Mamifero'
+group by tratador.nccchefe)select nomet
+from todos inner join tratador on todos.nccchefe = tratador.ncc
+
+-- algebra relacional
+Todos ← π(classe, nccchefe)(σ classe = 'Mamifero' 
+(especie ⨝ animal ⨝ alojado ⨝ trata ⨝ tratador))
+ σ(todos.nccchefe = tratador.ncc)(todos ⨝ tratador)
+
+-------------------------------------
+
+-- *l
+SELECT MAX(idcomp)
+FROM animal natural inner join alojado natural inner join compartimento
+WHERE genero='Feminino';
+
+-- algebra relacional
+gmax(idcomp)(σ genero = 'Feminino'(animal ⨝ alojado ⨝ compartimento))
+
+-------------------------------------
+
+-- *m 
+Delete from especie
+where classe = 'Reptil'
+
+-- algebra relacional
+especie ← especie - σ(classe = 'Reptil')(especie)
+
+---------------------------
+
+-- *n
+SELECT COUNT(classe)
+FROM compartimento INNER JOIN alojado on compartimento.idcomp = alojado.idcomp 
+INNER JOIN animal on alojado.nomea = animal.nomea
+INNER JOIN especie on animal.nomee = especie.nomee
+WHERE classe = 'Ave'
+
+-- algebra relacional
+gcount(classe)(σ classe = 'Ave'(compartimento ⨝ alojado ⨝ animal ⨝ especie))
+
+---------------------------
+
+

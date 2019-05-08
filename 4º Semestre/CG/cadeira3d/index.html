@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/three.js-master/build/three.js"></script>
+    <script src="/three.js-master/examples/js/controls/OrbitControls.js"></script>
+
+    <title>Cadeira3d</title>
+</head>
+<body>
+    
+<img src = "./textures/simple_chair_3d_model_c4d_max_obj_fbx_ma_lwo_3ds_3dm_stl_1815360_o.png" style="width: 500px;"> 
+
+
+<script>
+        function init(mesh)
+        {
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(500, 500 );
+            renderer.setClearColor(0xdddddd);
+            renderer.setPixelRatio(window.devicePixelRatio*2);
+            document.body.appendChild( renderer.domElement );
+
+            var camera = new THREE.PerspectiveCamera( 70, 500/500, 1, 1000);
+            camera.focus = 0;
+            
+
+            var controls = new THREE.OrbitControls( camera );
+
+            camera.position.set(-14, 7, -9 );
+            controls.update();
+            
+            var scene = new THREE.Scene();
+
+            var ambientLight = new THREE.AmbientLight( 0x000000 );
+            scene.add( ambientLight );
+
+            var lights = [];
+            lights[ 0 ] = new THREE.PointLight( 0xffffff,  1);
+            lights[ 1 ] = new THREE.PointLight( 0xffffff, 1 );
+            lights[ 2 ] = new THREE.PointLight( 0xffffff, 0.7);
+
+            lights[ 0 ].position.set( 0, 100, 0 );
+            lights[ 1 ].position.set( -50, 0, 0 );
+            lights[ 2 ].position.set( -0, 0, -50 );
+
+            scene.add( lights[ 0 ] );
+            scene.add( lights[ 1 ] );
+            scene.add( lights[ 2 ] );
+
+            var material = new THREE.LineBasicMaterial( { color: 0x00ff00 } );
+                var material2 = new THREE.LineBasicMaterial( { color: 0xff0000 } );
+                var material3 = new THREE.LineBasicMaterial( { color: 0x0000ff } );
+                var controls = new THREE.OrbitControls(camera);
+             
+                
+                var geometry1 = new THREE.Geometry();
+                var coordinates = [
+                new THREE.Vector3( 0,50, 0), 
+                new THREE.Vector3( 0, 0, 0),
+                new THREE.Vector3( 0,0, 0),
+                new THREE.Vector3( 100, 0, 0),
+                new THREE.Vector3( 0,0, 0),
+                new THREE.Vector3( 0, 0, 50)
+                ]
+                geometry1.vertices = coordinates;
+                var line = new THREE.Line( geometry1, material );
+                scene.add( line );
+                renderer.render( scene, camera);
+
+            scene.add(mesh);
+            renderer.render(scene, camera);
+
+            return {
+                camera: camera,
+                scene: scene,
+                renderer: renderer,
+                controls: controls
+            }
+        }
+        
+        
+        function leg(var1, var2, var3)
+        {
+            var leg1 = new THREE.BoxGeometry( var1, var2, var3);
+          
+            var loader = new THREE.TextureLoader();
+            var diffuseMap = loader.load("textures/WoodFine0086_7_270.jpg")
+            var normalMap = loader.load("./textures/NormalMap(5).png");
+            var specularMap = loader.load("./textures/SpecularMap(4).png")
+            var material = new THREE.MeshPhongMaterial({
+            color: 0xFFFFFF,
+            specular: 0xffffff,
+            map: diffuseMap,
+            specularMap: specularMap,
+            normalMap: normalMap,
+            //wireframe: true
+            });
+            
+            var legs = new THREE.Mesh( leg1,material );
+            return legs;
+        }
+
+        function supports()
+        {
+            var support1 = new THREE.BoxGeometry(1, 2, 10);
+
+            var loader = new THREE.TextureLoader();
+            var diffuseMap = loader.load("textures/WoodFine0086_7_270.jpg")
+            var normalMap = loader.load("./textures/NormalMap(5).png");
+            var specularMap = loader.load("./textures/SpecularMap(4).png")
+            var material = new THREE.MeshPhongMaterial({
+            color: 0xFFFFFF,
+            specular: 0xffffff,
+            map: diffuseMap,
+            specularMap: specularMap,
+            normalMap: normalMap
+            });
+
+            var support = new THREE.Mesh( support1,material );
+            return support;
+        }
+
+        function seat()
+        {
+            var seatt = new THREE.BoxGeometry( 10.5, 0.6, 12 );
+
+            var loader = new THREE.TextureLoader();
+            var diffuseMap = loader.load("./textures/54212136-fabric-linen-burlap-cloth-texture.jpg")
+            var normalMap = loader.load("./textures/NormalMap(3).png");
+            var specularMap = loader.load("./textures/SpecularMap(2).png")
+            var material = new THREE.MeshPhongMaterial({
+            color: 0xFFFFFF,
+            specular: 0xffffff,
+            map: diffuseMap,
+            specularMap: specularMap,
+            normalMap: normalMap
+            });
+
+            var mesh = new THREE.Mesh(seatt, material);
+            return mesh;
+        }
+
+        function backHorizontal()
+        {
+            var hor = new THREE.BoxGeometry( 0.5, 0.5, 10 );
+            
+            var loader = new THREE.TextureLoader();
+            var diffuseMap = loader.load("textures/WoodFine0086_7_270.jpg")
+            var normalMap = loader.load("./textures/NormalMap(5).png");
+            var specularMap = loader.load("./textures/SpecularMap(4).png")
+            var material = new THREE.MeshPhongMaterial({
+            color: 0xFFFFFF,
+            specular: 0xffffff,
+            map: diffuseMap,
+            specularMap: specularMap,
+            normalMap: normalMap
+            });
+
+            var bh = new THREE.Mesh( hor,material );
+            return bh;
+        }
+
+        function backVertical()
+        {
+            var ver = new THREE.BoxGeometry( 0.5, 10.5, 0.5 );
+            
+            var loader = new THREE.TextureLoader();
+            var diffuseMap = loader.load("textures/WoodFine0086_7_270.jpg")
+            var normalMap = loader.load("./textures/NormalMap(5).png");
+            var specularMap = loader.load("./textures/SpecularMap(4).png")
+            var material = new THREE.MeshPhongMaterial({
+            color: 0xFFFFFF,
+            specular: 0xffffff,
+            map: diffuseMap,
+            specularMap: specularMap,
+            normalMap: normalMap
+            });
+
+            var bv = new THREE.Mesh( ver,material );
+            return bv;
+        }
+
+
+        function model()
+        {
+            var leftFrontLeg = leg(1, 12, 1 );
+            leftFrontLeg.position.set(0, 0, 0);
+
+            var rightFontLeg = leg(1, 12, 1 );
+            rightFontLeg.position.set(0, 0, 10);
+
+            var leftBackLeg = leg(1, 26.5, 1 );
+            leftBackLeg.position.set(10, 7.5, 10);
+
+            var rightBackLeg = leg(1, 26.5, 1 );
+            rightBackLeg.position.set(10, 7.5, 0);
+            
+            var leftSupport = supports();
+            leftSupport.position.set(0.15, 5.5, 5 );
+
+            var rightSupport = supports();
+            rightSupport.position.set(9.85, 5.5, 5 );
+
+            var frontSupport = supports();
+            frontSupport.position.set(5, 5.5, 0.15 );
+            frontSupport.rotation.y = 1.57;
+
+            var backSupport = supports();
+            backSupport.position.set(5, 5.5, 9.85 );
+            backSupport.rotation.y = 1.57;
+
+            var seat1 = seat();
+            seat1.position.set(4.3, 6.3, 5 );
+
+            var backHor1 = backHorizontal();
+            backHor1.position.set(10, 10,5);
+
+            var backHor2 = backHorizontal();
+            backHor2.position.set(10, 20.4,5);
+
+            var backVert1 = backVertical();
+            backVert1.position.set(10, 15,2.9);
+
+            var backVert2 = backVertical();
+            backVert2.position.set(10, 15,4.3);
+
+            var backVert3 = backVertical();
+            backVert3.position.set(10, 15,5.7);
+
+            var backVert4 = backVertical();
+            backVert4.position.set(10, 15,7.1);
+            
+
+            
+
+            var chair = new THREE.Object3D();
+            chair.add( rightBackLeg );
+            chair.add( leftBackLeg );
+            chair.add( rightFontLeg );
+            chair.add( leftFrontLeg );
+
+            chair.add(frontSupport);
+            chair.add(leftSupport);
+            chair.add(rightSupport);
+            chair.add(backSupport);
+
+            chair.add(seat1);
+
+            chair.add(backHor1);
+            chair.add(backHor2);
+
+            chair.add(backVert1);
+            chair.add(backVert2);
+            chair.add(backVert3);
+            chair.add(backVert4);
+
+            chair.position.y = -10;
+
+            return chair;
+
+        }
+
+        
+
+        var updateModel = function(step)
+        {
+            requestAnimationFrame(function () {
+                updateModel(step);
+            });
+            step.controls.update();
+            step.renderer.render(step.scene, step.camera);
+            console.log(step.camera.position.x, step.camera.position.y, step.camera.position.z)
+        };
+
+
+        var loop = function()
+        {
+            
+            var step = init(model());
+            updateModel(step);
+        }
+        loop();
+    
+</script>
+</body>
+</html>

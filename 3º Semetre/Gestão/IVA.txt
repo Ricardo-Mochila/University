@@ -1,0 +1,18 @@
+IVA - Imposto sobre o valor acrescentado
+Liquidado: recebido pelas empresas resultante das vendas (para estado)
+Suportado: suportado em compras de bens e pode ser
+1.Dedutivel: c/reembolso, associado a produtividade
+2.Nao dedutivel: sem reembolso, pouco essenciais a empresa
+
+IVA apuramento(reembolso)=IVA dedutivel-IVA liquidado
+
+Movimentos Externos
+Fatura: Valor a pagar/debito total
+Recibo:Valor Pago/divida paga
+Nota de Credito: Papel com montante, com devolucao, para uso numa proxima compra
+Nota de Debito: Nao faz parte do preco antigo, e um acrescimo ao valor que nao e faturado (ex:Transportes)
+Cheques:Ordem de pagamento dada pelo depositante a instituicao bancaria
+Letra:Montante com data para pagamento do sacado ao sacador, temporariamente
+
+Documentos Internos: Folha de ferias, assiduidade, maoa de movimento animal(ex sao do seio da empresa para a propria)
+

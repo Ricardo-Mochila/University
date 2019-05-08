@@ -1,0 +1,91 @@
+--A)
+Select nvoo,origem,destino,HoraP,HoraC
+from voo
+where diasemana = 'Domingo';
+
+--B)
+select count(VooN)
+from VoosEfetivos
+where nomea ='Nicolau Coelho';
+
+--C)
+Select nomea, autonomia
+from modelo natural inner join aviao
+where autonomia = (SELECT max(autonomia) from modelo);
+
+--D)
+with tripEx(Numt, soma) as (
+    select NumT, sum(NHospedeiras+Npilotos+NComissarios) as soma
+    FROM tripulacaoExigida
+    group by NumT
+    )
+select numt, soma
+from tripEx
+inner join (select max(soma) as maxt from tripEx) maxt2
+on soma = maxt;
+
+--E)
+with tempTable(nbi, conta) as (
+    SELECT nbi, count(NumT)
+    from VooHospedeiras
+    group by NBI
+)
+select nome
+from tempTable natural inner join hospedeira
+inner join (select max(conta) as contamax from tempTable) temp2
+on conta = contamax;
+
+--F)
+select max(Passageiros)
+from VoosEfetivos
+where ano = '2011' and mes = 'Janeiro';
+
+--G)
+
+with tempt (Ntrajecto, x)as (
+    select Ntrajeto, count(NvooE) as x
+    from VoosEfetivos
+    group by Ntrajeto
+)
+select distinct Ntrajecto, x
+from tempt
+inner join (select max(x) as mx from tempt) temp2
+on x = mx;
+
+--H)
+SELECT NvooE
+FROM voosefetivos
+where HoraEP=(select max(HoraEP)
+                FROM VoosEfetivos);
+
+--J)
+with tabt1(numt, TripNecessaria) as (
+  with tabT(numt, y) as (
+    with tabC(numt, x) as (
+        select numt, count(nbi) as x
+        from voocomissarios
+        group by numt
+    )
+    select NumT, x + count(nbi) as y
+    from VooHospedeiras
+           natural inner join tabC
+    group by numt, x
+  )
+  select NumT, y + count(nbi) as TripNecessaria
+  from tabt
+         natural inner join voopilotos
+  group by numt, y
+)
+SELECT numt, TripNecessaria
+from tabt1
+inner join (select max(tripNecessaria) as tripn from tabt1) tabt2
+on TripNecessaria = tripn
+;
+
+--K)
+SELECT distinct Nvooe
+from VoosEfetivos
+where Passageiros=(select max(Passageiros)
+                   from VoosEfetivos
+                   where mes = 'Janeiro');
+

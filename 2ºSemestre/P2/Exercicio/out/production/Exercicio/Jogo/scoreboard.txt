@@ -1,0 +1,3 @@
+Name: Ricardo || Score: 86
+Name: Ines || Score: 92
+Name: Ricardo1 || Score:78
