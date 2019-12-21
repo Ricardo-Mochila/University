@@ -1,0 +1,10 @@
+### Starting build.
+# Target: cenas.ml.depends, tags: { extension:ml, file:cenas.ml, ocaml, ocamldep, quiet }
+ocamldep.opt -modules cenas.ml > cenas.ml.depends
+# Target: cenas.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:cenas.cmo, file:cenas.ml, implem, ocaml, quiet }
+ocamlc.opt -c -o cenas.cmo cenas.ml
+# Target: cenas.cmx, tags: { compile, extension:cmx, extension:ml, file:cenas.cmx, file:cenas.ml, implem, native, ocaml, quiet }
+ocamlopt.opt -c -o cenas.cmx cenas.ml
+# Target: cenas.native, tags: { dont_link_with, extension:native, file:cenas.native, link, native, ocaml, program, quiet }
+ocamlopt.opt cenas.cmx -o cenas.native
+# Compilation successful.

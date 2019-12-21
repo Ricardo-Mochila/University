@@ -1,0 +1,5 @@
+"Rule: ocaml dependencies ml (%=cenas )": "%\182\133\213P<+\162RJ\212\181\197\149\153u"
+"Rule: ocaml: ml & cmi -> cmx & o (%=cenas )": ">~\230\215\2003iFJq\nP\220v8F"
+"Rule: ocaml: ml -> cmo & cmi (%=cenas )": "\205\148{v6\028)\136\028\177\248\161\211D\193\022"
+"Resource: /Users/mochila/Desktop/UE/5\194\186 Semestre/PD/cenas.ml": "\213\244\246\158\007Hj\164\223\238\185\015p#\022\224"
+"Rule: ocaml: cmx* & o* -> native (%=cenas )": "\140J\152\016\189\199\158~\171\182\201\181\161\198\231%"
