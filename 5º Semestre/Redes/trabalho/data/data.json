@@ -1,0 +1,70 @@
+[
+    {
+        "Id": 977,
+        "Type": "no2",
+        "Place": "Liboa",
+        "Firmware": 12.1,
+        "Data": [
+            {
+                "Date": "12/1/2020 14:27",
+                "Value": 15,
+                "Unity": "\u00b5g/m\u00b3",
+                "Firmware": 12.1
+            },
+            {
+                "Date": "12/1/2020 14:27",
+                "Value": 17,
+                "Unity": "\u00b5g/m\u00b3",
+                "Firmware": 12.1
+            },
+            {
+                "Date": "12/1/2020 14:27",
+                "Value": 2,
+                "Unity": "\u00b5g/m\u00b3",
+                "Firmware": 12.1
+            },
+            {
+                "Date": "12/1/2020 14:27",
+                "Value": 0,
+                "Unity": "\u00b5g/m\u00b3",
+                "Firmware": 12.1
+            },
+            {
+                "Date": "12/1/2020 14:27",
+                "Value": 20,
+                "Unity": "\u00b5g/m\u00b3",
+                "Firmware": 12.1
+            },
+            {
+                "Date": "12/1/2020 14:28",
+                "Value": 7,
+                "Unity": "\u00b5g/m\u00b3",
+                "Firmware": 12.1
+            },
+            {
+                "Date": "12/1/2020 14:28",
+                "Value": 27,
+                "Unity": "\u00b5g/m\u00b3",
+                "Firmware": 12.1
+            },
+            {
+                "Date": "12/1/2020 14:28",
+                "Value": 0,
+                "Unity": "\u00b5g/m\u00b3",
+                "Firmware": 12.1
+            },
+            {
+                "Date": "12/1/2020 14:28",
+                "Value": 7,
+                "Unity": "\u00b5g/m\u00b3",
+                "Firmware": 12.1
+            },
+            {
+                "Date": "12/1/2020 14:28",
+                "Value": 7,
+                "Unity": "\u00b5g/m\u00b3",
+                "Firmware": 12.1
+            }
+        ]
+    }
+]

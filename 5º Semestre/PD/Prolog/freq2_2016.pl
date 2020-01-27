@@ -18,4 +18,3 @@ impare([A,_|C], [A|X]) :- impare(C, X).
 pares([], []).
 pares([A], []).
 pares([_,B|C], [B|X]) :- pares(C,X).
-

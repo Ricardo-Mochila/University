@@ -10,11 +10,11 @@ let rec append = function
     |[] -> (function l -> l)
     |x::y -> function l -> x::(append y l);;
 
-let appenda = function
+let rec appendList = function
     | [] -> (function e -> e)
     | x::y -> (function   
-        | [] -> (x::y)
-        | j::k -> (x::y)::(j::k));;
+        | [] -> x::y
+        | j::k ->  x :: appendList y (j::k) );;
 
 let rec member = function 
     | [] -> (function e -> false)
@@ -60,3 +60,9 @@ let rec numeral = function
     | e -> S (numeral (e-1));;
 
 let rec soma = function e -> function a -> numeral( valor e + valor a);;
+
+let rec produto = function
+    | Z -> (function e -> Z)
+    | S(a) -> (function 
+        | Z -> Z
+        | S(b) -> soma (produto a (S(b))) (S(b)) );;

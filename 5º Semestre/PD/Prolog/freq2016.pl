@@ -28,14 +28,13 @@ avalia([C,D,E], X, Y) :-
                     somaA(G, H, J), 
                     somaA(J, C, Y).  
  
- fib(z, z).
- fib(s(z), s(z)).
- fib(s(s(A)), X) :- fib(s(A), Z), fib(A, Y), soma(Z, Y, X).
+fib(z, z).
+fib(s(z), s(z)).
+fib(s(s(A)), X) :- fib(s(A), Z), fib(A, Y), soma(Z, Y, X).
 
- grau([_], 0).
- grau([_|B], Z) :- grau(B, X), somaA(X, 1, Z).
+grau([_], 0).
+grau([_|B], Z) :- grau(B, X), somaA(X, 1, Z).
 
+potA(_, 0, 1).
+potA(A, p(B),X) :- potA(A, B, Z), multA(A, Z, X).
 
-
- potA(_, 0, 1).
- potA(A, p(B),X) :- potA(A, B, Z), multA(A, Z, X).
