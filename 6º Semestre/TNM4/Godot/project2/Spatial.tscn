@@ -1,0 +1,202 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://KinematicBody.gd" type="Script" id=1]
+[ext_resource path="res://Area.gd" type="Script" id=2]
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.592157, 0.572549, 0.572549, 1 )
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.607843, 0.505882, 0.345098, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+metallic_specular = 0.0
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.411765, 0.364706, 0.27451, 1 )
+
+[sub_resource type="CapsuleMesh" id=9]
+
+[sub_resource type="CapsuleShape" id=10]
+height = 2.43725
+
+[sub_resource type="CubeMesh" id=11]
+
+[sub_resource type="BoxShape" id=12]
+
+[sub_resource type="BoxShape" id=13]
+
+[node name="Spatial" type="Spatial"]
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="StaticBody10" type="StaticBody" parent="Spatial"]
+transform = Transform( -0.00522221, 0, 0.0630549, 0, 0.456286, 0, -0.0591717, 0, -0.000482102, 2.62238, 0.3226, 1.13805 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody10"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody10"]
+shape = SubResource( 7 )
+
+[node name="StaticBody" type="StaticBody" parent="Spatial"]
+transform = Transform( 3.98386, 0, 0, 0, 0.0667335, 0, 0, 0, 2.30564, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody"]
+transform = Transform( 0.996725, 0, 0, 0, 0.996725, 0, 0, 0, 0.996725, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00182764, -0.0774847, 0.000368127 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="StaticBody2" type="StaticBody" parent="Spatial"]
+transform = Transform( 3.98386, 0, 0, 0, -1.08723e-08, -2.30564, 0, 0.0667335, -3.75637e-07, 0, 2.21121, -2.31839 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody2"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody2"]
+transform = Transform( 0.999999, 0, 0, 0, 49.6953, -0.000274101, 0, -2.29623e-07, 0.999999, 0, -48.4641, 2.38419e-07 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 4 )
+
+[node name="StaticBody3" type="StaticBody" parent="Spatial"]
+transform = Transform( 3.98386, 0, 0, 0, -1.08723e-08, -2.30564, 0, 0.0667335, -3.75637e-07, 0, 2.21121, 2.20827 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody3"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody3"]
+transform = Transform( 1, 0, 0, 0, 66.9116, -0.00037101, 0, -3.10806e-07, 0.999999, 0, 67.1754, -2.98023e-07 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody4" type="StaticBody" parent="Spatial"]
+transform = Transform( -6.49053e-07, -0.0667335, 0, -6.49053e-07, 1.77132e-15, -2.30564, 2.31535, -6.31878e-09, -2.18314e-07, 3.97801, 2.21121, -0.0527524 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody4"]
+transform = Transform( 1, -2.22045e-16, -7.10543e-15, -9.09495e-13, 1, 1.0842e-19, -2.84217e-14, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody4"]
+transform = Transform( 1, 2.085e-07, -5.68434e-14, 0.000743064, 77.3994, -1.95156e-18, -2.84217e-14, -1.56701e-20, 1, -2.04891e-07, -74.842, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody5" type="StaticBody" parent="Spatial"]
+transform = Transform( -6.49053e-07, -0.0667335, 0, -6.49053e-07, 1.77132e-15, -2.30564, 2.31535, -6.31878e-09, -2.18314e-07, -3.91883, 2.21121, -0.0527524 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody5"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody5"]
+transform = Transform( 1, 1.14549e-07, -5.68434e-14, 0.000408236, 42.9735, 2.05998e-18, -2.84217e-14, -8.09975e-21, 1, 0.00356834, 40.9003, 0.00785267 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody6" type="StaticBody" parent="Spatial"]
+transform = Transform( -0.00936096, 0, 0.735572, 0, 0.0498599, 0, -1.35958, 0, 0.0168492, 1.97249, 0.825306, -0.110626 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody6"]
+transform = Transform( 1, 0, 9.31323e-10, 0, 1, 0, 7.45058e-09, 0, 1, 0.00157434, -0.0548573, -0.00262547 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody6"]
+transform = Transform( 1, 0, 9.31323e-10, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="StaticBody8" type="StaticBody" parent="Spatial"]
+transform = Transform( -0.00522221, 0, 0.0630549, 0, 0.456286, 0, -0.0591717, 0, -0.000482102, 1.34135, 0.3226, -1.31835 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody8"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody8"]
+shape = SubResource( 7 )
+
+[node name="StaticBody11" type="StaticBody" parent="Spatial"]
+transform = Transform( -0.00522221, 0, 0.0630549, 0, 0.456286, 0, -0.0591717, 0, -0.000482102, 2.49036, 0.3226, -1.31835 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody11"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody11"]
+shape = SubResource( 7 )
+
+[node name="StaticBody9" type="StaticBody" parent="Spatial"]
+transform = Transform( -0.00522221, 0, 0.0630549, 0, 0.456286, 0, -0.0591717, 0, -0.000482102, 1.43315, 0.3226, 1.13805 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody9"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/StaticBody9"]
+shape = SubResource( 7 )
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( 0.191428, 0, 0, 0, -9.33891e-08, -0.649511, 0, 0.281843, -5.20296e-08, 0.832292, 0.823663, 0 )
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, -9.9476e-14, 0, 0, 1, 0, -1.06121e-07, -0.574857 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 3.72339e-09, 0, 2.90007e-09, 1.02017, 0.00534821, 0.000179153, -0.045173 )
+shape = SubResource( 10 )
+
+[node name="Movement" type="Spatial" parent="KinematicBody"]
+
+[node name="Camera" type="Camera" parent="KinematicBody/Movement"]
+transform = Transform( -0.220076, -2.0434, 4.80263, -3.54194, 0.192325, -0.0804762, -0.0630655, -1.41448, -0.604719, -1.25647, 0.032111, -1.4384 )
+fov = 42.4212
+far = 12.4
+
+[node name="Computer" type="StaticBody" parent="."]
+transform = Transform( 0.248338, 0, 0, 0, 0.203645, 0, 0, 0, 0.279261, 2.16216, 1.07602, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Computer"]
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Computer"]
+shape = SubResource( 12 )
+
+[node name="Area" type="Area" parent="Computer"]
+transform = Transform( 2.12123, 0, 0, 0, 1.03786, 0, 0, 0, 2.40782, 3.66399, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Computer/Area"]
+transform = Transform( 0.996145, 0, 0, 0, 0.996145, 0, 0, 0, 0.996145, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[node name="Label" type="Label" parent="Computer/Area"]
+visible = false
+margin_left = 451.438
+margin_top = 509.108
+margin_right = 567.438
+margin_bottom = 523.108
+text = "Press F to interact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="Computer/Area" to="KinematicBody" method="_on_Area_body_entered"]
+[connection signal="visibility_changed" from="Computer/Area/Label" to="KinematicBody" method="_on_Label_visibility_changed"]
