@@ -13,20 +13,20 @@ const MAX_SLOPE_ANGLE = 40
 
 var camera
 var rotation_helper
-onready var labeling = load("res://Area.gd").new()
 
 var MOUSE_SENSITIVITY = 0.05
+var label
 
 func _ready():
 	camera = $Movement/Camera
 	rotation_helper = $Movement
-
-
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 
 func _physics_process(delta):
 	process_input(delta)
 	process_movement(delta)
+	interaction()
 
 func process_input(delta):
 
@@ -100,13 +100,21 @@ func _input(event):
 
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
-		camera_rot.y = clamp(camera_rot.y, -20, 70)
+		camera_rot.y = clamp(camera_rot.y, -20, 20)
 		rotation_helper.rotation_degrees = camera_rot
 
-
 func _on_Area_body_entered(body):
-	labeling._ready()
-	print('You entered') # Replace with function body.
-	
+	label = $Label
+	if(body.get_name() == 'Player'):
+		label.visible = true
+		
+func _on_Area_body_exited(body):
+	label = $Label
+	if(body.get_name() == 'Player'):
+		label.visible = false
 
-	
+func interaction():
+	label = $Label
+	if(label.visible):
+		if Input.is_action_just_pressed("interact"):
+			get_tree().change_scene("res://ComputerScene.tscn")
