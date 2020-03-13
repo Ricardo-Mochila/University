@@ -7,6 +7,8 @@ import java.io.*;
 public class VeiculosClient implements java.io.Serializable{
 	private String address= "localhost";
 	private int sPort= 0;
+        
+        
 
 	public VeiculosClient(String add, int p) {
 		address= add;
@@ -15,6 +17,7 @@ public class VeiculosClient implements java.io.Serializable{
 
 
     public static void main(String[] args){
+                        
 	if (args.length < 2) {
 		System.err.println("Argumentos insuficientes:  java VeiculosClient ADDRESS PORT");
 		System.exit(1);

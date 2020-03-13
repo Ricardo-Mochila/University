@@ -100,7 +100,7 @@ func _input(event):
 
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
-		camera_rot.y = clamp(camera_rot.y, -20, 20)
+		camera_rot.y = clamp(camera_rot.y, -110, 20)
 		rotation_helper.rotation_degrees = camera_rot
 
 func _on_Area_body_entered(body):
