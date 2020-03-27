@@ -49,4 +49,8 @@ movement_jump={
 
 [rendering]
 
+threads/thread_model=2
+quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx=false
+quality/subsurface_scattering/scale=1
 environment/default_environment="res://default_env.tres"
