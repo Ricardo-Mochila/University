@@ -1,0 +1,106 @@
+[gd_scene load_steps=17 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.775362 )
+colors = PoolColorArray( 0.999512, 0, 0, 1, 0.94427, 0.964355, 0.376701, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+min_value = 0.12
+_data = [ Vector2( 0, 0.165 ), 0.0, 0.0, 0, 0, Vector2( 0.10559, 0.997 ), 0.504702, 0.504702, 0, 0, Vector2( 0.484472, 0.861 ), 0.0, 0.0, 0, 0, Vector2( 0.931677, 0.0625 ), -3.13636, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 0.02
+spread = 85.91
+gravity = Vector3( 0, 4, 0 )
+initial_velocity = 0.5
+initial_velocity_random = 0.55
+angular_velocity = 90.0
+angular_velocity_random = 0.84
+scale = 0.5
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.572549, 0.568627, 0.568627, 1 )
+
+[sub_resource type="Curve" id=9]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0.0559006, 52.3636 ), 0.0, 0.0, 0, 0, Vector2( 0.807453, 360 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
+
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0.0144928, 0.26087, 0.847826 )
+colors = PoolColorArray( 0.125, 0.117676, 0.117676, 0.403922, 0.121569, 0.121569, 0.121569, 0.619608, 0.968627, 0.968627, 0.968627, 0.0352941 )
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0.354037, 0.445455 ), 0.0, 0.0, 0, 0, Vector2( 0.987578, 0.118182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+lifetime_randomness = 0.08
+spread = 73.3
+flatness = 0.02
+gravity = Vector3( 0, 4, 0 )
+initial_velocity = 0.3
+initial_velocity_random = 0.5
+angular_velocity = 392.73
+angular_velocity_random = 0.96
+angular_velocity_curve = SubResource( 10 )
+radial_accel = 2.27
+radial_accel_random = 1.0
+angle = 65.5
+angle_random = 0.39
+scale_curve = SubResource( 14 )
+color_ramp = SubResource( 12 )
+
+[sub_resource type="QuadMesh" id=16]
+
+[node name="Fire" type="Spatial"]
+
+[node name="Flame" type="Particles" parent="."]
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="Smoke" type="Particles" parent="."]
+material_override = SubResource( 8 )
+lifetime = 1.6
+speed_scale = 1.36
+randomness = 0.06
+visibility_aabb = AABB( -4, -3.83838, -4, 8, 8, 8 )
+process_material = SubResource( 15 )
+draw_pass_1 = SubResource( 16 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 0.752941, 0.529412, 0.054902, 1 )
+light_energy = 5.96
+light_bake_mode = 0
