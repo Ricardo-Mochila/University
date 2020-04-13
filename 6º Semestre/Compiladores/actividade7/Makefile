@@ -1,19 +1,20 @@
 CC = clang
 CFLAGS = -g
-OUTFILE = ya!c
+OUTFILE = yalang.c
 LIBS = -lm
-
 OFILES = t_exp.o
 
-
-all: parser.c lexer.c parser.h
-	$(CC) $(CFLAGS) parser.c lexer.c -o $(OUTFILE) $(LIBS)
+all: lexer.c parser.c parser.h ya.o
+	$(CC) $(CFLAGS) parser.c lexer.c ya.o -o $(OUTFILE) $(LIBS)
 
 parser.c: yalang.y
 	bison -y -d $< -o $@ -r all
-
+	
 lexer.c: yalang.lex
 	flex -o $@ $<
+
+ya.o: ya.h ya.c
+	gcc $(CFLAGS) -c ya.c
 
 %.o: %.c %.h
 	$(CC) -c $(CFLAGS) -o $@ $<

@@ -32,7 +32,7 @@ public class PalavrasClient {
 	    System.out.println("1a: "+first);
 
 	    Vector<String> v= obj.divide(frase) ;
-	    System.out.println("divisao:");
+	    System.out.println("divisione:");
 
 	    for (int i=0; i<v.size();i++) {
 		System.out.println(i+" "+ v.get(i) );

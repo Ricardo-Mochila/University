@@ -1,4 +1,5 @@
 package so2.db;
+//http://g2pc1.bu.edu/~qzpeng/manual/MySQL%20Commands.htm comandos base dados
 
 import java.sql.ResultSet;
 import java.sql.Statement;

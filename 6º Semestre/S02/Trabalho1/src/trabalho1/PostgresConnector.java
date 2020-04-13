@@ -1,10 +1,10 @@
-package so2.db;
+package trabalho1;
 
 import java.sql.*;
 
 /**
  *
- * @author jsaias
+ * @author ricardomochila,
  */
 public class PostgresConnector {
 
@@ -26,8 +26,7 @@ public class PostgresConnector {
     public void connect() throws Exception {
         try {
             Class.forName("org.postgresql.Driver");
-            // url = "jdbc:postgresql://host:port/database",
-            con = DriverManager.getConnection("jdbc:postgresql://" + "localhost" + ":5432/" + PG_DB,USER,PWD);
+            con = DriverManager.getConnection("jdbc:postgresql://" + PG_HOST + ":5432/" + PG_DB,USER,PWD);
 
             stmt = con.createStatement();
 
