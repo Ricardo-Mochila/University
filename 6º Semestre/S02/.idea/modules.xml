@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Cifras/Cifras.iml" filepath="$PROJECT_DIR$/Cifras/Cifras.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaApplication1/JavaApplication1.iml" filepath="$PROJECT_DIR$/JavaApplication1/JavaApplication1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Paral04/Paral04.iml" filepath="$PROJECT_DIR$/Paral04/Paral04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S02.iml" filepath="$PROJECT_DIR$/S02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/a6b_veiculosJarP/a6b_veiculosJarP.iml" filepath="$PROJECT_DIR$/a6b_veiculosJarP/a6b_veiculosJarP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ativ3ser/ativ3ser.iml" filepath="$PROJECT_DIR$/ativ3ser/ativ3ser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aulaJAR/aulaJAR.iml" filepath="$PROJECT_DIR$/aulaJAR/aulaJAR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aulaRMInb_INICIAL/aulaRMInb_INICIAL.iml" filepath="$PROJECT_DIR$/aulaRMInb_INICIAL/aulaRMInb_INICIAL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbcNB_INICIAL/jdbcNB_INICIAL.iml" filepath="$PROJECT_DIR$/jdbcNB_INICIAL/jdbcNB_INICIAL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mavenproject1/mavenproject1.iml" filepath="$PROJECT_DIR$/mavenproject1/mavenproject1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/par3cc/par3cc.iml" filepath="$PROJECT_DIR$/par3cc/par3cc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/paral01/paral01.iml" filepath="$PROJECT_DIR$/paral01/paral01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/paral02/paral02.iml" filepath="$PROJECT_DIR$/paral02/paral02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/so2_jar_project/so2_jar_project.iml" filepath="$PROJECT_DIR$/so2_jar_project/so2_jar_project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/so2a02sockets/so2a02sockets.iml" filepath="$PROJECT_DIR$/so2a02sockets/so2a02sockets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/so2a4serv.conc/so2a4serv.conc.iml" filepath="$PROJECT_DIR$/so2a4serv.conc/so2a4serv.conc.iml" />
+    </modules>
+  </component>
+</project>

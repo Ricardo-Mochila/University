@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="so2-transf">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/so2_jar_project/dist/lib/so2-transf.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

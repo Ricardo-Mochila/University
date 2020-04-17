@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/enemy.obj-173ff4edee751d73e96cd9575144e506.mesh"
+
+[deps]
+
+files=[ "res://.import/enemy.obj-173ff4edee751d73e96cd9575144e506.mesh" ]
+
+source_file="res://texture/enemy.obj"
+dest_files=[ "res://.import/enemy.obj-173ff4edee751d73e96cd9575144e506.mesh", "res://.import/enemy.obj-173ff4edee751d73e96cd9575144e506.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

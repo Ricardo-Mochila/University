@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JavaApplication4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/so2_jar_project/dist/JavaApplication4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
