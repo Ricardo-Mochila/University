@@ -1,4 +1,4 @@
-/*
+/* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -12,7 +12,6 @@ import java.util.Scanner;
  * @author ricardomochila, inesverissimo
  */
 public class Client {
-
     public static void main(String args[]) {
         String regHost = "localhost";
         String regPort = "9000";  // porto do binder
@@ -25,53 +24,70 @@ public class Client {
         regHost= args[0];
         regPort= args[1];
         
+        
+        try {
+            
+            InvocationsInterface obj = (InvocationsInterface) java.rmi.Naming.lookup("rmi://" + regHost + ":" + regPort + "/Produtos");
+
+            menu(false);                                            //Para chamar o menu aqui precisa de ser static?
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            
+            Menu(true);
+            System.err.println("Problems finding product");
+        }
+    }
+
+    public void menu(bool excepcao)
+    {
         Scanner scanner = new Scanner(System.in);
         System.out.print("1 - Consultar Produto \n2 - Registar Produto e Loja \n3 - Necessidade de Produto \nSelecione uma opcao: ");
         int opcao = 0;
         try{
             opcao = scanner.nextInt();
+
         }catch(Exception e){
             System.out.println("Nao é uma opcao");
         }
-        try {
-            // objeto que fica associado ao proxy para objeto remoto
-            InvocationsInterface obj = (InvocationsInterface) java.rmi.Naming.lookup("rmi://" + regHost + ":" + regPort + "/Produtos");
 
-            // invocacao de metodos remotos
-            switch(opcao){
-                case 1:
-                    //if(!expecao)
+        switch(opcao){
+            case 1:
+                if(!excepcao)
+                {
                     System.out.print("Produto: ");
                     String produtoConsulta = scanner.next();;
                     String lista = obj.consultarProduto(produtoConsulta) ;
                     System.out.println("Lista:\n"+lista);
                     break;
-                    //else
-                    /* System.out.print("Produto: ");
-                    String produtoConsulta = scanner.next();;
-                    // neste momento não é possivel consultar os produtos
-                    System.out.println("Lista:\n"+lista);
-                    break; */
-
-                case 2:
+                }
+                else
+                {
+                    System.out.println("Neste momento não é possivel consultar os produtos.\n");
+                    break;
+                }
+    
+            case 2:
+                if(!excepcao)
+                {
                     System.out.print("Produto: ");
                     String produto = scanner.next();;
                     System.out.print("Loja: ");
                     String loja = scanner.next();
-
+        
                     obj.registarProduto(produto, loja) ;
                     System.out.println("Registou: "+produto +" "+loja);
                     break;
-
-                    //else
-                    /* System.out.print("Produto: ");
-                    String produto = scanner.next();;
-                    System.out.print("Loja: ");
-                    String loja = scanner.next();*/
-
-                    // neste momento não é possivel registar, mas assim que se estabelecer a ligaçao se registado
-                
-                case 3:
+                }
+                else
+                {
+                    System.out.println("Neste momento não é possivel realizar o registo, será registado assim que se restabelecer a ligação.\n");
+                    break;
+                }
+            
+            case 3:
+                if(!excepcao)
+                {
                     System.out.print("Produto: ");
                     String produtoFalta = scanner.next();
                     String procura = obj.consultarProduto(produtoFalta) ;
@@ -89,21 +105,15 @@ public class Client {
                         System.out.println("Lista:\n"+registaNecessidadeGeral);
                         break;
                     }
-                default:
-                    System.out.print("Nao é uma opcao");    
+                else
+                {
+                    System.out.println("Neste momento não é possivel registar a sua necessidade,será feito o registo assim que se restabelecer a ligação.\n");
+                    break;
+                }
+                }
+            default:
+                System.out.print("Nao é uma opcao");    
     
-            }
-            
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            System.err.println("Problems finding product");
         }
     }
 }
-
-//----------------------- to do ------------------------------------ 
-// Meter switch dentro de uma funçao
-// Chamar a funçao normalmente
-// Chamar a funçao quando dá excepçao
-// A funçao recebe um parametro para saber se deu execpçao ao nao
