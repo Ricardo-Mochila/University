@@ -73,7 +73,7 @@ public class Invocations extends UnicastRemoteObject implements InvocationsInter
             try{
                 result = stmt.executeQuery("Select * from produto where nome = LOWER('"+produto+"');");
                 while (result.next()) {
-                    output += "produto existente na loja: " +result.getString(2) + "\n";
+                    output += "O pedido está registado para a loja " + loja + " mas existe na loja "+result.getString(2) + ".\n";
                 }
                 return output;
             }
@@ -84,7 +84,7 @@ public class Invocations extends UnicastRemoteObject implements InvocationsInter
         }
         catch (Exception e) {
             e.printStackTrace();
-            System.err.println("Problems findingryfhgfgh product");
+            System.err.println("Problems finding product");
         }
        return null;
     }

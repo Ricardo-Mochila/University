@@ -40,11 +40,18 @@ public class Client {
             // invocacao de metodos remotos
             switch(opcao){
                 case 1:
+                    //if(!expecao)
                     System.out.print("Produto: ");
                     String produtoConsulta = scanner.next();;
                     String lista = obj.consultarProduto(produtoConsulta) ;
                     System.out.println("Lista:\n"+lista);
                     break;
+                    //else
+                    /* System.out.print("Produto: ");
+                    String produtoConsulta = scanner.next();;
+                    // neste momento não é possivel consultar os produtos
+                    System.out.println("Lista:\n"+lista);
+                    break; */
 
                 case 2:
                     System.out.print("Produto: ");
@@ -56,6 +63,13 @@ public class Client {
                     System.out.println("Registou: "+produto +" "+loja);
                     break;
 
+                    //else
+                    /* System.out.print("Produto: ");
+                    String produto = scanner.next();;
+                    System.out.print("Loja: ");
+                    String loja = scanner.next();*/
+
+                    // neste momento não é possivel registar, mas assim que se estabelecer a ligaçao se registado
                 
                 case 3:
                     System.out.print("Produto: ");
@@ -83,6 +97,13 @@ public class Client {
 
         } catch (Exception ex) {
             ex.printStackTrace();
+            System.err.println("Problems finding product");
         }
     }
 }
+
+//----------------------- to do ------------------------------------ 
+// Meter switch dentro de uma funçao
+// Chamar a funçao normalmente
+// Chamar a funçao quando dá excepçao
+// A funçao recebe um parametro para saber se deu execpçao ao nao

@@ -1,0 +1,6 @@
+pg_ctl -D /usr/local/var/postgres start
+psql Produtos -U Admin -h localhost
+
+ant compile jar
+java -classpath dist/Trabalho1.jar trabalho1.Client localhost 9000 cenas
+java -classpath dist/Trabalho1.jar trabalho1.Server 9000
