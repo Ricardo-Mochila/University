@@ -18,7 +18,6 @@ public class Server {
 	    System.out.println("Usage: java so2.rmi.PalavrasServer registryPort");
 	    System.exit(1);
 	}
-	
 
 	try {
 	    regPort=Integer.parseInt(args[0]);
@@ -32,7 +31,9 @@ public class Server {
 
 	    System.out.println("Bound RMI object in registry");
 
-            System.out.println("servidor pronto");
+		System.out.println("servidor pronto");
+		
+
 	} 
 	catch (Exception ex) {
 	    ex.printStackTrace();
