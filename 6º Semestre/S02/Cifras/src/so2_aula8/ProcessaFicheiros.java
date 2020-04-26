@@ -21,8 +21,7 @@ public class ProcessaFicheiros {
 	    System.exit(1);
 	}
 
-	System.out.println("vou passar dados de ("+args[0]+
-			   ") para ("+ args[1]+")\n");
+	System.out.println("vou passar dados de ("+args[0]+") para ("+ args[1]+")\n");
 
 	ProcessaFicheiros pf= new ProcessaFicheiros(args[0], args[1]);
 	pf.passaDados();
@@ -41,7 +40,7 @@ public class ProcessaFicheiros {
 	int lidos;
 
 	try {
-	    FileInputStream fis= new FileInputStream(inFile);
+	    FileInputStream fis= new FileInputStream( );
 	    FileOutputStream fos= new FileOutputStream(outFile);
 	    
 	    lidos= fis.read(b);

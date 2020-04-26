@@ -5206,7 +5206,7 @@ material/0 = null
 material/1 = null
 
 [node name="mainCharacter" type="MeshInstance" parent="."]
-transform = Transform( 1.37069, 0, 0, 0, 1.26405, 0, 0, 0, 1.14291, 5.38652, 0.126276, -3.42503 )
+transform = Transform( 1.37069, 0, 0, 0, 0.256052, 1.11922, 0, -1.23784, 0.231514, 5.38652, 0.126276, -3.42503 )
 mesh = ExtResource( 12 )
 material/0 = SubResource( 13 )
 material/1 = SubResource( 14 )
@@ -5247,7 +5247,7 @@ method_call_mode = 1
 anims/naziMilitar1 = SubResource( 20 )
 
 [node name="bullet" parent="naziMilitar2" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0660496, 1.14644, 0.761426 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0660498, 1.14644, 0.761426 )
 
 [node name="naziMilitar4" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.19986, 0, 0.0183882, 0, 1.2, 0, -0.0183882, 0, -1.19986, 1.97986, 0.125, 11.6554 )

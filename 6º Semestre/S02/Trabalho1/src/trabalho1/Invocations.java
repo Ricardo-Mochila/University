@@ -9,8 +9,14 @@ import java.sql.SQLException;
 public class Invocations extends UnicastRemoteObject implements InvocationsInterface, java.io.Serializable {
 
     // deve existir um construtor
-    public Invocations() throws java.rmi.RemoteException {
+    String database;
+    String user;
+    String password;
+    public Invocations(String database, String user, String password) throws java.rmi.RemoteException {
         super();
+        this.database = database;
+        this.user = user;
+        this.password = password;
     }
     
     /**
@@ -22,13 +28,13 @@ public class Invocations extends UnicastRemoteObject implements InvocationsInter
      */
     
     public void registarProduto(String produto, String loja) throws java.rmi.RemoteException, Exception{
-        PostgresConnector pc = new PostgresConnector( "localhost", "Produtos", "Admin", "123");
+        PostgresConnector pc = new PostgresConnector( "localhost", database, user, password);
         
         pc.connect();
         Statement stmt = pc.getStatement();
         try{
             stmt.executeUpdate("Create table produto(nome varchar(30), loja varchar(30));");
-            System.out.println("Foi creada a tabela de necessidades");
+            System.out.println("Foi criada a tabela de necessidades");
 
         }catch(Exception e){
             System.out.println("Tabela ja existe");
@@ -51,7 +57,7 @@ public class Invocations extends UnicastRemoteObject implements InvocationsInter
     }
 
     public String consultarProduto(String produto) throws java.rmi.RemoteException, Exception{
-        PostgresConnector pc = new PostgresConnector( "localhost", "Produtos", "Admin", "123");
+        PostgresConnector pc = new PostgresConnector( "localhost", database, user, password);
         
         pc.connect();
         Statement stmt = pc.getStatement();
@@ -65,7 +71,7 @@ public class Invocations extends UnicastRemoteObject implements InvocationsInter
                 output += "- " + result.getString(1) + " na loja " +result.getString(2) + "\n";
             }
             if(output == ""){
-                return null;
+                return "Nao foi encontrado o produto";
             }
             return output;
         }
@@ -77,7 +83,7 @@ public class Invocations extends UnicastRemoteObject implements InvocationsInter
 
     public String necessidadeProduto(String produto, String loja) throws java.rmi.RemoteException, Exception{
         
-        PostgresConnector pc = new PostgresConnector( "localhost", "Produtos", "Admin", "123");
+        PostgresConnector pc = new PostgresConnector( "localhost", database, user, password);
         
         pc.connect();
         Statement stmt = pc.getStatement();
@@ -107,7 +113,7 @@ public class Invocations extends UnicastRemoteObject implements InvocationsInter
     }
 
     public int necessidadeGeral(String produto, int id) throws java.rmi.RemoteException, Exception{
-        PostgresConnector pc = new PostgresConnector( "localhost", "Produtos", "Admin", "123");
+        PostgresConnector pc = new PostgresConnector( "localhost", database, user, password);
         
         pc.connect();
         Statement stmt = pc.getStatement();
@@ -139,7 +145,7 @@ public class Invocations extends UnicastRemoteObject implements InvocationsInter
 
     public String checkUpdates(int id) throws java.rmi.RemoteException, Exception{
 
-        PostgresConnector pc = new PostgresConnector( "localhost", "Produtos", "Admin", "123");
+        PostgresConnector pc = new PostgresConnector( "localhost", database, user, password);
         
         pc.connect();
         Statement stmt = pc.getStatement();
@@ -166,7 +172,7 @@ public class Invocations extends UnicastRemoteObject implements InvocationsInter
 
     public boolean check(int id) throws java.rmi.RemoteException, Exception{
 
-        PostgresConnector pc = new PostgresConnector( "localhost", "Produtos", "Admin", "123");
+        PostgresConnector pc = new PostgresConnector( "localhost", database, user, password);
         
         pc.connect();
         Statement stmt = pc.getStatement();

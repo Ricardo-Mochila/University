@@ -14,7 +14,7 @@ public class Server {
 
 	int regPort= 1099; 
 
-	if (args.length !=1) { 
+	if (args.length !=4) { 
 	    System.out.println("Usage: java so2.rmi.PalavrasServer registryPort");
 	    System.exit(1);
 	}
@@ -22,7 +22,7 @@ public class Server {
 	try {
 	    regPort=Integer.parseInt(args[0]);
 
-	    InvocationsInterface obj= new Invocations();
+	    InvocationsInterface obj= new Invocations(args[1], args[2], args[3]);
         java.rmi.registry.LocateRegistry.createRegistry(regPort);            
             
 	    java.rmi.registry.Registry registry = java.rmi.registry.LocateRegistry.getRegistry(regPort);

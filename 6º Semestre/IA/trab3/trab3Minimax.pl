@@ -1,5 +1,9 @@
 % cada posicao pode ter "x", "o" ou "v" (vazio)
-estado_inicial([[v,v,v,v,v],[v,v,v,v,v],[v,o,v,o,x],[v,o,v,x,x]]).
+estado_inicial([
+		[v,v,v,v,v],
+		[v,v,v,v,v],
+		[x,o,x,o,x],
+		[o,x,o,x,o]]).
 
 %estado_inicial([[v,v,v],[v,v,v],[v,v,v]]).
 
@@ -141,7 +145,7 @@ minimax_valor(Ei,Val,_) :-
 % -se aprofundidade é impar o menor valor dos sucessores de Ei
 minimax_valor(Ei,Val,P) :- 
 	P1 is P+1, jogador(P1,J),
-	findall(Val1, (oper(Ei,J,_,Es), minimax_valor(Es,Val1,P1)), V),
+	findall(Val1, (oper(Ei,J,_,Es, ), minimax_valor(Es,Val1,P1)), V),
 	seleciona_valor(V,P,Val).
 
 

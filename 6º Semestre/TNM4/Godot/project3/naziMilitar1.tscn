@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://texture/naziMilitar1.glb" type="PackedScene" id=1]
+[ext_resource path="res://texture/naziCharacter.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.67451, 0.588235, 0.231373, 1 )
@@ -9,6 +13,9 @@ metallic_specular = 0.0
 roughness = 0.24
 
 [node name="naziMilitar1" instance=ExtResource( 1 )]
+
+[node name="Cube" parent="rig/Skeleton" index="0"]
+material/0 = SubResource( 1 )
 
 [node name="Sphere" parent="." index="4"]
 transform = Transform( 0.999918, 0.00188211, -0.0126609, -0.00125778, 0.998791, 0.0491404, 0.0127381, -0.0491204, 0.998712, 0.00180913, 1.57331, 0.0310851 )

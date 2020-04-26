@@ -1,5 +1,10 @@
 % cada posicao pode ter "x", "o" ou "v" (vazio)
-estado_inicial([[v,v,v,v,v],[v,v,v,v,v],[v,o,v,o,x],[v,o,v,x,x]]).
+estado_inicial([
+		[v,v,v,v,v],
+		[v,v,v,v,v],
+		[x,o,x,o,x],
+		[o,x,o,x,o]]).
+
 
                 
 %estado_inicial([[v,v,v],[v,v,v],[v,v,v]]).
