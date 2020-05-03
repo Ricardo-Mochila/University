@@ -1,0 +1,73 @@
+
+import java_cup.runtime.*;
+
+action code {:
+  // cria uma instancia da maquina
+  TISC maquina = new TISC();
+:} ;
+
+parser code {:
+  Yylex lexer;
+
+  public void report_error(String message, Object error_info) {
+    Symbol info = (Symbol) error_info;
+
+    System.err.print("** " + message);
+    System.err.println(" at `" + info.value + "' in position " + info.left
+		       + " **");
+  }
+
+  public void report_fatal_error(String message, Object error_info) {
+    System.err.println("** " + message);
+  }
+:} ;
+
+init with {: lexer = new Yylex(System.in); :} ;
+
+scan with {: return lexer.yylex(); :} ;
+
+terminal        ADD, SUB, MULT, DIV, MOD, EXP ;
+terminal        PUSH_INT, PUSH_VAR, STORE_VAR, PUSH_ARG, STORE_ARG ;
+terminal        SET_ARG, CALL, LOCALS, RETURN ;
+terminal        JUMP, JEQ, JLT ;
+terminal        PRINT, PRINT_STR, PRINT_NL ;
+terminal String IDENTIFICADOR ;
+terminal String	STRING, INTEIRO;
+terminal        DOIS_PONTOS;
+terminal	    ERRO ;
+
+non terminal TISC programa ;
+non terminal      etiqueta, instrucao ;
+ 
+programa ::= programa etiqueta instrucao
+	       {: RESULT = maquina; :}
+         |
+	 ;
+
+etiqueta ::= IDENTIFICADOR:e DOIS_PONTOS  {: maquina.addLabel(new Etiqueta(e)); :}
+	 |
+	 ;
+
+instrucao ::= 
+	      ADD				                    {: maquina.addInsctruction(new Add()); :}
+	  |   SUB                                   {: maquina.addInsctruction(new Sub()); :}
+	  |   MULT                                  {: maquina.addInsctruction(new Mult()); :}
+	  |   DIV                                   {: maquina.addInsctruction(new Div()); :}
+	  |   MOD                                   {: maquina.addInsctruction(new Mod()); :}
+	  |   EXP                                   {: maquina.addInsctruction(new Exp()); :}
+	  |   PUSH_INT INTEIRO:i                    {: maquina.addInsctruction(new Push_Int(Integer.parseInt(i))); :}
+	  |   PUSH_VAR INTEIRO:d INTEIRO:n          {: maquina.addInsctruction(new Push_Var(Integer.parseInt(d),Integer.parseInt(n))); :}
+	  |   PUSH_ARG INTEIRO:d INTEIRO:n          {: maquina.addInsctruction(new Push_Arg(Integer.parseInt(d),Integer.parseInt(n))); :}
+	  |   STORE_VAR INTEIRO:d INTEIRO:n         {: maquina.addInsctruction(new Store_Var(Integer.parseInt(d),Integer.parseInt(n))); :}
+	  |   STORE_ARG INTEIRO:d INTEIRO:n         {: maquina.addInsctruction(new Store_Arg(Integer.parseInt(d),Integer.parseInt(n))); :}
+	  |   SET_ARG INTEIRO:n                     {: maquina.addInsctruction(new Set_Arg(Integer.parseInt(n))); :}
+      |   CALL INTEIRO:d IDENTIFICADOR:p        {: maquina.addInsctruction(new Call(Integer.parseInt(d), new Etiqueta(p))); :}
+	  |   LOCALS INTEIRO:a INTEIRO:v            {: maquina.addInsctruction(new Locals(Integer.parseInt(a),Integer.parseInt(v))); :}
+	  |   RETURN                                {: maquina.addInsctruction(new Return()); :}
+	  |   JUMP IDENTIFICADOR:e                  {: maquina.addInsctruction(new Jump(new Etiqueta(e))); :}
+	  |   JEQ IDENTIFICADOR:e                   {: maquina.addInsctruction(new Jeq(new Etiqueta(e))); :}
+	  |   JLT IDENTIFICADOR:e                   {: maquina.addInsctruction(new Jlt(new Etiqueta(e))); :}
+	  |   PRINT                                 {: maquina.addInsctruction(new Print()); :}
+	  |   PRINT_STR STRING:s                    {: maquina.addInsctruction(new Print_String(s)); :}
+	  |   PRINT_NL                              {: maquina.addInsctruction(new Print_NL()); :}
+	  ;

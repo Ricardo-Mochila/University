@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/tissuePaper.obj-70d89fd0c85ccdf4393e003fddebc03e.mesh"
+
+[deps]
+
+files=[ "res://.import/tissuePaper.obj-70d89fd0c85ccdf4393e003fddebc03e.mesh" ]
+
+source_file="res://texture/tissuePaper.obj"
+dest_files=[ "res://.import/tissuePaper.obj-70d89fd0c85ccdf4393e003fddebc03e.mesh", "res://.import/tissuePaper.obj-70d89fd0c85ccdf4393e003fddebc03e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
