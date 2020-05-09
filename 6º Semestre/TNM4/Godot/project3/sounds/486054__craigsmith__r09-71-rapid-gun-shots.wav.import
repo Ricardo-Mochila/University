@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/486054__craigsmith__r09-71-rapid-gun-shots.wav-4f2b3adb33dd7603290cd12257bc64da.sample"
+
+[deps]
+
+source_file="res://sounds/486054__craigsmith__r09-71-rapid-gun-shots.wav"
+dest_files=[ "res://.import/486054__craigsmith__r09-71-rapid-gun-shots.wav-4f2b3adb33dd7603290cd12257bc64da.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
