@@ -15,7 +15,7 @@ public class Server {
 	int regPort= 1099; 
 
 	if (args.length !=4) { 
-	    System.out.println("Usage: java so2.rmi.Server registryPort");
+	    System.out.println("Usage: java so2.rmi.PalavrasServer registryPort");
 	    System.exit(1);
 	}
 
