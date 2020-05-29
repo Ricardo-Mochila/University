@@ -71,7 +71,7 @@ public class Invocations extends UnicastRemoteObject implements InvocationsInter
                 output += "- " + result.getString(1) + " na loja " +result.getString(2) + "\n";
             }
             if(output == ""){
-                return null;
+                return "Nao foi encontrado o produto";
             }
             return output;
         }

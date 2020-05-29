@@ -31,6 +31,7 @@ public class LocalDatabase {
         }
         catch (ClassNotFoundException cnfe) {
             System.err.println("PROBLEMA por não encontrar uma classe! Veja se tem o driver na classpath!");
+            System.err.println("Adicionar hsqldb.jar na secção Libraries");
         }
         catch (SQLException se) {
             System.err.println("PROBLEMA com o ACESSO à BD: "+se);
