@@ -13,7 +13,12 @@ public class Jlt extends Instrucao {
     @Override
     public void execute()
     {
+        int value2 = stackOfEvaluation.pop();
+        int value1 = stackOfEvaluation.pop();
 
+        if(value1 < value2){
+            //programCounter = labels.get(etiqueta);
+        }
     }
 
     @Override

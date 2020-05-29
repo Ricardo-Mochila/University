@@ -1,4 +1,4 @@
-
+import java.awt.image.TileObserver;
 
 public class Push_Int extends Instrucao {
 
@@ -14,7 +14,7 @@ public class Push_Int extends Instrucao {
     @Override
     public void execute()
     {
-
+        stackOfEvaluation.push(number);
     }
 
     @Override

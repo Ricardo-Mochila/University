@@ -48,7 +48,7 @@ rdcheckDiagonal(_, DIM, _, DIM).
 rdcheckDiagonal(_, _, DIM, DIM).
 rdcheckDiagonal(TAB, ROW, COL, DIM) :- ROW < DIM, COL < DIM, ROW1 is ROW +1 ,COL1 is COL +1 ,
                                             valueOfPos(TAB, ROW1, COL1, E), E == 0, rdcheckDiagonal(TAB, ROW1, COL1, DIM).
-
+											
 checkDiagonals(TAB, ROW, COL, DIM) :-lucheckDiagonal(TAB, ROW, COL, DIM), ldcheckDiagonal(TAB, ROW, COL, DIM), rucheckDiagonal(TAB, ROW, COL, DIM), rdcheckDiagonal(TAB, ROW, COL, DIM).
 
 
@@ -63,7 +63,6 @@ alterMatrix(TAB, pos(ROW,COL), RETAB, 1, DIM) :- op(TAB, pos(ROW,COL), _, 1, DIM
 countNumberOfQueens([], _, 0).
 countNumberOfQueens([A|As], DIM, VAL) :- countNumberOfQueens(As, DIM, VAL1), count(A, VALUE1), VAL is VALUE1 + VAL1.
 
-heur(TAB, DIM, E) :- estado_final(TAB, DIM), E is 0.
 heur(TAB, DIM, E) :- countNumberOfQueens(TAB, DIM, X), E is DIM - X.
 %hill climb
 
@@ -87,5 +86,4 @@ obtem_no([_|T], H1) :- obtem_no(T, H1).
 
 pesquisa :- write('Number of Queens: '), read(DIM), make_num_matrix(DIM, Matrix), pesquisa_local_hill_climbingSemCiclos(Matrix, [], DIM, DIM).
 
-
-
+clock :- time(pesquisa).

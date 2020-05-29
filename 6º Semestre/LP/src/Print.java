@@ -7,7 +7,8 @@ public class Print extends Instrucao{
 
     @Override
     public void execute(){
-
+        int toPrint = stackOfEvaluation.pop();
+        System.out.println(toPrint);
     }
 
     @Override

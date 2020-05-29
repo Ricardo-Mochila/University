@@ -1,0 +1,10 @@
+push_int 10
+push_int 7
+sub
+push_int 2
+cenas: mult
+    push_int 4
+mod
+sal: push_int 2
+    exp
+jump sal

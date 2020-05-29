@@ -7,7 +7,7 @@ public class Print_String extends Instrucao{
 
     @Override
     public void execute(){
-
+        System.out.println(stringToPrint);
     }
 
     @Override

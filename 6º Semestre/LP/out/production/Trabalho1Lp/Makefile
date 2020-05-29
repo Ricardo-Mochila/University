@@ -60,3 +60,6 @@ clean:
 
 run:
 	CLASSPATH=$(JCLASSPATH) $(JAVA) $(JAVAFLAGS) Main
+
+
+

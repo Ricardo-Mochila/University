@@ -7,41 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bceb4d5-dc70-49fe-b0f9-b54d1e242cde" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../1ºSemestre/Alga/Algebra 2015:2016.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/Compiladores/actividade7/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/Compiladores/actividade7/ya.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/Compiladores/actividade7/ya.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/Compiladores/actividade7/yalang.lex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/Compiladores/actividade7/yalang.y" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/S02/mavenproject1/nbactions.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/S02/mavenproject1/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/S02/mavenproject1/src/main/java/com/mycompany/mavenproject1/NewClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/S02/mavenproject1/src/main/java/com/mycompany/mavenproject1/NewClass2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/S02/mavenproject1/src/main/java/com/mycompany/mavenproject1/insertionSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/LP/Trabalho1/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/LP/Trabalho1/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/LP/Trabalho1/regact.cup" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/LP/Trabalho1/regact.lex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/.import/Cube.png-27a552f73ea4eb5931d1b70bd77974a0.etc2.stex" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/.import/Cube.png-27a552f73ea4eb5931d1b70bd77974a0.etc2.stex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/.import/Cube.png-27a552f73ea4eb5931d1b70bd77974a0.md5" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/.import/Cube.png-27a552f73ea4eb5931d1b70bd77974a0.md5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/.import/Cube.png-27a552f73ea4eb5931d1b70bd77974a0.s3tc.stex" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/.import/Cube.png-27a552f73ea4eb5931d1b70bd77974a0.s3tc.stex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/.import/Cube.png-27a552f73ea4eb5931d1b70bd77974a0.stex" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/.import/Cube.png-27a552f73ea4eb5931d1b70bd77974a0.stex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/MainScene.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/MainScene.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/Player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/Player.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/beautiful-cloudy-sky-panoramic-composition-260nw-96801931.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/beautiful-cloudy-sky-panoramic-composition-260nw-96801931.jpg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_AO_2k.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_AO_2k.jpg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_Nor_2k.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_Nor_2k.jpg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_bump_2k.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_bump_2k.jpg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_diff_2k.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_diff_2k.jpg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_disp_2k.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_disp_2k.jpg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_rough_2k.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_rough_2k.jpg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_spec_2k.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/brown_mud_leaves_01_spec_2k.jpg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/sunset-sky-panorama-clouds-summer-fleece-summer-evening-good-weather-background-91493194.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/sunset-sky-panorama-clouds-summer-fleece-summer-evening-good-weather-background-91493194.jpg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/triangle-low-poly-polygonal-background-blue-mountain-range-vector-panorama-63826567.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/triangle-low-poly-polygonal-background-blue-mountain-range-vector-panorama-63826567.jpg.import" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/yellow-low-poly-mountain-landscape-d-render-illustration-abstract-random-low-polygon-landscape-mountains-panorama-sky-160628632.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/texture/yellow-low-poly-mountain-landscape-d-render-illustration-abstract-random-low-polygon-landscape-mountains-panorama-sky-160628632.jpg.import" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/naziMilitar1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/Godot/project3/naziMilitar1.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/blender/cigarreira.blend" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/blender/cigarreira.blend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/blender/cigarreira.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/blender/cigarreira.blend1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/blender/mainCharacter1.blend" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/blender/mainCharacter1.blend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../6º Semestre/TNM4/blender/mainCharacter1.blend1" beforeDir="false" afterPath="$PROJECT_DIR$/../../../6º Semestre/TNM4/blender/mainCharacter1.blend1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,11 +36,16 @@
   </component>
   <component name="ProjectId" id="1WGDjU3lAh2e3LAwpVtCHfGQ2PI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Developer/Decsis" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../6º Semestre/LP/src" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
@@ -160,6 +143,7 @@
       <workItem from="1578767177867" duration="36000" />
       <workItem from="1579776664343" duration="28000" />
       <workItem from="1587080470412" duration="26000" />
+      <workItem from="1588412757885" duration="57000" />
     </task>
     <servers />
   </component>
@@ -180,10 +164,14 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="655" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1587080497618">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1588412819346">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="655" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1050/1920.0.1440.870@0.0.1920.1050" timestamp="1587080497618" />
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1440.870@0.0.1920.1050" timestamp="1588412819346" />
+    <state x="655" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1588412756059">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="655" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1050/1920.0.1440.870@0.0.1920.1050" timestamp="1588412756059" />
   </component>
   <component name="masterDetails">
     <states>

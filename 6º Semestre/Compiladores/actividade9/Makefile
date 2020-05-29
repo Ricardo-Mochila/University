@@ -1,6 +1,6 @@
 CC = clang
 CFLAGS = -g
-OUTFILE = yalang.c
+OUTFILE = yaout
 LIBS = -lm
 OFILES = t_exp.o
 

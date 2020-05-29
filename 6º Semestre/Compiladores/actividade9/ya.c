@@ -136,7 +136,6 @@ struct d_decl_
 
     union {
         d_decl decl;
-        d_decls decls;
         struct
         {
             i_ids id_list;
@@ -245,7 +244,7 @@ struct s_stms_
 
 d_decls d_decls_new(d_decl decl, d_decls decls)
 {
-    d_decls ret = (d_decls )malloc(sizeof(d_decls));
+    d_decls ret = malloc(sizeof(struct d_decls_));
     if (decls)
     {
         ret->kind = DECLS_LIST;
@@ -261,7 +260,7 @@ d_decls d_decls_new(d_decl decl, d_decls decls)
 
 d_decl d_decl_new_init(i_ids id_list, t_type type)
 {
-    d_decl ret = (d_decl)malloc(sizeof(d_decl));
+    d_decl ret = malloc(sizeof(struct d_decl_));
 
     ret->kind = DECL_INIT;
     ret->u.init.id_list = id_list;
@@ -272,7 +271,7 @@ d_decl d_decl_new_init(i_ids id_list, t_type type)
 
 d_decl d_decl_new_assign(i_ids id_list, t_type type, e_exp exp)
 {
-    d_decl ret = (d_decl)malloc(sizeof(d_decl));
+    d_decl ret = malloc(sizeof(struct d_decl_));
 
     ret->kind = DECL_ASSING;
     ret->u.assing.id_list = id_list;
@@ -284,10 +283,10 @@ d_decl d_decl_new_assign(i_ids id_list, t_type type, e_exp exp)
 
 d_decl d_decl_new_func(char *id, a_argdefs argdefs, t_type type, s_stms stms)
 {
-    d_decl ret = (d_decl)malloc(sizeof(d_decl));
+    d_decl ret = malloc(sizeof(struct d_decl_));
 
     ret->kind = DECL_FUNC;
-    strcpy(ret->u.func.id, id);
+    ret->u.func.id = id;
     ret->u.func.type = type;
     ret->u.func.argdefs = argdefs;
     ret->u.func.stms = stms;
@@ -297,10 +296,10 @@ d_decl d_decl_new_func(char *id, a_argdefs argdefs, t_type type, s_stms stms)
 
 d_decl d_decl_new_define(char *id, t_type type)
 {
-    d_decl ret = (d_decl)malloc(sizeof(d_decl));
+    d_decl ret = malloc(sizeof(struct d_decl_));
 
     ret->kind = DECL_DEFINE;
-    strcpy(ret->u.define.id, id);
+    ret->u.define.id = id;
     ret->u.define.type = type;
 
     return ret;
@@ -308,7 +307,7 @@ d_decl d_decl_new_define(char *id, t_type type)
 
 a_argdefs a_argdefs_new(a_argdef argdef, a_argdefs argdefs)
 {
-    a_argdefs ret = (a_argdefs)malloc(sizeof(a_argdefs));
+    a_argdefs ret = malloc(sizeof(struct a_argdefs_));
 
     ret->u.argdef = argdef;
     ret->u.argdefs = argdefs;
@@ -323,9 +322,9 @@ a_argdefs a_argdefs_new(a_argdef argdef, a_argdefs argdefs)
 
 a_argdef a_argdef_new(char *id, t_type type)
 {
-    a_argdef ret = (a_argdef)malloc(sizeof(a_argdef));
+    a_argdef ret = malloc(sizeof(struct a_argdef_));
 
-    strcpy(ret->id, id);
+    ret->id = id;
     ret->type = type;
 
     return ret;
@@ -333,7 +332,7 @@ a_argdef a_argdef_new(char *id, t_type type)
 
 a_args a_args_new(e_exp exp, a_args args)
 {
-    a_args ret = (a_args)malloc(sizeof(a_args));
+    a_args ret = malloc(sizeof(struct a_args_));
     ret->u.exp = exp;
     ret->u.args = args;
 
@@ -346,15 +345,15 @@ a_args a_args_new(e_exp exp, a_args args)
 
 i_ids i_ids_new(char *id, i_ids id_list)
 {
-    i_ids ret = (i_ids)malloc(sizeof(i_ids));
-    strcpy(ret->id, id);
+    i_ids ret = malloc(sizeof(struct i_ids_));
+    ret->id = id;
     ret->id_list = id_list;
     return ret;
 }
 
 s_stms s_stms_new(s_stm stm, s_stms stms)
 {
-    s_stms ret = (s_stms)malloc(sizeof(s_stms));
+    s_stms ret = malloc(sizeof(struct s_stms_));
 
     ret->u.stm = stm;
     ret->u.stms = stms;
@@ -369,7 +368,7 @@ s_stms s_stms_new(s_stm stm, s_stms stms)
 
 s_stm s_stm_new_decl(d_decl decl)
 {
-    s_stm ret = (s_stm)malloc(sizeof(s_stm));
+    s_stm ret = malloc(sizeof(struct s_stm_));
 
     ret->kind = STM_DECL;
     ret->u.decl = decl;
@@ -378,14 +377,14 @@ s_stm s_stm_new_decl(d_decl decl)
 }
 s_stm s_stm_new_exp(e_exp exp)
 {
-    s_stm ret = (s_stm)malloc(sizeof(s_stm));
+    s_stm ret = malloc(sizeof(struct s_stm_));
     ret->kind = STM_EXP;
     ret->u.exp = exp;
     return ret;
 }
 s_stm s_stm_new_return(e_exp exp)
 {
-    s_stm ret = (s_stm)malloc(sizeof(ret));
+    s_stm ret = malloc(sizeof(struct s_stm_));
 
     ret->kind = STM_RETURN;
     ret->u.returnType = exp;
@@ -394,7 +393,7 @@ s_stm s_stm_new_return(e_exp exp)
 }
 s_stm s_stm_new_if_else(e_exp exp, s_stms then_stms, s_stms else_stms)
 {
-    s_stm ret = (s_stm)malloc(sizeof(ret));
+    s_stm ret = malloc(sizeof(struct s_stm_));
 
     ret->kind = STM_IF_ELSE;
     ret->u.if_else.exp = exp;
@@ -405,7 +404,7 @@ s_stm s_stm_new_if_else(e_exp exp, s_stms then_stms, s_stms else_stms)
 }
 s_stm s_stm_new_while(e_exp exp, s_stms while_stms)
 {
-    s_stm ret = (s_stm)malloc(sizeof(ret));
+    s_stm ret = malloc(sizeof(struct s_stm_));
 
     ret->kind = STM_WHILE;
     ret->u.while_.exp = exp;
@@ -416,7 +415,7 @@ s_stm s_stm_new_while(e_exp exp, s_stms while_stms)
 
 s_stm s_stm_new_next()
 {
-    s_stm ret = (s_stm)malloc(sizeof(s_stm));
+    s_stm ret = malloc(sizeof(struct s_stm_));
 
     ret->kind = STM_NEXT;
 
@@ -425,16 +424,16 @@ s_stm s_stm_new_next()
 
 t_type t_new_type(int kind, char *type)
 {
-    t_type ret = (t_type)malloc(sizeof(t_type));
+    t_type ret = malloc(sizeof(struct t_type_));
 
     ret->kind = kind;
-    strcpy(ret->u.type, type);
+    ret->u.type = type;
 
     return ret;
 }
 t_type t_new_id(char *id)
 {
-    t_type ret = (t_type)malloc(sizeof(t_type));
+    t_type ret = malloc(sizeof(struct t_type_));
 
     ret->kind = T_ID;
     ret->u.id = id;
@@ -443,7 +442,7 @@ t_type t_new_id(char *id)
 }
 t_type t_new_array(t_type type, int lit)
 {
-    t_type ret = (t_type)malloc(sizeof(t_type));
+    t_type ret = malloc(sizeof(struct t_type_));
 
     ret->kind = T_ARRAY;
     ret->u.array.type = type;
@@ -452,9 +451,10 @@ t_type t_new_array(t_type type, int lit)
     return ret;
 }
 
+
 l_lit l_lit_new_intlit(int lit)
 {
-    l_lit ret = (l_lit)malloc(sizeof(l_lit));
+    l_lit ret = malloc(sizeof(struct l_lit_));
 
     ret->kind = LIT_INTLIT;
     ret->u.it = lit;
@@ -463,7 +463,7 @@ l_lit l_lit_new_intlit(int lit)
 }
 l_lit l_lit_new_floatlit(double lit)
 {
-    l_lit ret = (l_lit)malloc(sizeof(l_lit));
+    l_lit ret = malloc(sizeof(struct l_lit_));
 
     ret->kind = LIT_FLOATLIT;
     ret->u.fit = lit;
@@ -472,16 +472,16 @@ l_lit l_lit_new_floatlit(double lit)
 }
 l_lit l_lit_new_strlit(char *lit)
 {
-    l_lit ret = (l_lit)malloc(sizeof(l_lit));
+    l_lit ret = malloc(sizeof(struct l_lit_));
 
     ret->kind = LIT_STRLIT;
-    strcpy(ret->u.cit, lit);
+    ret->u.cit = lit;
 
     return ret;
 }
 l_lit l_lit_new_boollit(int lit)
 {
-    l_lit ret = (l_lit)malloc(sizeof(l_lit));
+    l_lit ret = malloc(sizeof(struct l_lit_));
 
     ret->kind = LIT_BOOLLIT;
     ret->u.bit = lit;
@@ -491,10 +491,10 @@ l_lit l_lit_new_boollit(int lit)
 
 e_exp e_exp_new_binop(char op[], e_exp arg1, e_exp arg2)
 {
-    e_exp ret = (e_exp)malloc(sizeof(e_exp));
+    e_exp ret = malloc(sizeof(struct e_exp_));
 
     ret->kind = EXP_BINOP;
-    strcpy(ret->u.binop.op, op);
+    strcpy(ret->u.binop.op , op);
     ret->u.binop.arg1 = arg1;
     ret->u.binop.arg2 = arg2;
 
@@ -502,17 +502,17 @@ e_exp e_exp_new_binop(char op[], e_exp arg1, e_exp arg2)
 }
 e_exp e_exp_new_unop(char op[], e_exp arg1)
 {
-    e_exp ret = (e_exp)malloc(sizeof(e_exp));
+    e_exp ret = malloc(sizeof(struct e_exp_));
 
     ret->kind = EXP_UNNOP;
-    strcpy(ret->u.unop.op, op);
+    strcpy(ret->u.unop.op , op);
     ret->u.unop.arg1 = arg1;
 
     return ret;
 }
 e_exp e_exp_new_assign(e_exp exp, e_exp value)
 {
-    e_exp ret = (e_exp)malloc(sizeof(e_exp));
+    e_exp ret = malloc(sizeof(struct e_exp_));
 
     ret->kind = EXP_ASSIGN;
     ret->u.assing.id = exp;
@@ -522,7 +522,7 @@ e_exp e_exp_new_assign(e_exp exp, e_exp value)
 }
 e_exp e_exp_new_lit(l_lit lit)
 {
-    e_exp ret = (e_exp)malloc(sizeof(e_exp));
+    e_exp ret = malloc(sizeof(struct e_exp_));
 
     ret->kind = EXP_LIT;
     ret->u.lit = lit;
@@ -531,17 +531,17 @@ e_exp e_exp_new_lit(l_lit lit)
 }
 e_exp e_exp_new_id(char *id)
 {
-    e_exp ret = (e_exp)malloc(sizeof(e_exp));
+    e_exp ret = malloc(sizeof(struct e_exp_));
 
     ret->kind = EXP_ID;
-    strcpy(ret->u.id, id);
+    ret->u.id = id;
 
     return ret;
 
 }
 e_exp e_exp_new_array(e_exp exp, int intlit)
 {
-    e_exp ret = (e_exp)malloc(sizeof(e_exp));
+    e_exp ret = malloc(sizeof(struct e_exp_));
 
     ret->kind = EXP_ARRAY;
     ret->u.array.exp = exp;
@@ -551,17 +551,14 @@ e_exp e_exp_new_array(e_exp exp, int intlit)
 }
 e_exp e_exp_new_function(char *id, a_args args)
 {
-    e_exp ret = (e_exp)malloc(sizeof(e_exp));
+    e_exp ret = malloc(sizeof(struct e_exp_));
 
     ret->kind = EXP_FUNC;
-    strcpy(ret->u.func.id, id);
+    ret->u.func.id = id;
     ret->u.func.args = args;
 
     return ret;
 }
-
-
-
 
 float f (int a){
     

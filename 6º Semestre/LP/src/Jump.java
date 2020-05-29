@@ -8,11 +8,14 @@ public class Jump extends Instrucao {
         this.etiqueta = etiqueta;
     }
 
-    public Etiqueta getEtiqueta(){return etiqueta;}
-
     @Override
     public void execute()
     {
+        System.out.println(super.getEtiqueta1());
+        //int cenas = labels.get(etiqueta);
+        //System.out.println(cenas);
+        //programCounter = jumpTo;
+        //System.out.println(jumpTo);
 
     }
 

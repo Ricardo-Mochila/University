@@ -66,7 +66,7 @@ func process_input(_delta):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	# ----------------------------------
+	# ---------------------.-------------
 
 func process_movement(delta):
 	dir.y = 0

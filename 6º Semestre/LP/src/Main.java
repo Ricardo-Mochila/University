@@ -1,4 +1,4 @@
-// Programa principal para a implementacaoo da maquina abstracta TISC.
+// Programa principal para a implementacao da maquina abstracta TISC.
 
 
 public class Main {

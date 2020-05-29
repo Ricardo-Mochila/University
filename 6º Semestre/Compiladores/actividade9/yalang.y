@@ -120,17 +120,16 @@ type:           T_INT                                                           
         |       T_BOOL                                                               { $$ = t_new_type(3,$1);                     } 
         |       T_VOID                                                               { $$ = t_new_type(4,$1);                     }
         |       ID                                                                   { $$ = t_new_id($1);                         }
-        |       type LSBRACE INTLIT RSBRACE                                          { $$ = t_new_array($1,$3);              }
+        |       type LSBRACE INTLIT RSBRACE                                          { $$ = t_new_array($1,$3);                   }
                 ;                    
                      
 lit:            INTLIT                                                               { $$ =l_lit_new_intlit($1);                 }
         |       FLOATLIT                                                             { $$ =l_lit_new_floatlit($1);               }
         |       STRLIT                                                               { $$ =l_lit_new_strlit($1);                 }
         |       BOOLLIT                                                              { $$ =l_lit_new_boollit($1);                }
-        |       IMAGILIT                                                             { $$ = t_lit_new_imagilitlit($1);}
                 ;       
 
-exp:            lit
+exp:            lit                                                                  { $$ = e_exp_new_lit($1);                    }
         |       ID                                                                   { $$ = e_exp_new_id($1);                     }
         |       exp LSBRACE INTLIT RSBRACE                                           { $$ = e_exp_new_array($1, $3);              }
         |       exp ADD exp                                                          { $$ = e_exp_new_binop("+", $1, $3);         }
