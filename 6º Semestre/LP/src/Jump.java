@@ -13,7 +13,7 @@ public class Jump extends Instrucao {
         if(Main.get_machine().labels.get(etiqueta.etiqueta) != null ){
             
             int jumpTo = Main.get_machine().labels.get(etiqueta.etiqueta);
-            Main.get_machine().programCounter = jumpTo;
+            Main.get_machine().programCounter = jumpTo -1;
         }
         //System.out.println(Main.get_machine().stackOfEvaluation.size());
 

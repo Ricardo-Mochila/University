@@ -17,7 +17,8 @@ public class Jeq extends Instrucao {
         int value1 = Main.get_machine().stackOfEvaluation.pop();
 
         if(value1 == value2){
-            Main.get_machine().programCounter = Main.get_machine().labels.get(etiqueta.etiqueta);
+            Main.get_machine().programCounter = Main.get_machine().labels.get(etiqueta.etiqueta)-1;
+            
         }
     }
 

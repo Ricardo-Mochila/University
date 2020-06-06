@@ -10,13 +10,12 @@ public class TISC {
     public ArrayList<Instrucao> instructionMemory;
     public Stack<Integer> stackOfEvaluation;
     public Vector<Integer> executionMemory;
-    public Vector<Integer> pointerPosition;
     public Vector<ArgVarStorage> helpArgVars;
     public HashMap<String, Integer> labels;
 
     public TISC(){
         numberOfInstructions = 0;
-        environmentPointer = 0;
+        environmentPointer = -1;
         acessLinkGlobal = -1;
         programCounter = 0;
         otherPointer = 0;
@@ -24,7 +23,6 @@ public class TISC {
         instructionMemory = new ArrayList<>();
         stackOfEvaluation = new Stack<>();
         executionMemory = new Vector<>();
-        pointerPosition = new Vector<>();
         helpArgVars = new Vector<>();
         labels = new HashMap<>();
     }
@@ -47,8 +45,8 @@ public class TISC {
         for(programCounter = 0; programCounter<instructionMemory.size(); programCounter++)
         {
             instructionMemory.get(programCounter).execute();
-            printExectionMemory();
-
+            //printExectionMemory();
+            //System.out.println(otherPointer);
         }
         
     }

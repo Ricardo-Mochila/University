@@ -17,7 +17,6 @@ public class Locals extends Instrucao {
     public void execute()
     {
         int controlLink = Main.get_machine().environmentPointer;
-        Main.get_machine().otherPointer = Main.get_machine().environmentPointer;
         int acessLink = Main.get_machine().acessLinkGlobal;
         int returnAdress = Main.get_machine().calledValue;
 
@@ -26,9 +25,13 @@ public class Locals extends Instrucao {
         Main.get_machine().executionMemory.add(returnAdress);
         Main.get_machine().executionMemory.add(arguments);
         Main.get_machine().executionMemory.add(variables);
-        Main.get_machine().environmentPointer = Main.get_machine().environmentPointer + 5 +arguments+variables;
-
-        Main.get_machine().pointerPosition.add(controlLink);
+        if(Main.get_machine().environmentPointer == -1){
+            Main.get_machine().environmentPointer = 0;
+        }
+        else{
+            Main.get_machine().environmentPointer = Main.get_machine().environmentPointer + 5 +arguments+variables;
+            Main.get_machine().otherPointer = Main.get_machine().environmentPointer;
+        }
 
         for (int i = 0; i < arguments; i++) {
             Main.get_machine().executionMemory.add(0);
@@ -45,7 +48,7 @@ public class Locals extends Instrucao {
                 store = Main.get_machine().helpArgVars.get(i);
                 if(store.type == 0){
                     if(store.depth == 0){
-                        Main.get_machine().executionMemory.set(controlLink + 4 + store.position, store.value);
+                        Main.get_machine().executionMemory.set(Main.get_machine().otherPointer + 4 + store.position, store.value);
                     }
                 }
             }

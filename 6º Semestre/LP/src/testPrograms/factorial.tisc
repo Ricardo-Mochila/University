@@ -24,4 +24,4 @@ L1:	push_arg 0 1
 	store_var 0 1	# i = i + 1
 	jump L1
 L2:	push_var 0 2
-	return		# return ff
+	return		# return f
