@@ -11,7 +11,8 @@ public class Call extends Instrucao {
 
     @Override
     public void execute() {
-
+        Main.get_machine().calledValue = Main.get_machine().programCounter + 1;
+        Main.get_machine().programCounter = Main.get_machine().labels.get(etiqueta.etiqueta)-1;
     }
 
     @Override

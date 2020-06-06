@@ -7,8 +7,14 @@ public class Print extends Instrucao{
 
     @Override
     public void execute(){
-        int toPrint = stackOfEvaluation.pop();
-        System.out.println(toPrint);
+        try {
+            int toPrint = Main.get_machine().stackOfEvaluation.pop();
+            System.out.print(toPrint);
+        } catch (Exception e) {
+            System.out.println("There is nothing to print");
+        }
+        ;
+        
     }
 
     @Override

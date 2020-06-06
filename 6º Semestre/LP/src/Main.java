@@ -1,15 +1,21 @@
-// Programa principal para a implementacao da maquina abstracta TISC.
 
+public class Main{
 
-public class Main {
+  private static TISC machine;
+
   public static void main(String args[]) throws Exception
   {
     parser aParser = new parser();
-    TISC maquina;
+    machine = (TISC) aParser.parse().value;
 
-    maquina = (TISC) aParser.parse().value;
-    if (maquina != null){
-      maquina.run();
+    if (machine != null){
+      machine.run();
     }
+   
   }
+
+  public static TISC get_machine(){
+    return machine;
+  }
+
 }

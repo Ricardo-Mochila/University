@@ -2,9 +2,9 @@ public class Div extends Instrucao {
 
     @Override
     public void execute() {
-        int value2 = stackOfEvaluation.pop();
-        int value1 = stackOfEvaluation.pop();
-        stackOfEvaluation.push(value1/value2);
+        int value2 = Main.get_machine().stackOfEvaluation.pop();
+        int value1 = Main.get_machine().stackOfEvaluation.pop();
+        Main.get_machine().stackOfEvaluation.push(value1/value2);
     }
 
     @Override

@@ -13,11 +13,11 @@ public class Jlt extends Instrucao {
     @Override
     public void execute()
     {
-        int value2 = stackOfEvaluation.pop();
-        int value1 = stackOfEvaluation.pop();
+        int value2 = Main.get_machine().stackOfEvaluation.pop();
+        int value1 = Main.get_machine().stackOfEvaluation.pop();
 
         if(value1 < value2){
-            //programCounter = labels.get(etiqueta);
+            Main.get_machine().programCounter =  Main.get_machine().labels.get(etiqueta.etiqueta);
         }
     }
 
