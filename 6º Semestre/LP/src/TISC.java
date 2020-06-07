@@ -7,6 +7,7 @@ public class TISC {
     public int programCounter;
     public int otherPointer;
     public int calledValue;
+    public int endPointer;
     public ArrayList<Instrucao> instructionMemory;
     public Stack<Integer> stackOfEvaluation;
     public Vector<Integer> executionMemory;
@@ -20,6 +21,7 @@ public class TISC {
         programCounter = 0;
         otherPointer = 0;
         calledValue = 0;
+        endPointer = 0;
         instructionMemory = new ArrayList<>();
         stackOfEvaluation = new Stack<>();
         executionMemory = new Vector<>();

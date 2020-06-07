@@ -17,7 +17,7 @@ public class Store_Var extends Instrucao{
     public void execute(){
        
         if(depth == 0){
-            int index = Main.get_machine().otherPointer+ 4 + Main.get_machine().executionMemory.get(Main.get_machine().otherPointer+3)+number;
+            int index = Main.get_machine().otherPointer + 4 + Main.get_machine().executionMemory.get(Main.get_machine().otherPointer + 3) + number;
             Main.get_machine().executionMemory.set(index, Main.get_machine().stackOfEvaluation.pop());            
         }
         else{

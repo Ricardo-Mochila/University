@@ -1,5 +1,5 @@
 program:locals 0 2
-	push_int 25
+	push_int 2
 	store_var 0 1		# n = 25
 	push_var 0 1
 	set_arg 1
