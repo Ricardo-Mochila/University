@@ -11,12 +11,8 @@ public class Set_Arg extends Instrucao{
 
     @Override
     public void execute(){
-        ArgVarStorage store= new ArgVarStorage();
-        store.depth = 0;
-        store.position = number;
-        store.type = 0;
-        store.value = Main.get_machine().stackOfEvaluation.pop();
-        Main.get_machine().helpArgVars.add(store);
+       
+        Main.get_machine().helpArgVars.add(number);
     }
 
     @Override

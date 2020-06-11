@@ -11,7 +11,7 @@ public class TISC {
     public ArrayList<Instrucao> instructionMemory;
     public Stack<Integer> stackOfEvaluation;
     public Vector<Integer> executionMemory;
-    public Vector<ArgVarStorage> helpArgVars;
+    public Vector<Integer> helpArgVars;
     public HashMap<String, Integer> labels;
 
     public TISC(){
@@ -79,11 +79,4 @@ public class TISC {
         System.out.println(labels.entrySet() + "\n");
     }
 
-}
-
-class ArgVarStorage{
-    int type; //arg = 0; var = 1
-    int depth;
-    int position;
-    int value;
 }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example </title>
+</head>
+    <body style = "font-family: Arial, Helvetica, sans-serif;">
+        <div id = "formBody" style="width: 250px; margin: 0 auto; text-align: center;">
+            <div th:if="${param.error}" style = "margin-top: 20px; margin-bottom: 10px;">
+                Invalid username and password.
+            </div>
+            
+            <form  th:action="@{/login}" method="post" id="form">
+                <div class="inputField"><input  style = "border-radius: 8px; margin-bottom: 10px; width: 250px; height:30px; background-color: lightgray; border: none;" type="text" name="username"/> </div>
+                <div class="inputField"><input style = "border-radius: 8px; margin-bottom: 10px; width: 250px; height:30px; background-color: lightgray; border: none;" type="password" name="password"/> </div>
+                <div><input style = "border-radius: 10px; margin-bottom: 8px; width: 250px; height:30px; background-color: rgb(87, 146, 255); border: none;" type="submit" value="Sign In" id="submit"/></div>
+            </form>
+        </div>
+    </body>
+</html>
