@@ -1,4 +1,3 @@
-
 public class Jump extends Instrucao {
 
     Etiqueta etiqueta;
@@ -11,11 +10,12 @@ public class Jump extends Instrucao {
     @Override
     public void execute()
     {
-        System.out.println(super.getEtiqueta1());
-        //int cenas = labels.get(etiqueta);
-        //System.out.println(cenas);
-        //programCounter = jumpTo;
-        //System.out.println(jumpTo);
+        if(Main.get_machine().labels.get(etiqueta.etiqueta) != null ){
+            
+            int jumpTo = Main.get_machine().labels.get(etiqueta.etiqueta);
+            Main.get_machine().programCounter = jumpTo -1;
+        }
+        //System.out.println(Main.get_machine().stackOfEvaluation.size());
 
     }
 

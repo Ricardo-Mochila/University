@@ -1,26 +1,35 @@
 import java.util.*;
 
 public class TISC {
-    public ArrayList<Instrucao> instructionMemory;
-    public static int numberOfInstructions;
+    public int numberOfInstructions;
+    public int environmentPointer;
+    public int acessLinkGlobal;
     public int programCounter;
-    int environmentPointer;
-    public static Stack<Integer> stackOfEvaluation;
-    public  Stack<Integer> labels;
-    public static Vector<Integer> executionMemory;
+    public int otherPointer;
+    public int calledValue;
+    public int endPointer;
+    public ArrayList<Instrucao> instructionMemory;
+    public Stack<Integer> stackOfEvaluation;
+    public Vector<Integer> executionMemory;
+    public Vector<Integer> helpArgVars;
+    public HashMap<String, Integer> labels;
 
     public TISC(){
-        instructionMemory = new ArrayList<>();
         numberOfInstructions = 0;
-        stackOfEvaluation = new Stack<>();
-        labels = new Stack<>();
-        executionMemory = new Vector<>();
+        environmentPointer = -1;
+        acessLinkGlobal = -1;
         programCounter = 0;
-        environmentPointer = 0;
+        otherPointer = 0;
+        calledValue = 0;
+        endPointer = 0;
+        instructionMemory = new ArrayList<>();
+        stackOfEvaluation = new Stack<>();
+        executionMemory = new Vector<>();
+        helpArgVars = new Vector<>();
+        labels = new HashMap<>();
     }
 
     public void run() {
-        //printInstructionMemory();
         runInstruction();
     }
 
@@ -30,19 +39,18 @@ public class TISC {
     }
 
     public void addLabel(Etiqueta newLabel){
-        LabelInstruction label = new LabelInstruction();
-        label.etiqueta = newLabel;
-        label.value = numberOfInstructions;
-        Random random = new Random();
-        labels.push(random.nextInt());
-        System.out.println(labels.size());
+        labels.put(newLabel.etiqueta, numberOfInstructions);
     }
 
     public void runInstruction(){
+
         for(programCounter = 0; programCounter<instructionMemory.size(); programCounter++)
         {
             instructionMemory.get(programCounter).execute();
+            //printExectionMemory();
+            //System.out.println(otherPointer);
         }
+        
     }
 
     public void printInstructionMemory(){
@@ -52,19 +60,23 @@ public class TISC {
         }
     }
 
-    public int getEtiqueta1()
-    {
-        return this.labels.size();
+    public void printStackOfEvaluation(){
+        for(int i=0; i<stackOfEvaluation.size(); i++)
+        {
+            System.out.println("stack: " + stackOfEvaluation.get(i));
+        }
+    }
+
+    public void printExectionMemory(){
+        for(int i=0; i<executionMemory.size(); i++)
+        {
+            System.out.println("Memory "+ i + " :" + executionMemory.get(i));
+        }
     }
 
     public void printLabels(){
-        System.out.println(labels.toString());
+        
+        System.out.println(labels.entrySet() + "\n");
     }
 
-}
-
-
-class LabelInstruction{
-    Etiqueta etiqueta;
-    int value;
 }

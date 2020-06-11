@@ -14,7 +14,7 @@ public class Push_Int extends Instrucao {
     @Override
     public void execute()
     {
-        stackOfEvaluation.push(number);
+        Main.get_machine().stackOfEvaluation.push(number);
     }
 
     @Override

@@ -11,7 +11,8 @@ public class Set_Arg extends Instrucao{
 
     @Override
     public void execute(){
-
+       
+        Main.get_machine().helpArgVars.add(number);
     }
 
     @Override
