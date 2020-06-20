@@ -1,0 +1,116 @@
+body{
+    
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-image:linear-gradient(90deg, rgba(67,135,167,0.95) 0%, 
+    rgba(94,219,255,0.95) 0%, rgba(32,92,172,0.8) 100%);
+    background-size: cover;
+}
+
+#topBar{
+    background-color: white;
+    height: 50px;
+    width: 100%;
+    padding-top: 20px;
+    text-align: right;
+    box-shadow: 1px 1px 10px rgb(99, 99, 99);
+}
+
+.element{
+    color: rgb(42, 146, 243);
+    font-size: larger;
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    top: -5px;
+    left: -100px;
+}
+
+.element:hover{
+    color: rgb(13, 88, 158);
+    font-weight: 600;
+    font-size: larger;
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+#map{
+    background-color: white;
+    margin: 60px auto;
+    height: 500px;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px rgb(97, 97, 97);
+}
+
+.loginName{
+    clear: both;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+.user{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(74, 172, 252);
+    border-radius: 100%;
+    clear: left;
+    margin-right: 30px;
+    position: absolute;
+    top: -15px;
+}
+
+.user #username{
+    position: relative;
+    top: 8px;
+    left: 50px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.elementSubmit{
+    position: relative;
+    top: -30px;
+    left: -20px;
+    border: 0;
+    font-size: larger;    
+    color: rgb(42, 146, 243);
+    cursor: pointer;
+    background-color: white;
+
+}
+
+.elementSubmit:hover{
+    color: rgb(13, 88, 158);
+    position: relative;
+    top: -30px;
+    left: -20px;
+    border: 0;
+    font-size: larger;    
+    cursor: pointer;
+    font-weight: 600;
+    background-color: white;
+}
+
+#mapid {
+    height: 80vh;
+    margin: 25px auto;
+    border-radius: 15px;
+}
+
+#mapid img {
+    max-height: none;
+}
+
+#personImage{
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+}

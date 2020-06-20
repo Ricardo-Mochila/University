@@ -1,11 +1,12 @@
-
 import time
 import sys
 from random import random
 from copy import copy, deepcopy
-#sys.setrecursionlimit(5000)
+
 
 class Game:
+    max_depth = 7
+
     def __init__(self):
         self.initialize_game()
 
@@ -14,9 +15,9 @@ class Game:
         if len(sys.argv) == 2:
             args = str(sys.argv[1])
             if args == '-p':
-                return 'X'
+                return 'A'
             if args == '-s':
-                return 'O'  
+                return 'B'  
             else: 
                 args = 'Not valid'  
                 
@@ -31,10 +32,10 @@ class Game:
 
             if choice == position_of_seed:
                 print("You start first")
-                return 'X'
+                return 'A'
             else:
                 print("Oponent starts first")
-                return 'O'
+                return 'B'
 
     def initialize_game(self):
         self.current_state = [[4,4,4,4,4,4],
@@ -43,14 +44,9 @@ class Game:
         self.player_one_score = 0
         self.player_two_score = 0
 
-        # Player X always plays first
-        player = self.round_selection()
-        if player == 'X':
-            self.oponent_turn = 'O'
-        else: 
-            self.oponent_turn = 'X'
-
-        self.player_turn = player
+        # Player A always plays first
+                
+        self.player_turn = self.round_selection()
 
     def draw_board(self):
         for j in range(0, 6):
@@ -91,74 +87,57 @@ class Game:
                 print('   ', end=" ")    
         print()
 
-        
-
-
          # Determines if the made move is a legal move
     def is_valid(self, px, py):
         if py < 1 or py > 6:
             return False
+        
         elif self.current_state[px][py-1] == 1:
             for i in range(0,6): 
                 if i != py-1 and self.current_state[px][i] > 1:
                     return False
             return True
+        
         elif self.current_state[px][py-1] == 0:
             return False
+
+        count_top = 0
+        count_bottom = 0
+
+        for i in range(0,6):
+            count_top += self.current_state[0][i]
+            count_bottom += self.current_state[1][i]
+        
+        if count_top == 0 and count_bottom != 0 and px == 1:
+            if self.current_state[1][py-1] >= 6-(py-1):
+                return True
+            else:
+                return False
+        
+        if count_bottom == 0 and count_top != 0 and px == 0:
+            if self.current_state[0][py-1]-(py-1) > 0:
+                return True
+            else:
+                return False
+
         else:
             return True    
     
 
-    def is_end(self):
+    def is_end(self):                                                                           #PlayerOne = X, PlayerTwo = O
         # Score win
         if self.player_one_score >= 25:
-            return self.player_turn
+            return ('X', self.player_one_score, self.player_two_score)
         
         if self.player_two_score >= 25:
-            return self.oponent_turn
+            return ('O', self.player_one_score, self.player_two_score)
 
-
-        # PLayer One without plays
         count_top = 0
-
-        for i in range(0, 6):
-            count_top += self.current_state[0][i]
-
-        if count_top == 0:
-            for i in range(0, 6):
-                if self.current_state[1][i] >= 6-i:
-                    return None
-            for i in range(0, 6):
-                self.player_two_score += self.current_state[1][i]
-            if self.player_two_score > self.player_one_score:
-                return self.oponent_turn
-            if self.player_two_score < self.player_one_score:
-                return self.player_turn
-            else:
-                return "Tied"
-
-
-        # Player Two without plays
         count_bottom = 0
 
-        for i in range(0, 6):
-            count_bottom += self.current_state[1][i]
-
-        if count_bottom == 0:
-            for i in range(5, -1, -1):
-                if i - self.current_state[0][i] <= -1:
-                    return None
-            for i in range(0, 6):
-                self.player_one_score += self.current_state[0][i]
-            
-            if self.player_two_score > self.player_one_score:
-                return self.oponent_turn
-            if self.player_two_score < self.player_one_score:
-                return self.player_turn
-            else:
-                return "Tied"
-
-
+        for i in range(0,6):
+            count_top += self.current_state[0][i]
+            count_bottom += self.current_state[1][i]    
 
         #In cicle end
         if count_bottom == 1 and count_top == 1:
@@ -179,11 +158,21 @@ class Game:
                 self.player_two_score += 1
 
             if self.player_two_score > self.player_one_score:
-                return self.oponent_turn
+                return ('O', self.player_one_score, self.player_two_score)
             if self.player_two_score < self.player_one_score:
-                return self.player_turn
+                return ('AX', self.player_one_score, self.player_two_score)
             else:
-                return "Tied"
+                return ('Tied', self.player_one_score, self.player_two_score)    
+
+        
+        if self.player_two_score > self.player_one_score:
+            return ('AO', self.player_one_score, self.player_two_score)
+        if self.player_two_score < self.player_one_score:
+            return ('AX', self.player_one_score, self.player_two_score)
+        else:
+            return ('T', self.player_one_score, self.player_two_score)
+
+            
 
 
     def change_table(self, px, py):
@@ -212,6 +201,8 @@ class Game:
                                         self.current_state[1][j] = 0
                                     else:
                                         break
+                                
+                                
                 for i in range(5, -1, -1):
                     if value > 0:
                         if i != py:
@@ -251,28 +242,36 @@ class Game:
 
         
     def max_alpha_beta(self, alpha, beta, depth):  #ganha o O
-        maxv = -2
+        maxv = -30
         py = None
 
-        result = self.is_end()
+        (result,p1, p2) = self.is_end()
+        #print(result, p1 , p2)
 
         if result == 'X':
-            return (-1, 0, depth)
+            return (-25, 0, depth)
         elif result == 'O':
-            return (1, 0, depth)
-        elif result == 'Tied':
+            return (25, 0, depth)
+        elif result == 'Tied' :
             return (0, 0, depth)
+
+        if(depth >= self.max_depth):
+            if p1 < p2:
+                return (p2, 0, depth)
+            if p1 > p2:
+                return (-p1, 0, depth)
             
+
         current_table = deepcopy(self.current_state)
         points1 = self.player_one_score
         points2 = self.player_two_score
 
         for i in range(0, 6):
-            if depth < 19:
+            if depth < self.max_depth:
                 if self.is_valid(1,i+1):
-                    self.change_table(1,i) 
+                    self.change_table(1,i)
                     (m, min_i, depth1) = self.min_alpha_beta(alpha, beta, depth + 1)
-                    if m > maxv:
+                    if m >= maxv:
                         maxv = m
                         py = i
                         
@@ -290,37 +289,43 @@ class Game:
         return (maxv, py, depth)
     
     def min_alpha_beta(self, alpha, beta, depth):
-
-        minv = 2
+        minv = 30
 
         qy = None
 
-        result = self.is_end()
+        (result,p1, p2) = self.is_end()
 
         if result == 'X':
-            return (-1, 0, depth)
+            return (-25, 0, depth)
         elif result == 'O':
-            return (1, 0, depth)
-        elif result == 'Tied':
+            return (25, 0, depth)
+        elif result == 'Tied' :
             return (0, 0, depth)
+
+        if(depth >= self.max_depth): 
+            if p1 < p2:
+                return (p2, 0, depth)
+            if p1 > p2:
+                return (-p1, 0, depth)
+            
 
         current_table = deepcopy(self.current_state)
         points1 = self.player_one_score
         points2 = self.player_two_score
 
         for i in range(0, 6):
-            if depth < 19:
+            if depth < self.max_depth:
                 if self.is_valid(0,i+1):
                     self.change_table(0,i) 
                     (m, max_i, depth1) = self.max_alpha_beta(alpha, beta, depth + 1)
                     
-                    if m < minv:
+                    if m <= minv:
                         minv = m
                         qy = i
 
                     self.current_state = deepcopy(current_table)
                     self.player_one_score = points1
-                    self.player_two_score = points2    
+                    self.player_two_score = points2
                     
                     # Next two ifs in Max and Min are the only difference between regular algorithm and minimax
                     if minv <= alpha:
@@ -335,9 +340,9 @@ class Game:
     def play_alpha_beta(self):
         while True:
             self.draw_board()
-            self.result = self.is_end()
+            (self.result,p1, p2) = self.is_end()
 
-            if self.result != None:
+            if self.result != 'AO' and self.result != 'AX' and self.result != 'T' and self.result != None:
                 if self.result == 'X':
                     print('The winner is X!')
                 elif self.result == 'O':
@@ -348,35 +353,63 @@ class Game:
                 self.initialize_game()
                 return
 
-            if self.player_turn == 'X':
+            if self.player_turn == 'A':
 
                 while True:
-                    """ start = time.time()
-                    (m, qy, depth) = self.min_alpha_beta(-2, 2, 0)
-                    end = time.time()
-                    print('Evaluation time: {}s'.format(round(end - start, 7)))
-                    print('Recommended move: Y = {}'.format(qy+1))
-                    self.draw_board() """
+                    
                     py = int(input('Insert the Y coordinate: '))
                     
                     qy = py
                     
                     if self.is_valid(0, py):
                         self.change_table(0, py-1)
-                        self.player_turn = 'O'
-                        break
+                        
+                        count_top = 0
+                        count_bottom = 0
+
+                        for i in range(0, 6):
+                            count_top += self.current_state[0][i]
+                            count_bottom += self.current_state[1][i]
+
+                        if count_bottom == 0:
+                            self.player_turn = 'A'
+                            break
+                        else:
+                            self.player_turn = 'B'
+                            break
+                        
                     else:
                         print('The move is not valid! Try again.')
 
             else:
-                (m, py, depth) = self.max_alpha_beta(-2, 2, 0)
+                start = time.time()
+
+                (m, py, depth) = self.max_alpha_beta(-30, 30, 0)
+
+                end = time.time()
+                print('Evaluation time: {}s'.format(round(end - start, 3)))
+
                 print(py+1)
                 self.change_table(1, py)
-                self.player_turn = 'X'
+                count_top = 0
+                count_bottom = 0
+
+                for i in range(0, 6):
+                    count_top += self.current_state[0][i]
+                    count_bottom += self.current_state[1][i]
+
+                if count_top == 0:
+                    self.player_turn = 'B'
+                else:
+                    self.player_turn = 'A'
+
+                
 
 def main():
+
     g = Game()
     g.play_alpha_beta()
+
 
     if __name__ == "__main__":
         main()

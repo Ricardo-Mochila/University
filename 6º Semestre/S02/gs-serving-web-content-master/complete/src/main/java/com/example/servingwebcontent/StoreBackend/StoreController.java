@@ -1,7 +1,7 @@
-package com.example.servingwebcontent;
+package com.example.servingwebcontent.StoreBackend;
 
+import java.security.Principal;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -24,9 +24,29 @@ public class StoreController {
     @PostMapping("/Stores")
     Store newStore(@RequestParam (name = "StoreName") String storeName,
                    @RequestParam (name = "latitude") String latitude,
-                   @RequestParam (name = "longitude") String longitude) {
+                   @RequestParam (name = "longitude") String longitude,
+                   @RequestParam (name = "ocupationLevel") String ocupationLevel, Principal principal) {
 
-        return repository.save(new Store(storeName, Float.parseFloat(latitude), Float.parseFloat(longitude) ));
+        System.out.println(ocupationLevel);
+        int value = 0;
+
+        if (ocupationLevel.equals("empty")){
+            value = 0;
+
+        }
+        else if (ocupationLevel.equals("enough_space")){
+            value = 1;
+        }
+        else if (ocupationLevel.equals("full_space")){
+            value = 2;
+
+        }
+        else if (ocupationLevel.equals("queue")){
+            value = 3;
+
+        }
+
+        return repository.save(new Store(storeName, Float.parseFloat(latitude), Float.parseFloat(longitude), value, principal.getName()));
     }
 
     // Single item
@@ -37,7 +57,7 @@ public class StoreController {
     }
 
     @PutMapping("/Stores/{id}")
-    Store replaceStore(@RequestBody Store newStore, @PathVariable Long id,  @PathVariable float Longitude, @PathVariable float Latitude) {
+    Store replaceStore(@RequestBody Store newStore, @PathVariable Long id,  @PathVariable float longitude, @PathVariable float latitude) {
 
         return repository.findById(id)
                 .map(store -> {

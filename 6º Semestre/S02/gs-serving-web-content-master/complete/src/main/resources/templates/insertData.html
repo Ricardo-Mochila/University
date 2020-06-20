@@ -3,15 +3,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/insertDataStyle.css">
     <title>Data</title>
 </head>
 <body>
-<div>
+<div id = "formbody">
     <form th:action="@{/Stores}" method="post" id="form">
-        <div class="inputField"><input  type="text" name="StoreName"/> </div>
-        <div class="inputField"><input type="text" name="latitude"/> </div>
-        <div class="inputField"><input type="text" name="longitude"/> </div>
-        <div><input type="submit" value="submitData" id="submit"/></div>
+        <div class="inputField">
+            <label class="boxLabel">Nome Da Loja</label><br/>
+            <input  type="text" name="StoreName" class="inputSpace"/> 
+        </div>
+        <div class="inputField">
+            <label class="boxLabel">Latitude</label><br/>
+            <input type="text" name="latitude" class="inputSpace"/> 
+        </div>
+        <div class="inputField">
+            <label class="boxLabel">Longitude</label><br/>
+            <input type="text" name="longitude" class="inputSpace"/> 
+        </div>
+        <div id = "radioButtonArea">
+            <div class="radioButton">
+                <input  type="radio" name="ocupationLevel" value = "empty"/> <label>Vazio ou com minima lotação</label>
+            </div>
+            <div class="radioButton">
+                <input type="radio" name="ocupationLevel" value = "enough_space"/> <label>Com pessoas mas espaço suficiente</label>
+            </div>
+            <div class="radioButton">
+                <input type="radio" name="ocupationLevel" value = "full_space"/> <label>Muito Cheio</label>
+            </div>
+            <div class="radioButton">
+                <input type="radio" name="ocupationLevel" value = "queue"/> <label>Muito Cheio e com fila de espera</label>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Submeter" id="submit"/>
+        </div>
     </form>
 </div>
 </body>

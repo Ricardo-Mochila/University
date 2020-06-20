@@ -2,11 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>Spring Security Example</title>
+    <link rel="stylesheet" type="text/css" href="css/homeStyle.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
-<body>
-<h1>Welcome!</h1>
+    <body>
+        <div class = "background"> 
+        <div class= "loginName"> <div class = "user"><span class="glyphicon glyphicon-user" id= "personImage"></span> <a id = "username" th:href="@{/userInformation}">[[${#httpServletRequest.remoteUser}]]</a> </div> </div>
+            <div id = "topBar">
+                <a class= "element" th:href="@{/insertData}">Inserir Dados</a>
+                <div sec:authorize="isAuthenticated()">
+                    <form  th:action="@{/logout}" method="post">
+                        <input class= "elementSubmit" type="submit" value="Logout"/>
+                    </form>
+                </div>
 
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
-<p>Click <a th:href="@{/insertData}">here</a> to see a greeting.</p>
-</body>
+                <div sec:authorize="isAnonymous()">
+                    <form  th:action="@{/login}" method="post">
+                        <input class= "elementSubmit" type="submit" value="Login"/>
+                    </form>
+                </div>
+
+            </div>
+
+        <div id = "map">
+            <div id="mapid"></div>
+        </div>
+
+    </body>
+    <script src = "css/home.js"></script>
 </html>
