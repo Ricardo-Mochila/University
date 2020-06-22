@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/airplane.obj-3391df45839e296eafb07a97f2827c58.mesh"
+
+[deps]
+
+files=[ "res://.import/airplane.obj-3391df45839e296eafb07a97f2827c58.mesh" ]
+
+source_file="res://texture/airplane.obj"
+dest_files=[ "res://.import/airplane.obj-3391df45839e296eafb07a97f2827c58.mesh", "res://.import/airplane.obj-3391df45839e296eafb07a97f2827c58.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

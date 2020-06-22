@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/trincheira.obj-0267e3b96627a4397b4706aab622166c.mesh"
+
+[deps]
+
+files=[ "res://.import/trincheira.obj-0267e3b96627a4397b4706aab622166c.mesh" ]
+
+source_file="res://texture/trincheira.obj"
+dest_files=[ "res://.import/trincheira.obj-0267e3b96627a4397b4706aab622166c.mesh", "res://.import/trincheira.obj-0267e3b96627a4397b4706aab622166c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

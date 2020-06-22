@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://womenpraying.tscn" type="PackedScene" id=1]
 [ext_resource path="res://texture/casa.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://Fire.tscn" type="PackedScene" id=3]
 [ext_resource path="res://texture/lowpoly-alpine-woodlands-3d-model-low-poly-fbx-unitypackage.jpg" type="Texture" id=4]
+[ext_resource path="res://houseScene.gd" type="Script" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -20,6 +21,7 @@ data = PoolVector3Array( 9.8879, 5.9834, 3.4261, 9.8879, 5.9834, -3.4261, 10.110
 albedo_texture = ExtResource( 4 )
 
 [node name="Spatial" type="Spatial"]
+script = ExtResource( 5 )
 
 [node name="womenpraying" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
@@ -155,3 +157,16 @@ transform = Transform( 1, 0, 0, 0, 0.36, 0, 0, 0, 1, 0.2, 0, 3.1 )
 transform = Transform( -1.42556e-07, 0.875, 3.82475e-08, 0, -3.82475e-08, 0.875, 0.875, 1.42556e-07, 6.2313e-15, -2.87461, 1.70152, -0.0170505 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -107.0
+margin_top = -40.0
+margin_right = 107.0
+text = "Pressione F para voltar à batalha"
+__meta__ = {
+"_edit_use_anchors_": false
+}

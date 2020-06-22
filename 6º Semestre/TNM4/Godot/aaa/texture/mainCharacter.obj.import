@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/mainCharacter.obj-0d0c360a2cd99eb579d7a9b41a43f129.mesh"
+
+[deps]
+
+files=[ "res://.import/mainCharacter.obj-0d0c360a2cd99eb579d7a9b41a43f129.mesh" ]
+
+source_file="res://texture/mainCharacter.obj"
+dest_files=[ "res://.import/mainCharacter.obj-0d0c360a2cd99eb579d7a9b41a43f129.mesh", "res://.import/mainCharacter.obj-0d0c360a2cd99eb579d7a9b41a43f129.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
