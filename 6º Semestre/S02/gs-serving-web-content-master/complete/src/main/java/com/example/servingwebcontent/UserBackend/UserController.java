@@ -8,7 +8,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @RestController
 public class UserController {
 
-    private final UserRepository repository;
+    private static UserRepository repository;
 
     UserController(UserRepository repository) {
         this.repository = repository;
@@ -20,8 +20,11 @@ public class UserController {
             repository.save(new User(login, new BCryptPasswordEncoder().encode(password)));
             return new RedirectView("/login");
         }
+        else{
+            return new RedirectView("/registerError");
+        }
 
-        return null;
+
 
 
     }

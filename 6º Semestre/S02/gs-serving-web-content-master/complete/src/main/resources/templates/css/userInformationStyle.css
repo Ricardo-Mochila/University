@@ -1,80 +1,86 @@
 body{
-    background: linear-gradient(90deg, rgba(67,135,167,1) 0%,
-    rgba(94,219,255,1) 0%, rgba(32,92,172,1) 100%);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0 0;
+    padding: 0 0;
+    background-image:linear-gradient(90deg, rgba(67,135,167,0.95) 0%, 
+    rgba(94,219,255,0.95) 0%, rgba(32,92,172,0.8) 100%);
+    font-family:  sans-serif;
+    margin: auto;
 
-}
 
-#submit{
-    background: linear-gradient(90deg,
-    rgb(39, 168, 228) 0%, rgba(94,219,255,1) 0%, rgb(76, 149, 245) 100%);
-    width: 400px;
-    height: 40px;
-    color: white;
-    border: 0;
-    font-size: large;
-    border-radius: 5px;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-#formbody{
-    background-color: white;
-    width: 500px;
-    height: 400px;
-    margin: 50px auto;
-    padding: 40px 0 40px 0;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 1px 1px 10px rgb(161, 161, 161);
-}
-
-.inputField{
-    margin-bottom: 20px;
-}
-
-.inputSpace{
-    margin-top: 10px;
-    width: 400px;
-    height: 30px;
-    border: none;
-    border-bottom: 1px solid;
-    border-color: rgb(105, 163, 240);
-    box-shadow: 0px 0px 2px rgb(161, 161, 161);
-    border-radius: 5px;
-}
-
-.radioButton{
-    text-align: left;
-    margin: 0 0 30px 40px;
-    width: 400px;
-}
-
-#radioButtonArea{
-    margin-top: 40px;
-}
-
-#error{
-    margin-bottom: 20px;
-    font-size: large;
-    font-weight: 500;
-}
-
-#redirect{
-    text-decoration: none;
-
-}
-
-#redirect:hover{
-    text-decoration: none;
-    color: rgb(83, 154, 247);
-    cursor: pointer;
 }
 
 .header{
-    color: rgb(0, 0, 0);
+    margin: 30px auto;
     text-align: center;
-    margin-top: 0px;
-    margin-bottom: 50px;
+    font-size: xx-large;
+    font-weight: 600;
+    
+}
+
+table{
+    margin-top: 30px;
+    border-radius: 15px;
+    background-color: rgb(238, 238, 238);
+    width: 80vw;
+    overflow:hidden;
+}
+
+.tableSection{
+    border-collapse: collapse;
+    margin: auto;
+    border-radius: 15px;
+    font-weight: 300 !important;
+}
+
+.tableTop{
+    border-radius: 15px;
+    background-color: #36304a;
+    color: white;
+    height: 60px;
+    overflow:hidden;
+}
+
+.tableTop th{
+    border-radius: 15px;
+    font-weight: 500;
+    margin: 0 20px;
+    overflow:hidden;
+}
+
+.tableTop:hover{
+    background-color: #36304a;
+
+}
+
+tr{
+    overflow:hidden;
+    height: 50px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+tr:hover{
+    background-color: #67656e31;
+}
+
+.trash{
+    margin-left: -30px;
+    padding-top: 6px;
+    padding-bottom: 0px;
+    font-size: x-large;
+    color: white;
+    background-color: red;
+    box-shadow: inset 5px 5px 15px lightcoral , inset -5px -5px 15px rgba(63, 52, 52, 0.274);
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+
+#buttonSub{
+    border: none;
+    height: 1px;
+    width: 1px;
 }

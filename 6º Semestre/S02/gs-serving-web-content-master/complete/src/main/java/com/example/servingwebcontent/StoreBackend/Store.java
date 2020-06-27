@@ -40,12 +40,16 @@ public class Store {
         switch (value){
             case 0:
                 this.empty = 1;
+                break;
             case 1:
                 this.enough_space = 1;
+                break;
             case 2:
                 this.full_space = 1;
+                break;
             case 3:
                 this.queue = 1;
+                break;
         }
 
     }

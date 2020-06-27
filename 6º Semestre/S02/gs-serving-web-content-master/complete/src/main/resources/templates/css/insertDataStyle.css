@@ -4,54 +4,108 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 
 }
+@media screen and (min-width: 720px)  {
+    #submit{
+        background: linear-gradient(90deg,
+        rgb(39, 168, 228) 0%, rgba(94,219,255,1) 0%, rgb(76, 149, 245) 100%);
+        width: 400px;
+        height: 40px;
+        color: white;
+        border: 0;
+        font-size: large;
+        border-radius: 5px;
+        margin-top: 120px;
+        cursor: pointer;
+    }
 
-#submit{
-    background: linear-gradient(90deg,
-    rgb(39, 168, 228) 0%, rgba(94,219,255,1) 0%, rgb(76, 149, 245) 100%);
-    width: 400px;
-    height: 40px;
-    color: white;
-    border: 0;
-    font-size: large;
-    border-radius: 5px;
-    margin-top: 120px;
-    cursor: pointer;
+    #formbody{
+        background-color: white;
+        width: 500px;
+        height: 600px;
+        margin: 0 auto;
+        padding: 40px 0 40px 0;
+        text-align: center;
+        border-radius: 15px;
+        box-shadow: 1px 1px 10px rgb(161, 161, 161);
+    }
+
+    .inputField{
+        margin-bottom: 20px;
+    }
+
+    .inputSpace{
+        margin-top: 10px;
+        width: 400px;
+        height: 30px;
+        border: none;
+        border-bottom: 1px solid;
+        border-color: rgb(105, 163, 240);
+        box-shadow: 0px 0px 2px rgb(161, 161, 161);
+        border-radius: 5px;
+    }
+
+
+
+    .radioButton{
+        text-align: left;
+        margin: 0 0 30px 40px;
+        width: 400px;
+    }
+
+    #radioButtonArea{
+        margin-top: 40px;
+    }
 }
 
-#formbody{
-    background-color: white;
-    width: 500px;
-    height: 600px;
-    margin: 0 auto;
-    padding: 40px 0 40px 0;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 1px 1px 10px rgb(161, 161, 161);
-}
+@media screen and (max-width: 720px) {
+    #submit{
+        background: linear-gradient(90deg,
+        rgb(39, 168, 228) 0%, rgba(94,219,255,1) 0%, rgb(76, 149, 245) 100%);
+        width: 200px;
+        height: 40px;
+        color: white;
+        border: 0;
+        font-size: large;
+        border-radius: 5px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
 
-.inputField{
-    margin-bottom: 20px;
-}
+    #formbody{
+        background-color: white;
+        width: 300px;
+        height: 70vh;
+        margin: 0 auto;
+        padding: 40px 0 40px 0;
+        text-align: center;
+        border-radius: 15px;
+        box-shadow: 1px 1px 10px rgb(161, 161, 161);
+    }
 
-.inputSpace{
-    margin-top: 10px;
-    width: 400px;
-    height: 30px;
-    border: none;
-    border-bottom: 1px solid;
-    border-color: rgb(105, 163, 240);
-    box-shadow: 0px 0px 2px rgb(161, 161, 161);
-    border-radius: 5px;
-}
+    .inputField{
+        margin-bottom: 20px;
+    }
+
+    .inputSpace{
+        margin-top: 10px;
+        width: 200px;
+        height: 30px;
+        border: none;
+        border-bottom: 1px solid;
+        border-color: rgb(105, 163, 240);
+        box-shadow: 0px 0px 2px rgb(161, 161, 161);
+        border-radius: 5px;
+    }
 
 
 
-.radioButton{
-    text-align: left;
-    margin: 0 0 30px 40px;
-    width: 400px;
-}
+    .radioButton{
+        text-align: left;
+        margin: 0 0 30px 40px;
+        width: 200px;
+    }
 
-#radioButtonArea{
-    margin-top: 40px;
+    #radioButtonArea{
+        margin-top: 40px;
+    }
 }

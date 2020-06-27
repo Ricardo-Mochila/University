@@ -1,10 +1,53 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/userInformationStyle.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Register</title>
 </head>
-<body>
-
-</body>
+    <body>
+        <div th:if="${not #lists.isEmpty(userInformation)} ">
+            <div class= "header" >Locais Apontados por si</div>
+            <table class= "tableSection">
+                <thead>
+                    <tr class = "tableTop">
+                        <th>Nome</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Vazio</th>
+                        <th>Espaço Suficiente</th>
+                        <th>Muito Cheio</th>
+                        <th>Com fila de espera</th>
+                        <th>Hora de Registo</th>
+                        <th>Utilizador</th>
+                        <th>Acção</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="store : ${userInformation}">
+                        <td th:text="${store.storeName}">asdas</td>
+                        <td th:text="${store.latitude}">121</td>
+                        <td th:text="${store.longitude}">23123</td>
+                        <td th:text="${store.empty}">2</td>
+                        <td th:text="${store.enough_space}">3</td>
+                        <td th:text="${store.full_space}">1</td>
+                        <td th:text="${store.queue}">3</td>
+                        <td th:text="${store.date}">123123123</td>
+                        <td th:text="${store.username}">raroja</td>
+                        <td>
+                            <form action="#" th:action="@{/delete/__${store.id}__}"  method="post">
+                                <button type="submit" value="" id="buttonSub"><i class="fas fa-trash-alt trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                   
+                </tbody>
+                
+            </table>
+        </div>
+    </body>
 </html>
+

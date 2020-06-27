@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/storeLocation.css">
+        <title>Register</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body>
+        <div th:if="${not #lists.isEmpty(StoreByLocation)} ">
+            <div class= "header" >Lojas Mais Proximas
+
+            </div>     
+            <div style= "margin-top: 70px;">
+                <div class = "section" th:each="store : ${StoreByLocation}">
+                    <i class="fa fa-shopping-cart cart"></i>
+                    <div class = "name" th:text="${store.storeName}"></div>
+                    <div class = "latitude" th:text="${store.latitude}"></div>
+                    <div class = "longitude" th:text="${store.longitude}"></div>
+                    <div class="vote">
+                        <div class = "numName" > Vazio</div>
+                        <div class = "num" th:text="${store.empty}"></div>
+                    </div>
+                    <div class="vote">
+                        <div class = "numName" > C/Espaço</div>
+                        <div class = "num" th:text="${store.enough_space}"></div>
+                    </div>
+                    <div class="vote">
+                        <div class = "numName" > Cheio</div>
+                        <div class = "num" th:text="${store.full_space}"></div>
+                    </div>
+                    <div class="vote">
+                        <div class = "numName" > C/Fila</div>
+                        <div class = "num" th:text="${store.queue}"></div>
+                    </div>            
+                </div>
+            </div>   
+        </div>
+    </body>
+</html>
+

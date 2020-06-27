@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/register.css">
+        <title>Register</title>
+    </head>
+    <body>
+    <div id = "formbody">
+        <h1 class= "header" >Register</h1>
+        <h2 > User already exists</h2>
+        <form th:action="@{/registers}" method="post" id="form">
+                <div class="inputField">
+                    <label class="boxLabel">Username</label><br/>
+                    <input  class = "inputSpace" type="text" name="LoginRegister"/>
+                </div>
+                <div class="inputField">
+                    <label class="boxLabel">Password</label><br/>
+                    <input class = "inputSpace" type="password" name="PasswordRegister"/>
+                </div>
+                <div>
+                    <input class = "inputSpace" type="submit" value="Register" id="submit"/>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+

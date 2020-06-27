@@ -19,7 +19,7 @@ body{
 
 .element{
     color: rgb(42, 146, 243);
-    font-size: larger;
+    font-size: large;
     margin: 10px;
     cursor: pointer;
     text-decoration: none;
@@ -31,7 +31,7 @@ body{
 .element:hover{
     color: rgb(13, 88, 158);
     font-weight: 600;
-    font-size: larger;
+    font-size: large;
     margin: 10px;
     cursor: pointer;
     text-decoration: none;
@@ -40,12 +40,34 @@ body{
 
 #map{
     background-color: white;
-    margin: 60px auto;
-    height: 500px;
-    width: 80%;
+    margin: 20px 20px 0px 20px;
+    height: 90vh;
+    width: 70%;
     border-radius: 15px;
     box-shadow: 1px 1px 10px rgb(97, 97, 97);
+    float: left;
+
 }
+#mapid {
+    height: 100%;
+    border-radius: 15px;
+}
+
+#mapid img {
+    max-height: none;
+}
+
+#listByLocation{
+    display: inline-block;
+    margin: 20px auto;
+    width: 25%;
+    height: 90vh;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(46, 46, 46, 0.623);
+
+}
+
 
 .loginName{
     clear: both;
@@ -75,10 +97,10 @@ body{
 
 .elementSubmit{
     position: relative;
-    top: -30px;
+    top: -32px;
     left: -20px;
     border: 0;
-    font-size: larger;    
+    font-size: large;    
     color: rgb(42, 146, 243);
     cursor: pointer;
     background-color: white;
@@ -88,24 +110,16 @@ body{
 .elementSubmit:hover{
     color: rgb(13, 88, 158);
     position: relative;
-    top: -30px;
+    top: -32px;
     left: -20px;
     border: 0;
-    font-size: larger;    
+    font-size: large;    
     cursor: pointer;
     font-weight: 600;
     background-color: white;
 }
 
-#mapid {
-    height: 80vh;
-    margin: 25px auto;
-    border-radius: 15px;
-}
 
-#mapid img {
-    max-height: none;
-}
 
 #personImage{
     position: absolute;
@@ -114,3 +128,29 @@ body{
     font-size: 28px;
     color: rgb(255, 255, 255);
 }
+
+.inputField{
+    font-size: 16px;
+}
+
+.radioButton{
+    margin-top: 10px;
+}
+
+input{
+    border: 1px solid rgb(85, 179, 255);
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+label{
+    font-weight: 300 !important;
+}
+
+#submit {
+    margin-top: 10px;
+    background-color: rgb(85, 179, 255);
+    color: aliceblue;
+    height: 30px;
+}
+

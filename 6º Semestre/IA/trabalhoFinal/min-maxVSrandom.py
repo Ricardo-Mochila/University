@@ -8,7 +8,7 @@ class Game:
     level1 = 7
     level2 = 11
     level3 = 13
-    max_depth = level2
+    max_depth = level3
 
     def __init__(self):
         self.initialize_game()
@@ -420,7 +420,7 @@ class Game:
                 if py == None:
                     while True:
                         posy =int(6*random())
-                        if self.is_valid(px, posy+1):
+                        if self.is_valid(1, posy+1):
                             py = posy
 
                 print("Min-Max plyed in: ", py+1)

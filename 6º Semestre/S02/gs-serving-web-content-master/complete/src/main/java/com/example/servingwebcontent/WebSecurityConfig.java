@@ -16,9 +16,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import sun.security.util.Password;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -28,35 +32,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/Stores").permitAll()
-                .antMatchers("/", "/home", "/register","/css/**", "/registers").permitAll()
+                .antMatchers("/", "/home", "/register","/css/**","/js/**" ,"/registers", "/registerError", "/StoreByLocation").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/login")
+                    .defaultSuccessUrl("/", true)
                     .permitAll()
                 .and()
                 .logout()
                 .logoutSuccessUrl("/home")
                 .permitAll();
+
+        http.cors().and().csrf().disable();
     }
 
-    /*@Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-
-        UserRepository repository;
-
-        //repository.findByUsername()
-
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("UserName")
-                        .password("password")
-                        .roles("USER")
-                        .build();
-
-        return new InMemoryUserDetailsManager(user);
-    }*/
     @Autowired DataSource dataSource;
 
     @Bean(name = "passwordEncoder")
@@ -77,6 +67,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web
                 .ignoring()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/img/**");
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowCredentials(true);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 
 

@@ -3,12 +3,14 @@ package com.example.servingwebcontent.StoreBackend;
 import java.security.Principal;
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 public class StoreController {
 
-    private final StoreRepository repository;
+    public static StoreRepository repository = null;
 
     StoreController(StoreRepository repository) {
         this.repository = repository;
@@ -18,17 +20,18 @@ public class StoreController {
 
     @GetMapping("/Stores")
     List<Store> all() {
-        return repository.findAll();
+
+        return repository.selectItems();
     }
 
     @PostMapping("/Stores")
-    Store newStore(@RequestParam (name = "StoreName") String storeName,
+    public RedirectView newStore(@RequestParam (name = "StoreName") String storeName,
                    @RequestParam (name = "latitude") String latitude,
                    @RequestParam (name = "longitude") String longitude,
                    @RequestParam (name = "ocupationLevel") String ocupationLevel, Principal principal) {
 
         System.out.println(ocupationLevel);
-        int value = 0;
+        int value = -1;
 
         if (ocupationLevel.equals("empty")){
             value = 0;
@@ -46,7 +49,8 @@ public class StoreController {
 
         }
 
-        return repository.save(new Store(storeName, Float.parseFloat(latitude), Float.parseFloat(longitude), value, principal.getName()));
+        repository.save(new Store(storeName, Float.parseFloat(latitude), Float.parseFloat(longitude), value, principal.getName()));
+        return new RedirectView("/home");
     }
 
     // Single item
@@ -57,7 +61,7 @@ public class StoreController {
     }
 
     @PutMapping("/Stores/{id}")
-    Store replaceStore(@RequestBody Store newStore, @PathVariable Long id,  @PathVariable float longitude, @PathVariable float latitude) {
+    Store replaceStore(@RequestBody Store newStore, @PathVariable Long id) {
 
         return repository.findById(id)
                 .map(store -> {
@@ -73,8 +77,12 @@ public class StoreController {
                 });
     }
 
-    @DeleteMapping("/Stores/{id}")
-    void deleteStore(@PathVariable Long id) {
+    @PostMapping("/delete/{id}")
+    public RedirectView deleteStore(@PathVariable Long id) {
+
         repository.deleteById(id);
+
+        return new RedirectView("/userInformation");
     }
+
 }
