@@ -1,14 +1,14 @@
-/* A Bison parser, made by GNU Bison 3.5.1.  */
+/* A Bison parser, made by GNU Bison 2.3.  */
 
-/* Bison interface for Yacc-like parsers in C
+/* Skeleton interface for Bison's Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
-   Inc.
+   Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002, 2003, 2004, 2005, 2006
+   Free Software Foundation, Inc.
 
-   This program is free software: you can redistribute it and/or modify
+   This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
+   the Free Software Foundation; either version 2, or (at your option)
+   any later version.
 
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -16,7 +16,9 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor,
+   Boston, MA 02110-1301, USA.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -31,71 +33,59 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-/* Undocumented macros, especially those whose name start with YY_,
-   are private implementation details.  Do not rely on them.  */
-
-#ifndef YY_YY_PARSER_H_INCLUDED
-# define YY_YY_PARSER_H_INCLUDED
-/* Debug traces.  */
-#ifndef YYDEBUG
-# define YYDEBUG 0
-#endif
-#if YYDEBUG
-extern int yydebug;
-#endif
-
-/* Token type.  */
+/* Tokens.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
-  enum yytokentype
-  {
-    INTLIT = 258,
-    BOOLLIT = 259,
-    FLOATLIT = 260,
-    STRLIT = 261,
-    ID = 262,
-    _T_INT = 263,
-    _T_FLOAT = 264,
-    _T_STRING = 265,
-    _T_BOOL = 266,
-    _T_VOID = 267,
-    COLON = 268,
-    DEFINE = 269,
-    RETURN = 270,
-    STRUCT = 271,
-    WHILE = 272,
-    DO = 273,
-    NEXT = 274,
-    BREAK = 275,
-    IF = 276,
-    THEN = 277,
-    ELSE = 278,
-    SEMI = 279,
-    ASSIGN = 280,
-    COMMA = 281,
-    OR = 282,
-    AND = 283,
-    NOT = 284,
-    SUB = 285,
-    ADD = 286,
-    MUL = 287,
-    DIV = 288,
-    MOD = 289,
-    POW = 290,
-    EQ = 291,
-    NEQ = 292,
-    GT = 293,
-    GEQ = 294,
-    LT = 295,
-    LEQ = 296,
-    NEG = 297,
-    LCBRACE = 298,
-    RCBRACE = 299,
-    LSBRACE = 300,
-    RSBRACE = 301,
-    LPAR = 302,
-    RPAR = 303
-  };
+   /* Put the tokens into the symbol table, so that GDB and other debuggers
+      know about them.  */
+   enum yytokentype {
+     INTLIT = 258,
+     BOOLLIT = 259,
+     FLOATLIT = 260,
+     STRLIT = 261,
+     ID = 262,
+     _T_INT = 263,
+     _T_FLOAT = 264,
+     _T_STRING = 265,
+     _T_BOOL = 266,
+     _T_VOID = 267,
+     COLON = 268,
+     DEFINE = 269,
+     RETURN = 270,
+     STRUCT = 271,
+     WHILE = 272,
+     DO = 273,
+     NEXT = 274,
+     BREAK = 275,
+     IF = 276,
+     THEN = 277,
+     ELSE = 278,
+     SEMI = 279,
+     ASSIGN = 280,
+     COMMA = 281,
+     OR = 282,
+     AND = 283,
+     NOT = 284,
+     ADD = 285,
+     SUB = 286,
+     MOD = 287,
+     DIV = 288,
+     MUL = 289,
+     POW = 290,
+     NEG = 291,
+     LEQ = 292,
+     LT = 293,
+     GEQ = 294,
+     GT = 295,
+     NEQ = 296,
+     EQ = 297,
+     RCBRACE = 298,
+     LCBRACE = 299,
+     RSBRACE = 300,
+     LSBRACE = 301,
+     RPAR = 302,
+     LPAR = 303
+   };
 #endif
 /* Tokens.  */
 #define INTLIT 258
@@ -125,32 +115,33 @@ extern int yydebug;
 #define OR 282
 #define AND 283
 #define NOT 284
-#define SUB 285
-#define ADD 286
-#define MUL 287
+#define ADD 285
+#define SUB 286
+#define MOD 287
 #define DIV 288
-#define MOD 289
+#define MUL 289
 #define POW 290
-#define EQ 291
-#define NEQ 292
-#define GT 293
+#define NEG 291
+#define LEQ 292
+#define LT 293
 #define GEQ 294
-#define LT 295
-#define LEQ 296
-#define NEG 297
-#define LCBRACE 298
-#define RCBRACE 299
-#define LSBRACE 300
-#define RSBRACE 301
-#define LPAR 302
-#define RPAR 303
+#define GT 295
+#define NEQ 296
+#define EQ 297
+#define RCBRACE 298
+#define LCBRACE 299
+#define RSBRACE 300
+#define LSBRACE 301
+#define RPAR 302
+#define LPAR 303
 
-/* Value type.  */
+
+
+
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-union YYSTYPE
-{
+typedef union YYSTYPE
 #line 15 "yalang.y"
-
+{
         int        ival;
         double     dval;
         char       *str;
@@ -168,18 +159,14 @@ union YYSTYPE
         s_stm      stm;
         
         
-
-#line 173 "parser.h"
-
-};
-typedef union YYSTYPE YYSTYPE;
-# define YYSTYPE_IS_TRIVIAL 1
+}
+/* Line 1529 of yacc.c.  */
+#line 165 "parser.h"
+	YYSTYPE;
+# define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
+# define YYSTYPE_IS_TRIVIAL 1
 #endif
-
 
 extern YYSTYPE yylval;
 
-int yyparse (void);
-
-#endif /* !YY_YY_PARSER_H_INCLUDED  */

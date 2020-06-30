@@ -71,6 +71,7 @@ a_argdefs a_argdefs_new(a_argdef argdef, a_argdefs argdefs)
 
     ret->u.argdef = argdef;
     ret->u.argdefs = argdefs;
+    
 
     if (argdefs)
         ret->kind = ARGDEFS_LIST;
@@ -109,6 +110,7 @@ i_ids i_ids_new(char *id, i_ids id_list)
     ret->id = id;
     ret->id_list = id_list;
     return ret;
+    
 }
 
 s_stms s_stms_new(s_stm stm, s_stms stms)
@@ -275,7 +277,7 @@ e_exp e_exp_new_assign(e_exp exp, e_exp value)
     e_exp ret = malloc(sizeof(struct e_exp_));
 
     ret->kind = EXP_ASSIGN;
-    ret->u.assign.id = exp->u.id;
+    ret->u.assign.id = exp;
     ret->u.assign.value = value;
 
     return ret;

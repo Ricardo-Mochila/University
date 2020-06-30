@@ -1,11 +1,11 @@
-CC = gcc
+CC = clang
 CFLAGS = -g
 OUTFILE = yaout
 LIBS = -lm
 OFILES = t_exp.o
 
-all: lexer.c parser.c parser.h data_structures/hashtable.o data_structures/symbolTable.o semanticAnalysis.o ya.o
-	$(CC) $(CFLAGS) parser.c lexer.c ya.o data_structures/symbolTable.o data_structures/hashtable.o semanticAnalysis.o -o $(OUTFILE) $(LIBS)
+all: lexer.c parser.c parser.h ya.o
+	$(CC) $(CFLAGS) parser.c lexer.c ya.o data_structures/symbolTable.c data_structures/hashtable.c semanticAnalysis.c -o $(OUTFILE) $(LIBS)
 
 parser.c: yalang.y
 	bison -y -d $< -o $@ -r all

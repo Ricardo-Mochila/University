@@ -1,6 +1,5 @@
 a : int = 0;
-b : string = 2;
-
+b : string = "ola";
 
 f (b: int) : void {
   print(b);

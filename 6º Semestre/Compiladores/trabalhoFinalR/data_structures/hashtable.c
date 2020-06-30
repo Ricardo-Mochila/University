@@ -22,7 +22,7 @@ struct Node * insert(char *id, ST_Data data, struct Node * hashTable[] )
 {
     
     struct Node *elm = (struct Node *)malloc(sizeof(struct Node));
-    elm -> id = id ;
+    strcpy(elm -> id,id);
     elm -> data =  data; 
 
     unsigned long index = hash(id);

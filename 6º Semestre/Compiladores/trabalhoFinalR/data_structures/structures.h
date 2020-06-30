@@ -112,7 +112,7 @@ struct e_exp_
 
         struct
         {
-            char * id;
+            e_exp id;
             e_exp value;
         } assign;
 

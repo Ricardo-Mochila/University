@@ -1,9 +1,32 @@
 #define SIZE 1000
+#include "structures.h"
 
 struct Node * global[SIZE]; 
 struct Node * function[SIZE];
 
-typedef struct st_data_*ST_Data;
+typedef struct st_data_ *ST_Data;
+
+struct st_data_
+{
+    enum {ST_VAR, ST_FUNC, ST_TYPE} kind;
+
+    union
+    {
+        struct 
+        {
+            t_type yatype; //type é o tipo  na analise sintatica
+            enum{ VARloc, VARarg} kind; //mais tarde, precisaremos de mais info
+        } var;
+        struct 
+        {
+            t_type yatype; //tipo de retorno
+            a_argdefs arg; //lista de tipos de argumentos, por ordem
+        } func;
+        
+        char*  type; //para este caso só precisamos do tipo destino
+    } u;
+};
+
 
 //insere um id na simbol table
 struct Node * ST_insert(char *id, ST_Data data, struct Node * hashTable[]);

@@ -71,10 +71,9 @@ int main(void);
 
 %%
 
-program:                                                                             { $$ = NULL;}
-        |       decls                                                                { $$ = $1; semanticAnalysis($$);}
-                ;                                                                    
-
+program:                                                                             { $$ = NULL;                                 }
+        |       decls                                                                { $$ = $1;  $$= semanticAnalysis($1)         }
+                ;
 
 decls:          decl                                                                 { $$ = d_decls_new($1, NULL);                }
         |       decl decls                                                           { $$ = d_decls_new($1, $2);                  }
