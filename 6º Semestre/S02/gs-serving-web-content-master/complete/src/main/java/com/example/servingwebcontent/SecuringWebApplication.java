@@ -18,7 +18,7 @@ public class SecuringWebApplication {
         SpringApplication.run(SecuringWebApplication.class, args);
 
 
-       /* Timer timer = new Timer();
+       Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -28,7 +28,7 @@ public class SecuringWebApplication {
                     System.out.println("There was nothing to remove");
                 };
             }
-        }, 0, 100000);*/
+        }, 0, 600000);
 
     }
 

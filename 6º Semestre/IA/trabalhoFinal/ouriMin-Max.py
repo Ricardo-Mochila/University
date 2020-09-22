@@ -341,6 +341,8 @@ class Game:
     
     def play_alpha_beta(self):
         while True:
+            self.draw_board()
+
             (self.result,p1, p2) = self.is_end()
 
             if self.result != 'AO' and self.result != 'AX' and self.result != 'T' and self.result != None:

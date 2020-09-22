@@ -49,6 +49,7 @@ public class StoreController {
 
         }
 
+
         repository.save(new Store(storeName, Float.parseFloat(latitude), Float.parseFloat(longitude), value, principal.getName()));
         return new RedirectView("/home");
     }
@@ -82,7 +83,7 @@ public class StoreController {
 
         repository.deleteById(id);
 
-        return new RedirectView("/userInformation");
+        return new RedirectView("/home");
     }
 
 }
